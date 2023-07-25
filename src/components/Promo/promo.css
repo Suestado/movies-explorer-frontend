@@ -1,0 +1,134 @@
+.promo {
+  background-color: #073042;
+  margin-top: -74px;
+  padding-bottom: 75px;
+}
+
+.promo__content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 149px 70px 0;
+}
+
+.promo__textContent {
+  max-width: 640px;
+  min-height: 424px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.promo__header{
+  margin: 0;
+  padding: 0;
+  color: #FFF;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+}
+
+.promo__subtitle {
+  margin: 36px 0 0;
+  padding: 0;
+  max-width: 310px;
+  color: #FFF;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: normal;
+  opacity: 0.5;
+}
+
+.promo__learnMore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 129px;
+  height: 36px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 1px solid #FFF;
+  opacity: 0.6;
+  padding: 0;
+  margin: 30px 0 0;
+  color: #FFF;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+}
+
+.promo__landingLogo {
+  width: 310px;
+  height: 304px;
+}
+
+@media screen and (max-width: 768px) {
+  .promo{
+    padding-bottom: 30px;
+  }
+
+  .promo__content {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 214px 44px 0;
+  }
+
+  .promo__textContent {
+    min-height: 282px;
+  }
+
+  .promo__landingLogo {
+    margin-bottom: 48px;
+  }
+
+  .promo__titleWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .promo__header {
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+  }
+
+  .promo__subtitle {
+    font-size: 13px;
+    line-height: normal;
+    text-align: center;
+  }
+
+  .promo__learnMore {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .promo{
+    padding-bottom: 76px;
+  }
+
+  .promo__content {
+    padding: 144px 10px 0;
+  }
+
+  .promo__landingLogo {
+    width: 210px;
+    height: 206px;
+  }
+
+  .promo__header {
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: -1.2px;
+  }
+
+  .promo__textContent {
+    min-height: 286px;
+  }
+}
