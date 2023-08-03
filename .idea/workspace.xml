@@ -1,34 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Собран Header и Promo блок">
-      <change afterPath="$PROJECT_DIR$/src/components/Main/AboutMe/AboutMe.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Main/AboutProject/AboutProject.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Main/NavTab/NavTab.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Main/Portfolio/Portfolio.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Main/Techs/Techs.jsx" afterDir="false" />
+    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Собрана промо-страница">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AboutMe/AboutMe.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AboutProject/AboutProject.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FilterCheckbox/FilterCheckbox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/FilterCheckbox/FilterCheckbox.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Autentification/Login/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MoviesCard/MoviesCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MoviesCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MoviesCardList/MoviesCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavTab/NavTab.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Page/page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Page/page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Portfolio/Portfolio.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Preloader/Preloader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/Preloader/Preloader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Autentification/Profile/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Promo/Promo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Promo/Promo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Promo/promo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Promo/Promo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Register/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Autentification/Register/Register.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SearchForm/SearchForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchForm/SearchForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Techs/Techs.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Main.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +76,7 @@
       <workItem from="1690304474649" duration="13342000" />
       <workItem from="1690908517199" duration="146000" />
       <workItem from="1690913193957" duration="49000" />
-      <workItem from="1690913255188" duration="36006000" />
+      <workItem from="1690913255188" duration="41984000" />
     </task>
     <task id="LOCAL-00001" summary="fit: Базовая сборка проекта CRA">
       <created>1690304736420</created>
@@ -122,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690317415745</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fit: Собрана промо-страница">
+      <created>1691090826380</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1691090826380</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +127,7 @@
     <MESSAGE value="fit: Базовая сборка проекта CRA" />
     <MESSAGE value="fit: Собрана структура проекта, созданы файлы под базовые компоненты" />
     <MESSAGE value="fit: Собран Header и Promo блок" />
-    <option name="LAST_COMMIT_MESSAGE" value="fit: Собран Header и Promo блок" />
+    <MESSAGE value="fit: Собрана промо-страница" />
+    <option name="LAST_COMMIT_MESSAGE" value="fit: Собрана промо-страница" />
   </component>
 </project>
