@@ -1,4 +1,5 @@
-import landingLogo from '../../images/landingLogo.svg';
+//компонент с вёрсткой баннера страницы «О проекте».
+import landingLogo from '../../../images/landingLogo.svg';
 
 function Promo() {
   return <section className="promo">
@@ -9,8 +10,8 @@ function Promo() {
           <h2 className="promo__subtitle">Листайте ниже, чтобы узнать больше про этот проект и его создателя.</h2>
         </div>
         <a
+          href="#aboutProject"
           className="promo__learnMore"
-          href="###" /* TODO добавить роут для ссылки */
         >Узнать больше</a>
       </div>
       <img className="promo__landingLogo"

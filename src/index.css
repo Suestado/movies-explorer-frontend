@@ -1,5 +1,11 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/Inter/inter.css);
 @import url(./components/Page/page.css);
-@import url(./components/Header/header.css);
-@import url(./components/Promo/promo.css);
+@import url(components/Header/Header.css);
+@import url(components/Main/Promo/Promo.css);
+@import url(./components/Main/MainSection/MainSection.css);
+@import url(./components/Main/AboutProject/AboutProject.css);
+@import url(./components/Main/Techs/Techs.css);
+@import url(./components/Main/AboutMe/AboutMe.css);
+@import url(./components/Main/Portfolio/Portfolio.css);
+@import url(./components/Footer/Footer.css);

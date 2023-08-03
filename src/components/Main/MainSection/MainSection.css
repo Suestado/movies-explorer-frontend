@@ -1,0 +1,67 @@
+.mainSection__header {
+  padding: 0  0 23px;
+  margin: 0;
+
+  color: #FFF;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.88px;
+  border-bottom: 1px solid #DADADA
+}
+
+.mainSection_content_aboutProject {
+  padding: 110px 70px;
+}
+
+.mainSection_content_techs {
+  padding: 100px 70px;
+  background: #272727;
+}
+
+.mainSection_content_aboutMe {
+  padding: 110px 70px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .mainSection {
+    padding: 0 50px;
+  }
+
+  .mainSection_content_aboutProject {
+    padding: 90px 50px;
+  }
+
+  .mainSection_content_techs {
+    padding: 90px 50px;
+  }
+
+  .mainSection_content_aboutMe {
+    padding: 90px 50px 0;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .mainSection {
+    padding: 0 18px;
+  }
+
+  .mainSection__header {
+    padding: 0  0 28px;
+
+    font-size: 18px;
+    letter-spacing: -0.72px;
+  }
+
+  .mainSection_content_aboutProject {
+    padding: 70px 18px;
+  }
+
+  .mainSection_content_techs {
+    padding: 70px 18px;
+  }
+
+  .mainSection_content_aboutMe {
+    padding: 70px 14px 0;
+  }
+}
