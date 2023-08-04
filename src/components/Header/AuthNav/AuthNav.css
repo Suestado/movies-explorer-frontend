@@ -1,0 +1,55 @@
+.authNav {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.authNav__signUp {
+  color: #FFF;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+  transition: ease-out .3s;
+}
+
+.authNav__signUp:hover {
+  opacity: .6;
+}
+
+.authNav__signIn {
+  min-width: 76px;
+  height: 32px;
+  display: flex;
+  margin-left: 30px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 3px;
+  background: #3DDC84;
+  text-decoration: none;
+  color: #000;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  transition: ease-out .3s;
+}
+
+.authNav__signIn:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 540px) {
+  .authNav__signUp {
+    font-size: 10px;
+  }
+
+  .authNav__signIn {
+    min-width: 54px;
+    height: 26px;
+    margin-left: 14px;
+
+    font-size: 10px;
+  }
+}

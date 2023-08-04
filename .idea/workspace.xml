@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Собрана промо-страница">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/NavTab/NavTab.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/NavTab/NavTab.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Page/page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Page/page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,11 +63,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Main" />
+      <recent name="$PROJECT_DIR$/src/components/Header" />
       <recent name="$PROJECT_DIR$/src/components/Autentification" />
       <recent name="$PROJECT_DIR$/src/components/Movies" />
-      <recent name="$PROJECT_DIR$/src/components/Main" />
       <recent name="$PROJECT_DIR$/src/components/Techs" />
-      <recent name="$PROJECT_DIR$/src/components/SearchForm" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -76,7 +81,7 @@
       <workItem from="1690304474649" duration="13342000" />
       <workItem from="1690908517199" duration="146000" />
       <workItem from="1690913193957" duration="49000" />
-      <workItem from="1690913255188" duration="41984000" />
+      <workItem from="1690913255188" duration="48532000" />
     </task>
     <task id="LOCAL-00001" summary="fit: Базовая сборка проекта CRA">
       <created>1690304736420</created>
@@ -106,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691090826380</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fit: Собрана промо-страница">
+      <created>1691098349399</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1691098349399</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

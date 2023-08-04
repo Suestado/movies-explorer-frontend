@@ -1,0 +1,11 @@
+.contentBox {
+  margin: 0;
+  padding: 0;
+  min-height: calc(100vh - 172px - 74px);
+}
+
+@media screen and (max-width: 540px) {
+  .contentBox {
+    min-height: calc(100vh - 253px - 74px);
+  }
+}
