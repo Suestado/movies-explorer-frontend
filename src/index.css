@@ -10,6 +10,13 @@
 @import url(./components/Main/Portfolio/Portfolio.css);
 @import url(./components/Footer/Footer.css);
 @import url(./components/Main/ContentBox/ContentBox.css);
-@import url(./components/Header/MoviesNav/MoviesNav.css);
-@import url(./components/Header/AccountLink/AccountLink.css);
-@import url(./components/Header/AuthNav/AuthNav.css);
+@import url(./components/Navigation/MoviesNav/MoviesNav.css);
+@import url(./components/Navigation/AccountLink/AccountLink.css);
+@import url(./components/Navigation/AuthNav/AuthNav.css);
+@import url(components/Movies/SearchBlock/SearchBlock.css);
+@import url(./components/Movies/SearchString/SearchString.css);
+@import url(./components/Movies/FilterCheckbox/FilterCheckbox.css);
+@import url(./components/Movies/MoviesCardList/MoviesCardList.css);
+@import url(./components/Movies/MoviesCard/MovieCard.css);
+@import url(./components/Profile/Profile.css);
+

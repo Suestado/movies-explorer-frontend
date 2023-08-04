@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Собрана промо-страница">
+    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Собрана хедер и навигация для страницы с фильмами">
+      <change afterPath="$PROJECT_DIR$/src/components/Movies/SearchBlock/SearchBlock.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/AccountLink/AccountLink.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/AccountLink/AccountLink.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/AuthNav/AuthNav.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/AuthNav/AuthNav.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/NavTab/NavTab.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/NavTab/NavTab.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/MoviesNav/MoviesNav.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/MoviesNav/MoviesNav.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/FilterCheckbox/FilterCheckbox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/FilterCheckbox/FilterCheckbox.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Page/page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Page/page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MoviesCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MoviesCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/Preloader/Preloader.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchForm/SearchForm.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Navigation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SavedMovies/SavedMovies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SavedMovies/SavedMovies.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +63,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/vendor/fonts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Navigation" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.EditorConfig" />
@@ -58,16 +71,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Navigation" />
       <recent name="$PROJECT_DIR$/src/vendor/fonts" />
       <recent name="$PROJECT_DIR$/src/vendor" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/images" />
+      <recent name="$PROJECT_DIR$/src/components/Movies/Preloader" />
       <recent name="$PROJECT_DIR$/src/components/Main" />
       <recent name="$PROJECT_DIR$/src/components/Header" />
       <recent name="$PROJECT_DIR$/src/components/Autentification" />
-      <recent name="$PROJECT_DIR$/src/components/Movies" />
-      <recent name="$PROJECT_DIR$/src/components/Techs" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -81,7 +95,7 @@
       <workItem from="1690304474649" duration="13342000" />
       <workItem from="1690908517199" duration="146000" />
       <workItem from="1690913193957" duration="49000" />
-      <workItem from="1690913255188" duration="48532000" />
+      <workItem from="1690913255188" duration="76465000" />
     </task>
     <task id="LOCAL-00001" summary="fit: Базовая сборка проекта CRA">
       <created>1690304736420</created>
@@ -118,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691098349399</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fit: Собрана хедер и навигация для страницы с фильмами">
+      <created>1691145519564</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1691145519564</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +161,7 @@
     <MESSAGE value="fit: Собрана структура проекта, созданы файлы под базовые компоненты" />
     <MESSAGE value="fit: Собран Header и Promo блок" />
     <MESSAGE value="fit: Собрана промо-страница" />
-    <option name="LAST_COMMIT_MESSAGE" value="fit: Собрана промо-страница" />
+    <MESSAGE value="fit: Собрана хедер и навигация для страницы с фильмами" />
+    <option name="LAST_COMMIT_MESSAGE" value="fit: Собрана хедер и навигация для страницы с фильмами" />
   </component>
 </project>

@@ -1,22 +1,13 @@
-import { useLocation } from 'react-router-dom';
-
 import mainLogo from '../../images/mainLogo.svg';
-import AuthNav from './AuthNav/AuthNav';
-import MoviesNav from './MoviesNav/MoviesNav';
-import AccountLink from './AccountLink/AccountLink';
+import Navigation from '../Navigation/Navigation';
 
 function Header() {
-  const { pathname } = useLocation();
-
   return <header className="header">
     <img className="logo header__logo"
          src={mainLogo}
          alt="Логотип проекта"/>
-
-    {pathname === '/' && <AuthNav/>}
-    {pathname ==='/movies' && <MoviesNav/>}
-    {pathname ==='/movies' && <AccountLink/>}
+    <Navigation/>
   </header>;
 }
 
-export default Header;
+export default Header

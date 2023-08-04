@@ -18,6 +18,25 @@
   justify-self: center;
 }
 
+.header__menu {
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  background-image: url(../../images/headerMenu.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  transition: ease-out .2s;
+}
+
+.header__menu:hover {
+  opacity: .6;
+}
+
 @media screen and (max-width: 768px) {
   .header {
     padding: 0 30px;
@@ -27,5 +46,11 @@
 @media screen and (max-width: 540px) {
   .header {
     padding: 0 14px;
+  }
+
+  .header__menu {
+    width: 37px;
+    height: 43px;
+    margin-right: 1px;
   }
 }

@@ -1,0 +1,150 @@
+.profile {
+  margin: 0 auto;
+  padding: 0 14px;
+  max-width: 410px;
+  height: calc(100vh - 74px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile__info {
+  margin: 0;
+  padding: 74px 0;
+}
+
+.profile__header {
+  padding: 0;
+  margin: 0 0 123px;
+  color: #FFF;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.profile__dataSet {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto;
+  row-gap: 17px;
+  border: none;
+}
+
+.profile__dataItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(50px, 100px) auto;
+}
+
+.profile__dataItem:not(:last-child) {
+  border-bottom: 1px solid #424242;
+}
+
+.profile__dataName {
+  padding: 0;
+  margin: 0 0 16px;
+  color: #FFF;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.profile__dataInput {
+  padding: 0;
+  margin: 0 0 16px;
+  background-color: transparent;
+  border: none;
+  color: #FFF;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.profile__dataInput:focus {
+  outline: none;
+  background: linear-gradient(to left, rgba(139, 139, 139, 0.1), #202020)
+
+}
+
+.profile__input-error {
+  position: absolute;
+  right: 0;
+  top: 18px;
+
+  font-size: 10px;
+  font-weight: 400;
+  line-height: normal;
+  color: red;
+}
+
+.profile__navigation {
+  margin: 0;
+  padding: 0 0 70px;
+}
+
+.profile__change {
+  padding: 0;
+  margin: 0 0 16px;
+  color: #FFF;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  transition: ease-out .3s;
+}
+
+.profile__logOut {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  color: #EE3465;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+  cursor: pointer;
+  transition: ease-out .3s;
+}
+
+.profile__change:hover {
+  opacity: .6;
+}
+
+.profile__logOut:hover {
+  opacity: .6;
+}
+
+.profile__submit {
+  margin: 0 0 70px;
+  padding: 0;
+  border-radius: 3px;
+  background: #4285F4;
+  border: none;
+  max-width: 410px;
+  height: 45px;
+
+  color: #FFF;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+  transition: ease-out .3s;
+}
+
+.profile__submit:hover {
+  opacity: .6;
+}
+
+.profile__submit_disabled {
+  background-color: #656565;
+  opacity: .5;
+}

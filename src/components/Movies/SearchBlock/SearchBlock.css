@@ -1,0 +1,24 @@
+.searchBlock {
+  margin: 0;
+  padding: 57px 70px 47px;
+  max-width: 1280px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 32px;
+}
+
+@media screen and (max-width: 768px) {
+  .searchBlock {
+    padding: 67px 30px 61px;
+    grid-gap: 30px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .searchBlock {
+    padding: 75px 14px 50px;
+    grid-gap: 40px;
+  }
+}

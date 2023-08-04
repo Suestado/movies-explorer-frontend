@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
+
 function AccountLink() {
-  return <button className="accountLink">
+  return <Link to='/profile' className="accountLink">
     <p className="accountLink__text">Аккаунт</p>
     <div className="accountLink__logo"></div>
-  </button>;
+  </Link>;
 }
 
 export default AccountLink;

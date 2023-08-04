@@ -1,8 +1,11 @@
+.moviesNav {
+  margin-left: 50px;
+}
+
 .moviesNav__element {
   margin: 0;
   padding: 0;
-  border: 0;
-  background-color: transparent;
+  text-decoration: none;
   cursor: pointer;
 
   color: #FFF;

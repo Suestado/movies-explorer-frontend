@@ -1,8 +1,6 @@
 .accountLink {
   margin: 0;
   padding: 0;
-  border: 0;
-  background-color: transparent;
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
@@ -26,6 +24,7 @@
   width: 26px;
   height: 26px;
   border-radius: 50px;
+  margin-right: 3px;
   background-color: #313131;
   background-image: url(../../../images/accountLogo.svg);
   background-position: center;
