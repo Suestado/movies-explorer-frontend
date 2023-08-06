@@ -38,7 +38,14 @@ function Profile() {
   }
 
   return <section className="profile">
-    <form className="profile__info">
+    <form
+      className="profile__info"
+      id="profileForm"
+      action="#"
+      method="post"
+      name="profileForm"
+      noValidate
+    >
       <h2 className="profile__header">Привет, Виталий!</h2>
       <fieldset className="profile__dataSet">
         <label className="profile__dataItem">
@@ -110,13 +117,21 @@ function Profile() {
         <Link to="/signin" className="profile__logOut">Выйти из аккаунта</Link>
       </div>}
 
-    {isChangeUserData && <button
-      className={`profile__submit ${!isValid && "profile__submit_disabled"}`}
-      type="submit"
-      value="Сохранить"
-      name="submitForm"
-      id="submitForm"
-    >Сохранить</button>}
+    {isChangeUserData && <span className="profile__submitWrapper">
+      <button
+        className={`profile__submit ${!isValid && 'profile__submit_disabled'}`}
+        type="submit"
+        value="Сохранить"
+        name="submitForm"
+        id="submitForm"
+      >Сохранить
+      </button>
+      <p
+        className="profile__backBtn"
+        onClick={handleChangeUserData}
+      >Назад</p>
+    </span>
+    }
   </section>;
 }
 

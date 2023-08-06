@@ -1,11 +1,13 @@
 import SearchBlock from './SearchBlock/SearchBlock';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
 
-function Movies() {
-  return<>
+function Movies({ screenWidth }) {
+  return <>
     <SearchBlock/>
-    <MoviesCardList/>
-  </>
+    <MoviesCardList
+      screenWidth={screenWidth}
+    />
+  </>;
 }
 
 export default Movies;

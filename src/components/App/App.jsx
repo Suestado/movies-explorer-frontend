@@ -1,4 +1,5 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -7,15 +8,32 @@ import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profole';
+import SignIn from '../SignIn/SignIn';
+import SignUp from '../SignUp/SignUp';
 
 
 function App() {
+
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = (event) => {
+      setWidth(event.target.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return <>
     <Routes>
 
       <Route path="/" element={
         <>
-          <Header/>
+          <Header
+            screenWidth={width}
+          />
           <ContentBox>
             <Main/>
           </ContentBox>
@@ -25,9 +43,13 @@ function App() {
 
       <Route path="/movies" element={
         <>
-          <Header/>
+          <Header
+            screenWidth={width}
+          />
           <ContentBox>
-            <Movies/>
+            <Movies
+              screenWidth={width}
+            />
           </ContentBox>
           <Footer/>
         </>
@@ -35,9 +57,13 @@ function App() {
 
       <Route path="/saved-movies" element={
         <>
-          <Header/>
+          <Header
+            screenWidth={width}
+          />
           <ContentBox>
-            <SavedMovies/>
+            <SavedMovies
+              screenWidth={width}
+            />
           </ContentBox>
           <Footer/>
         </>
@@ -45,9 +71,19 @@ function App() {
 
       <Route path="/profile" element={
         <>
-          <Header/>
+          <Header
+            screenWidth={width}
+          />
           <Profile/>
         </>
+      }/>
+
+      <Route path="/signin" element={
+        <SignIn/>
+      }/>
+
+      <Route path="/signup" element={
+        <SignUp/>
       }/>
 
     </Routes>

@@ -10,6 +10,11 @@
   margin: 0 auto;
 }
 
+.header__authForm {
+  padding: 0;
+  min-height: 38px;
+}
+
 .header__logo {
   width: 38px;
   height: 38px;
@@ -41,6 +46,10 @@
   .header {
     padding: 0 30px;
   }
+
+  .header__authForm {
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 540px) {
@@ -52,5 +61,10 @@
     width: 37px;
     height: 43px;
     margin-right: 1px;
+  }
+
+  .header__authForm {
+    padding: 0;
+    justify-content: center;
   }
 }
