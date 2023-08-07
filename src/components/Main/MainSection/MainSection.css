@@ -1,5 +1,5 @@
 .mainSection__header {
-  padding: 0  0 23px;
+  padding: 0 0 23px;
   margin: 0;
 
   color: #FFF;
@@ -11,7 +11,7 @@
 }
 
 .mainSection_content_aboutProject {
-  padding: 110px 70px;
+  padding: 111px 70px;
 }
 
 .mainSection_content_techs {
@@ -29,7 +29,7 @@
   }
 
   .mainSection_content_aboutProject {
-    padding: 90px 50px;
+    padding: 92px 50px;
   }
 
   .mainSection_content_techs {
@@ -42,19 +42,15 @@
 }
 
 @media screen and (max-width: 540px) {
-  .mainSection {
-    padding: 0 18px;
-  }
-
   .mainSection__header {
-    padding: 0  0 28px;
+    padding: 0 0 28px;
 
     font-size: 18px;
     letter-spacing: -0.72px;
   }
 
   .mainSection_content_aboutProject {
-    padding: 70px 18px;
+    padding: 71px 18px;
   }
 
   .mainSection_content_techs {

@@ -10,7 +10,6 @@ function Profile() {
 
   const [isChangeUserData, setIsChangeUserData] = useState(false);
 
-
   useEffect(() => {
     reset({
       name: currentUser.name,

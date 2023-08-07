@@ -1,5 +1,3 @@
-//компонент с использованными технологиями.
-
 import MainSection from '../MainSection/MainSection';
 
 function Techs({ sectionHeader, addSectionClass }) {

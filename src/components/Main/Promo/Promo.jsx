@@ -1,4 +1,3 @@
-//компонент с вёрсткой баннера страницы «О проекте».
 import landingLogo from '../../../images/landingLogo.svg';
 
 function Promo() {

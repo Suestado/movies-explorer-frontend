@@ -2,29 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Собрана фронтенд часть с роутингом и базовой функциональностью">
-      <change afterPath="$PROJECT_DIR$/src/components/MenuSidebar/MenuSidebar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MenuSidebar/MenuSidebar.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Movies/Preloader/Preloader.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Page404/Page404.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Page404/Page404.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/closeBtn.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MovieCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MovieCard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MoviesCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MoviesCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/Preloader/Preloader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/AccountLink/AccountLink.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/AccountLink/AccountLink.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/AccountLink/AccountLink.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/AccountLink/AccountLink.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Autentification/Login/Login.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Autentification/Profile/Profile.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Autentification/Register/Register.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/AboutMe/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/AboutMe/AboutMe.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/AboutProject/AboutProject.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/AboutProject/AboutProject.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/AboutProject/AboutProject.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/AboutProject/AboutProject.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/ContentBox/ContentBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/ContentBox/ContentBox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/MainSection/MainSection.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/MainSection/MainSection.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/MainSection/MainSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/MainSection/MainSection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/NavTab/NavTab.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/Portfolio/Portfolio.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Portfolio/Portfolio.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/Promo/Promo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Promo/Promo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/Techs/Techs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Techs/Techs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/Preloader/Preloader.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/Preloader/Preloader.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchBlock/SearchBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchBlock/SearchBlock.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navigation/AuthNav/AuthNav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/AuthNav/AuthNav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/MoviesNav/MoviesNav.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/MoviesNav/MoviesNav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/MoviesNav/MoviesNav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/MoviesNav/MoviesNav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Navigation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vendor/testCards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/vendor/testCards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profole.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profole.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +97,7 @@
       <workItem from="1690304474649" duration="13342000" />
       <workItem from="1690908517199" duration="146000" />
       <workItem from="1690913193957" duration="49000" />
-      <workItem from="1690913255188" duration="116275000" />
+      <workItem from="1690913255188" duration="118722000" />
     </task>
     <task id="LOCAL-00001" summary="fit: Базовая сборка проекта CRA">
       <created>1690304736420</created>
@@ -155,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691338163050</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fit: Собрана фронтенд часть с роутингом и базовой функциональностью">
+      <created>1691438106997</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1691438106997</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

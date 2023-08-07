@@ -46,4 +46,8 @@
     padding: 40px 10px 80px;
     row-gap: 20px;
   }
+
+  .moreMovies {
+    padding: 0 40px 80px;
+  }
 }

@@ -1,5 +1,3 @@
-//компонент с информацией о студенте.
-
 import MainSection from '../MainSection/MainSection';
 import Portfolio from '../Portfolio/Portfolio';
 import mainAvatar from '../../../images/pic__COLOR_pic.svg';

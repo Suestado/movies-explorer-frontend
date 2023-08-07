@@ -1,5 +1,3 @@
-//компонент с описанием дипломного проекта.
-
 import MainSection from '../MainSection/MainSection';
 
 function AboutProject({ sectionHeader, addSectionClass, coreClass }) {
