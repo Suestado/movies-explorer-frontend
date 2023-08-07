@@ -1,30 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Собрана фронтенд часть с роутингом и базовой функциональностью">
+    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Frontend final">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Autentification/Login/Login.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Autentification/Profile/Profile.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Autentification/Register/Register.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/AboutMe/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/AboutMe/AboutMe.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/AboutProject/AboutProject.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/AboutProject/AboutProject.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/AboutProject/AboutProject.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/AboutProject/AboutProject.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/ContentBox/ContentBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/ContentBox/ContentBox.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/MainSection/MainSection.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/MainSection/MainSection.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/MainSection/MainSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/MainSection/MainSection.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/NavTab/NavTab.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/Portfolio/Portfolio.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Portfolio/Portfolio.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/Promo/Promo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Promo/Promo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/Techs/Techs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Techs/Techs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Movies/Preloader/Preloader.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/Preloader/Preloader.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchBlock/SearchBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchBlock/SearchBlock.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/AuthNav/AuthNav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/AuthNav/AuthNav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profole.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profole.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Navigation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.EditorConfig" />
@@ -73,10 +53,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/components/Navigation" />
       <recent name="$PROJECT_DIR$/src/vendor/fonts" />
       <recent name="$PROJECT_DIR$/src/vendor" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/images" />
@@ -97,7 +77,7 @@
       <workItem from="1690304474649" duration="13342000" />
       <workItem from="1690908517199" duration="146000" />
       <workItem from="1690913193957" duration="49000" />
-      <workItem from="1690913255188" duration="118722000" />
+      <workItem from="1690913255188" duration="119176000" />
     </task>
     <task id="LOCAL-00001" summary="fit: Базовая сборка проекта CRA">
       <created>1690304736420</created>
@@ -162,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691438106997</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fit: Frontend final">
+      <created>1691441316590</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1691441316590</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +175,7 @@
     <MESSAGE value="fit: Собрана страница с фильмами и страница с данными о пользователе" />
     <MESSAGE value="fit: Собраны страницы авторизации и аутентефикации" />
     <MESSAGE value="fit: Собрана фронтенд часть с роутингом и базовой функциональностью" />
-    <option name="LAST_COMMIT_MESSAGE" value="fit: Собрана фронтенд часть с роутингом и базовой функциональностью" />
+    <MESSAGE value="fit: Frontend final" />
+    <option name="LAST_COMMIT_MESSAGE" value="fit: Frontend final" />
   </component>
 </project>
