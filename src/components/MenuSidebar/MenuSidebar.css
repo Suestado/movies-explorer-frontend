@@ -1,0 +1,85 @@
+.menuSidebar {
+  width: 520px;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: -520px;
+  background: #202020;
+  z-index: 50;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 159px 90px 90px;
+  transition: ease-out .6s;
+}
+
+.menuSidebar_active {
+  display: flex;
+  animation: sideBarOpen 1s;
+  right: 0;
+  transition: ease-out .6s;
+}
+
+@keyframes sideBarOpen {
+  from {
+    right: -520px;
+  }
+  to {
+    right: 0;
+  }
+}
+
+.menuSidebar__header {
+  margin: 0 0 28px;
+  padding: 0;
+  color: #FFF;
+  text-align: center;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+  cursor: pointer;
+  transition: ease-out .3s;
+}
+
+.menuSidebar__header:hover {
+  opacity: .6;
+}
+
+.menuSidebar__closeBtn {
+  background-image: url(../../images/closeBtn.svg);
+  background-position: center;
+  background-size: cover;
+  transform: rotate(45deg);
+  width: 22px;
+  height: 22px;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 27px;
+  right: 27px;
+  cursor: pointer;
+  transition: ease-out .3s
+}
+
+.menuSidebar__closeBtn:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 540px) {
+  .menuSidebar {
+    width: 100%;
+    padding: 144px 10px 46px;
+  }
+
+  .menuSidebar__header {
+    margin: 0 0 24px;
+  }
+
+  .menuSidebar__closeBtn {
+    top: 18px;
+    right: 18px;
+  }
+}

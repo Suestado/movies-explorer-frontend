@@ -61,6 +61,24 @@
   background-color: #3DDC84;
 }
 
+.movie__delete {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  width: 11px;
+  height: 11px;
+  transform: rotate(45deg);
+  background-image: url(./../../../images/closeBtn.svg);
+  background-size: contain;
+  cursor: pointer;
+  transition: ease-out .3s;
+}
+
+.movie__delete:hover {
+  opacity: .6;
+}
+
 @media screen and (max-width: 768px) {
   .movie {
     height: 257px;

@@ -5,8 +5,13 @@
   flex-direction: row;
   flex-shrink: 0;
   align-items: center;
+  justify-items: center;
   cursor: pointer;
   transition: ease-out .3s;
+}
+
+.accountLink_sideModeOn {
+  margin: 447px 0 0 11px;
 }
 
 .accountLink__text {

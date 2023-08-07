@@ -1,5 +1,17 @@
 .moviesNav {
   margin-left: 50px;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 16px;
+}
+
+.moviesNav_sideModeOn {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 28px;
+  row-gap: 22px;
+  justify-items: center;
 }
 
 .moviesNav__element {
@@ -15,15 +27,28 @@
   transition: ease-out .3s;
 }
 
-.moviesNav__element_desktop_active {
+.moviesNav__element_sideModeOn {
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 18px;
   font-weight: 500;
-  line-height: 18px;
-}
-
-.moviesNav__element:not(:last-child) {
-  margin-right: 16px;
+  line-height: normal;
 }
 
 .moviesNav__element:hover {
   opacity: .6;
+}
+
+.moviesNav__element_active_bold {
+  font-weight: 500;
+}
+
+.moviesNav__element_active_underlined {
+  border-bottom: solid 2px white;
+}
+
+@media screen and (max-width: 540px) {
+  .moviesNav_sideModeOn {
+    grid-template-rows: 31px;
+    row-gap: 15px;
+  }
 }

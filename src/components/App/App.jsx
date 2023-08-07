@@ -10,10 +10,9 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profole';
 import SignIn from '../SignIn/SignIn';
 import SignUp from '../SignUp/SignUp';
-
+import Page404 from '../Page404/Page404';
 
 function App() {
-
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -28,7 +27,6 @@ function App() {
 
   return <>
     <Routes>
-
       <Route path="/" element={
         <>
           <Header
@@ -84,6 +82,10 @@ function App() {
 
       <Route path="/signup" element={
         <SignUp/>
+      }/>
+
+      <Route path="*" element={
+        <Page404/>
       }/>
 
     </Routes>
