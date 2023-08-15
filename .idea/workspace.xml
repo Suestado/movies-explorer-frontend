@@ -1,13 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="" />
+    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Frontend final">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/AboutMe/AboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/AboutMe/AboutMe.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/AboutMe/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/AboutMe/AboutMe.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/ContentBox/ContentBox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/ContentBox/ContentBox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/ContentBox/ContentBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/ContentBox/ContentBox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/MainSection/MainSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/MainSection/MainSection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/Portfolio/Portfolio.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Portfolio/Portfolio.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/Portfolio/Portfolio.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Portfolio/Portfolio.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/Techs/Techs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Techs/Techs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MenuSidebar/MenuSidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuSidebar/MenuSidebar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/AccountLink/AccountLink.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/AccountLink/AccountLink.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/MoviesNav/MoviesNav.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/MoviesNav/MoviesNav.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -22,17 +53,30 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.EditorConfig" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/components/Navigation" />
+      <recent name="$PROJECT_DIR$/src/vendor/fonts" />
+      <recent name="$PROJECT_DIR$/src/vendor" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/images" />
+      <recent name="$PROJECT_DIR$/src/components/Movies/Preloader" />
+      <recent name="$PROJECT_DIR$/src/components/Main" />
+      <recent name="$PROJECT_DIR$/src/components/Header" />
+      <recent name="$PROJECT_DIR$/src/components/Autentification" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -43,8 +87,89 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1690304473483</updated>
-      <workItem from="1690304474649" duration="227000" />
+      <workItem from="1690304474649" duration="13342000" />
+      <workItem from="1690908517199" duration="146000" />
+      <workItem from="1690913193957" duration="49000" />
+      <workItem from="1690913255188" duration="123909000" />
     </task>
+    <task id="LOCAL-00001" summary="fit: Базовая сборка проекта CRA">
+      <created>1690304736420</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1690304736420</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fit: Собрана структура проекта, созданы файлы под базовые компоненты">
+      <created>1690305389245</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1690305389245</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fit: Собран Header и Promo блок">
+      <created>1690317415745</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1690317415745</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fit: Собрана промо-страница">
+      <created>1691090826380</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1691090826380</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fit: Собрана промо-страница">
+      <created>1691098349399</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1691098349399</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fit: Собрана хедер и навигация для страницы с фильмами">
+      <created>1691145519564</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1691145519564</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fit: Собрана страница с фильмами и страница с данными о пользователе">
+      <created>1691184069072</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1691184069072</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fit: Собраны страницы авторизации и аутентефикации">
+      <created>1691338163050</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1691338163050</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fit: Собрана фронтенд часть с роутингом и базовой функциональностью">
+      <created>1691438106997</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1691438106997</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fit: Frontend final">
+      <created>1691441316590</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1691441316590</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fit: Frontend final">
+      <created>1691441862880</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1691441862880</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -60,5 +185,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fit: Базовая сборка проекта CRA" />
+    <MESSAGE value="fit: Собрана структура проекта, созданы файлы под базовые компоненты" />
+    <MESSAGE value="fit: Собран Header и Promo блок" />
+    <MESSAGE value="fit: Собрана промо-страница" />
+    <MESSAGE value="fit: Собрана хедер и навигация для страницы с фильмами" />
+    <MESSAGE value="fit: Собрана страница с фильмами и страница с данными о пользователе" />
+    <MESSAGE value="fit: Собраны страницы авторизации и аутентефикации" />
+    <MESSAGE value="fit: Собрана фронтенд часть с роутингом и базовой функциональностью" />
+    <MESSAGE value="fit: Frontend final" />
+    <option name="LAST_COMMIT_MESSAGE" value="fit: Frontend final" />
   </component>
 </project>

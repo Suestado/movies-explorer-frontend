@@ -1,0 +1,69 @@
+.page404 {
+  padding: 246px 0 60px;
+  margin: 0 auto;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.page404__header {
+  padding: 0;
+  margin: 0 0 5px;
+  color: #FFF;
+  text-align: center;
+  font-size: 140px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.page404__info {
+  padding: 0;
+  margin: 0 0 184px;
+  color: #FFF;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.page404__backBtn {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: #4285F4;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  transition: ease-out .3s;
+}
+
+.page404__backBtn:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 768px) {
+  .page404 {
+    padding: 408px 0 222px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .page404 {
+    padding: 329px 0 30px;
+  }
+
+  .page404__header {
+    font-size: 80px;
+    margin: 0 0 10px;
+  }
+
+  .page404__info {
+    font-size: 12px;
+    margin: 0 0 284px;
+  }
+}

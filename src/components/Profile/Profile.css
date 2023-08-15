@@ -1,0 +1,204 @@
+.profile {
+  margin: 0 auto;
+  padding: 0 14px;
+  max-width: 410px;
+  height: calc(100vh - 74px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile__info {
+  margin: 0;
+  padding: 74px 0;
+}
+
+.profile__header {
+  padding: 0;
+  margin: 0 0 123px;
+  color: #FFF;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.profile__dataSet {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto;
+  row-gap: 17px;
+  border: none;
+}
+
+.profile__dataItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(50px, 100px) auto;
+}
+
+.profile__dataItem:not(:last-child) {
+  border-bottom: 1px solid #424242;
+}
+
+.profile__dataName {
+  padding: 0;
+  margin: 0 0 16px;
+  color: #FFF;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.profile__dataInput {
+  padding: 0;
+  margin: 0 0 16px;
+  background-color: transparent;
+  border: none;
+  color: #FFF;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.profile__dataInput:focus {
+  outline: none;
+  background: linear-gradient(to left, rgba(139, 139, 139, 0.1), #202020)
+
+}
+
+.profile__input-error {
+  position: absolute;
+  right: 0;
+  top: 18px;
+
+  font-size: 10px;
+  font-weight: 400;
+  line-height: normal;
+  color: red;
+}
+
+.profile__navigation {
+  margin: 0;
+  padding: 0 0 70px;
+}
+
+.profile__change {
+  padding: 0;
+  margin: 0 0 16px;
+  color: #FFF;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  transition: ease-out .3s;
+}
+
+.profile__logOut {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  color: #EE3465;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+  cursor: pointer;
+  transition: ease-out .3s;
+}
+
+.profile__change:hover {
+  opacity: .6;
+}
+
+.profile__logOut:hover {
+  opacity: .6;
+}
+
+.profile__submitWrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 70px;
+}
+
+.profile__submit {
+  margin: 0 0 16px;
+  padding: 0;
+  border-radius: 3px;
+  background: #4285F4;
+  border: none;
+  max-width: 410px;
+  height: 45px;
+
+  color: #FFF;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+  transition: ease-out .3s;
+}
+
+.profile__submit:hover {
+  opacity: .6;
+}
+
+.profile__submit_disabled {
+  background-color: #656565;
+  opacity: .5;
+}
+
+.profile__backBtn {
+  margin: 0;
+  padding: 0;
+  color: #4285F4;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  transition: ease-out .3s;
+}
+
+.profile__backBtn:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__info {
+    padding: 236px 0 196px;
+  }
+
+  .profile__header {
+    margin: 0 0 96px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .profile {
+    padding: 0 30px;
+  }
+
+  .profile__info {
+    padding: 70px 0 364px;
+  }
+
+  .profile__header {
+    margin: 0 0 80px;
+  }
+
+  .profile__change {
+    font-size: 12px;
+  }
+
+  .profile__logOut {
+    font-size: 12px;
+  }
+}

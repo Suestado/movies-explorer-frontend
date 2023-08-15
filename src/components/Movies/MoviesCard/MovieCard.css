@@ -1,0 +1,104 @@
+.movie {
+  font-size: 0;
+  height: 218px;
+  margin: 0;
+  padding: 0;
+}
+
+.movie__picture {
+  height: 70%;
+  width: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+
+.movie__description {
+  padding: 13px 12px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 16px;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "A B"
+    "C B";
+  grid-gap: 10px 24px;
+}
+
+.movie__name {
+  grid-area: A;
+  padding: 0;
+  margin: 0;
+  color: #FFF;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.movie__duration {
+  grid-area: C;
+  padding: 0;
+  margin: 0;
+  color: #8B8B8B;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.movie__like {
+  grid-area: B;
+  margin: 0;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  border: white solid 2px;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: ease-out .3s;
+}
+
+.movie__like_active {
+  background-color: #3DDC84;
+}
+
+.movie__delete {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  width: 11px;
+  height: 11px;
+  transform: rotate(45deg);
+  background-image: url(./../../../images/closeBtn.svg);
+  background-size: contain;
+  cursor: pointer;
+  transition: ease-out .3s;
+}
+
+.movie__delete:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 768px) {
+  .movie {
+    height: 257px;
+  }
+
+  .movie__picture {
+    height: 190px;
+  }
+
+  .movie__description {
+
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .movie {
+    height: 235px;
+  }
+
+  .movie__picture {
+    height: 168px;
+  }
+}
