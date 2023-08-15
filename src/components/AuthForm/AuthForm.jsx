@@ -27,7 +27,7 @@ function AuthForm(props) {
 
   return <div className="authForm">
     <Header
-      authFormClass="header__authForm"
+      authFormClass="header_authFormMode"
     />
     <h2 className="authForm__header">{props.header}</h2>
     <form

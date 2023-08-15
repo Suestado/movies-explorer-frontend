@@ -11,7 +11,8 @@
 }
 
 .accountLink_sideModeOn {
-  margin: 447px 0 0 11px;
+  justify-self: center;
+  align-self: end;
 }
 
 .accountLink__text {

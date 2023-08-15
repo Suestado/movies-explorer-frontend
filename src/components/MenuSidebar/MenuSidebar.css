@@ -7,15 +7,16 @@
   background: #202020;
   z-index: 50;
   display: none;
-  flex-direction: column;
-  align-items: center;
   box-sizing: border-box;
   padding: 159px 90px 90px;
   transition: ease-out .6s;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px repeat(2, 1fr);
 }
 
 .menuSidebar_active {
-  display: flex;
+  position: fixed;
+  display: grid;
   animation: sideBarOpen 1s;
   right: 0;
   transition: ease-out .6s;

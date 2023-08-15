@@ -1,7 +1,8 @@
 import MainSection from '../MainSection/MainSection';
 
-function Techs({ sectionHeader, addSectionClass }) {
+function Techs({ sectionHeader, addSectionClass, coreClass }) {
   return <MainSection
+    coreClass={coreClass}
     sectionHeader={sectionHeader}
     addSectionClass={addSectionClass}
   >

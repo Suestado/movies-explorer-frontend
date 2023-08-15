@@ -15,7 +15,7 @@ function AboutMe({ sectionHeader, addSectionClass, coreClass }) {
                                        и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур».
                                        После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.
       </p>
-      <a href="https://github.com/Suestado" className="aboutMe__gitLink">Github</a>
+      <a href="https://github.com/Suestado" className="aboutMe__gitLink" target="_blank">Github</a>
       <img className="aboutMe__avatar" src={mainAvatar} alt="Аватар"/>
     </article>
 

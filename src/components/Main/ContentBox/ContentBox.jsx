@@ -1,7 +1,7 @@
 function ContentBox(props) {
-  return <section className="contentBox">
+  return <main className="contentBox">
     {props.children}
-  </section>;
+  </main>;
 }
 
 export default ContentBox;

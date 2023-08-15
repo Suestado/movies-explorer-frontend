@@ -31,8 +31,11 @@
 }
 
 .portfolio__projectName {
+  width: 100%;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: space-between;
   color: #FFF;
   font-size: 30px;
   font-weight: 400;
@@ -44,7 +47,7 @@
 
 .portfolio__linkPointer {
   margin: 6px 6px 0 40px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 
@@ -93,6 +96,6 @@
   .portfolio__linkPointer {
     width: 10px;
     height: 10px;
-    margin: -2px 5px 0 20px;
+    margin: 9px 5px 0 20px;
   }
 }
