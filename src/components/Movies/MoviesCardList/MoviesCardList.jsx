@@ -1,18 +1,17 @@
 import { useState, useEffect } from 'react';
 import MovieCard from '../MoviesCard/MoviesCard';
-import testCards from '../../../vendor/testCards';
 
 function MoviesCardList(props) {
   const [movieList, setMovieList] = useState([]);
   const [moviesOnPage, setMoviesOnPage] = useState(0);
 
   useEffect(() => {
-    setMovieList(testCards.slice(0, moviesOnPage));
-  }, [moviesOnPage]);
+    setMovieList(props.allMoviesList.slice(0, moviesOnPage));
+  }, [props.isMoviesDounloaded, moviesOnPage]);
 
   useEffect(() => {
     setMoviesOnPage(showStartMovies());
-  }, []);
+  }, [props.isMoviesDounloaded]);
 
   function showStartMovies() {
     let startMoviesQuantity = 0;
@@ -44,16 +43,16 @@ function MoviesCardList(props) {
   }
 
   return <>
-    <section className="moviesCardList">
+    <section className={`moviesCardList ${props.isMoviesDounloaded &&"moviesCardList_active"}`}>
       {movieList.map((movie) => {
         return (
           <MovieCard
-            key={movie._id}
+            key={movie.id}
             movieItem={movie}
           />);
       })}
     </section>
-    <div className="moreMovies">
+    <div className={`moreMovies ${props.isMoviesDounloaded &&"moreMovies_active"}`}>
       <button
         className="moreMovies__button"
         onClick={showMoreMovies}

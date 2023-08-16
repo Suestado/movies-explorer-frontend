@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { CurrentUserContext } from '../../context/CurrentUserContext.js';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -13,6 +14,7 @@ import SignUp from '../SignUp/SignUp';
 import Page404 from '../Page404/Page404';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState({});
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -25,7 +27,7 @@ function App() {
     };
   }, []);
 
-  return <>
+  return <CurrentUserContext.Provider value={currentUser}>
     <Routes>
       <Route path="/" element={
         <>
@@ -77,7 +79,9 @@ function App() {
       }/>
 
       <Route path="/signin" element={
-        <SignIn/>
+        <SignIn
+          setCurrentUser={setCurrentUser}
+        />
       }/>
 
       <Route path="/signup" element={
@@ -89,7 +93,7 @@ function App() {
       }/>
 
     </Routes>
-  </>;
+  </CurrentUserContext.Provider>;
 }
 
 export default App;

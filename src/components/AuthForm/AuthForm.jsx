@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
+import { userNameRegexp, emailRegExp } from '../../utils/Constants';
+import MainApi from '../../utils/MainApi';
 
 
 function AuthForm(props) {
+  const [isAuthError, setIsAuthError] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -12,6 +16,7 @@ function AuthForm(props) {
     register,
     formState: {
       errors,
+      isValid,
     },
     handleSubmit,
     watch,
@@ -21,8 +26,31 @@ function AuthForm(props) {
     },
   );
 
+  function processAuthErr(err) {
+    setIsAuthError(true);
+    console.log(`Произошла ошибка при аутентефикации пользователя - ${err}`);
+  }
+
   function handleSubmitForm() {
-    navigate(props.navigateTo, { replace: true });
+    setIsAuthError(false);
+
+    if (pathname === '/signup') {
+      MainApi.signupUser(watch('email'), watch('password'), watch('name'))
+        .then(() => {
+          navigate(props.navigateTo, { replace: true });
+        })
+        .catch(processAuthErr);
+    } else {
+      MainApi.signinUser(watch('email'), watch('password'))
+        .then((res) => {
+          props.setCurrentUser({
+            email: res.data.email,
+            name: res.data.name,
+          });
+          navigate(props.navigateTo, { replace: true });
+        })
+        .catch(processAuthErr);
+    }
   }
 
   return <div className="authForm">
@@ -60,6 +88,10 @@ function AuthForm(props) {
                   value: 2,
                   message: 'Текст должен содержать не менее 2-х символов',
                 },
+                pattern: {
+                  value: userNameRegexp,
+                  message: 'Поле должно содержать только латиницу, кириллицу, пробел или дефис',
+                },
               },
             )}
           />
@@ -89,6 +121,10 @@ function AuthForm(props) {
                 value: 2,
                 message: 'Текст должен содержать не менее 2-х символов',
               },
+              pattern: {
+                value: emailRegExp,
+                message: 'Введите корректный адресс электронной почты',
+              },
             },
           )}
         />
@@ -100,10 +136,10 @@ function AuthForm(props) {
       <label className="authForm__inputGroup">
         <h3 className="authForm__inputName">Пароль</h3>
         <input
-          className="authForm__input"
+          className={`authForm__input ${isAuthError && 'authForm__input_authErrOn'}`}
           id="authFormPassword"
           name="password"
-          type="text"
+          type="password"
           placeholder="Введите пароль"
           {...register(
             'password',
@@ -121,15 +157,17 @@ function AuthForm(props) {
           )}
         />
         <span className="authForm__error">
-            {errors?.password?.message}
+            {isAuthError ? 'Что-то пошло не так...' : errors?.password?.message}
         </span>
       </label>
 
       <button
-        className="authForm__submitBtn"
+        className={`authForm__submitBtn ${!isValid && 'authForm__submitBtn_inactive'}`}
         type="submit"
+        disabled={!isValid}
         id={`submit-${props.formName}`}
-        name={`submit-${props.formName}`}
+        name={`submit-${props.formName}`
+        }
       >
         {props.submitText}
       </button>

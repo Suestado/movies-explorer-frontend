@@ -1,19 +1,18 @@
+import { useContext } from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { CurrentUserContext } from '../../context/CurrentUserContext.js';
+import { emailRegExp, userNameRegexp } from '../../utils/Constants';
 
 function Profile() {
-  const currentUser = {
-    name: 'Виталий',
-    email: 'pochta@yandex.ru',
-  }; // тестовый пользователь
-
+  const currentUserContext = useContext(CurrentUserContext);
   const [isChangeUserData, setIsChangeUserData] = useState(false);
 
   useEffect(() => {
     reset({
-      name: currentUser.name,
-      email: currentUser.email,
+      name: currentUserContext.name,
+      email: currentUserContext.email,
     });
   }, []);
 
@@ -45,7 +44,7 @@ function Profile() {
       name="profileForm"
       noValidate
     >
-      <h2 className="profile__header">Привет, Виталий!</h2>
+      <h2 className="profile__header">Привет, {currentUserContext.name}!</h2>
       <fieldset className="profile__dataSet">
         <label className="profile__dataItem">
           <p className="profile__dataName">Имя</p>
@@ -67,6 +66,10 @@ function Profile() {
                 minLength: {
                   value: 2,
                   message: 'Текст должен содержать не менее 2-х символов',
+                },
+                pattern: {
+                  value: userNameRegexp,
+                  message: 'Поле должно содержать только латиницу, кириллицу, пробел или дефис',
                 },
               },
             )}
@@ -96,6 +99,10 @@ function Profile() {
                 minLength: {
                   value: 2,
                   message: 'Текст должен содержать не менее 2-х символов',
+                },
+                pattern: {
+                  value: emailRegExp,
+                  message: 'Введите корректный адресс электронной почты',
                 },
               },
             )}

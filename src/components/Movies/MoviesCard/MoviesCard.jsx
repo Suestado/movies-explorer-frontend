@@ -9,14 +9,21 @@ function MovieCard({ movieItem }) {
     setIsMovieLiked(!isMovieLiked);
   }
 
+  function convertTime(duration) {
+    const hours = Math.floor(duration / 60);
+    const minutes = duration % 60;
+
+    return `${hours}ч ${minutes}м`
+  }
+
   return <article className="movie">
     <img
       className="movie__picture"
-      src={movieItem.cover}
-      alt={movieItem.name}/>
+      src={`https://api.nomoreparties.co${movieItem.image.formats.thumbnail.url}`}
+      alt={movieItem.nameRU}/>
     <div className="movie__description">
-      <h2 className="movie__name">{movieItem.name}</h2>
-      <p className="movie__duration">{movieItem.duration}</p>
+      <h2 className="movie__name">{movieItem.nameRU}</h2>
+      <p className="movie__duration">{convertTime(movieItem.duration)}</p>
 
       {pathname === '/movies' ? <button
         className={`movie__like ${isMovieLiked && 'movie__like_active'}`}
