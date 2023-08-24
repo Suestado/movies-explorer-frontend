@@ -132,10 +132,11 @@
   margin: 0 0 16px;
   padding: 0;
   border-radius: 3px;
-  background: #4285F4;
   border: none;
   max-width: 410px;
   height: 45px;
+  background-color: #656565;
+  opacity: .5;
 
   color: #FFF;
   text-align: center;
@@ -150,9 +151,9 @@
   opacity: .6;
 }
 
-.profile__submit_disabled {
-  background-color: #656565;
-  opacity: .5;
+.profile__submit_enabled {
+  background: #4285F4;
+  opacity: 1;
 }
 
 .profile__backBtn {

@@ -8,6 +8,7 @@ import { emailRegExp, userNameRegexp } from '../../utils/Constants';
 function Profile() {
   const currentUserContext = useContext(CurrentUserContext);
   const [isChangeUserData, setIsChangeUserData] = useState(false);
+  const [isInputDiff, setIsInputDiff] = useState(false);
 
   useEffect(() => {
     reset({
@@ -34,6 +35,19 @@ function Profile() {
   function handleChangeUserData() {
     setIsChangeUserData(!isChangeUserData);
   }
+
+  useEffect(() => {
+    watch((name) => {
+      if (name.name !== currentUserContext.name || name.email !== currentUserContext.email) {
+        setIsInputDiff(true);
+      } else {
+        setIsInputDiff(false);
+      }
+    });
+  }, [watch]);
+
+
+
 
   return <section className="profile">
     <form
@@ -125,11 +139,12 @@ function Profile() {
 
     {isChangeUserData && <span className="profile__submitWrapper">
       <button
-        className={`profile__submit ${!isValid && 'profile__submit_disabled'}`}
+        className={`profile__submit ${(isValid && isInputDiff) && 'profile__submit_enabled'}`}
         type="submit"
         value="Сохранить"
         name="submitForm"
         id="submitForm"
+        disabled={!isValid}
       >Сохранить
       </button>
       <p

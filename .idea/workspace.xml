@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Refactoring after review 1">
+    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Добавлен функционал регистрации, реализована первичная загрузка фильмов">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MoviesCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MoviesCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchBlock/SearchBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchBlock/SearchBlock.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/Profole.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profole.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignIn/SignIn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignIn/SignIn.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/testFilm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/testFilm2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Api.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Api.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +79,7 @@
       <workItem from="1690908517199" duration="146000" />
       <workItem from="1690913193957" duration="49000" />
       <workItem from="1690913255188" duration="123909000" />
-      <workItem from="1692119540569" duration="29782000" />
+      <workItem from="1692119540569" duration="36049000" />
     </task>
     <task id="LOCAL-00001" summary="fit: Базовая сборка проекта CRA">
       <created>1690304736420</created>
@@ -171,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691441862880</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fit: Добавлен функционал регистрации, реализована первичная загрузка фильмов">
+      <created>1692209761338</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1692209761338</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +192,7 @@
     <MESSAGE value="fit: Собраны страницы авторизации и аутентефикации" />
     <MESSAGE value="fit: Собрана фронтенд часть с роутингом и базовой функциональностью" />
     <MESSAGE value="fit: Frontend final" />
-    <option name="LAST_COMMIT_MESSAGE" value="fit: Frontend final" />
+    <MESSAGE value="fit: Добавлен функционал регистрации, реализована первичная загрузка фильмов" />
+    <option name="LAST_COMMIT_MESSAGE" value="fit: Добавлен функционал регистрации, реализована первичная загрузка фильмов" />
   </component>
 </project>
