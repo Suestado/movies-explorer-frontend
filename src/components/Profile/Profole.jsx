@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { CurrentUserContext } from '../../context/CurrentUserContext.js';
 import { emailRegExp, userNameRegexp } from '../../utils/Constants';
+import MainApi from '../../utils/MainApi';
 
 function Profile() {
   const currentUserContext = useContext(CurrentUserContext);
@@ -32,10 +33,6 @@ function Profile() {
     },
   );
 
-  function handleChangeUserData() {
-    setIsChangeUserData(!isChangeUserData);
-  }
-
   useEffect(() => {
     watch((name) => {
       if (name.name !== currentUserContext.name || name.email !== currentUserContext.email) {
@@ -46,7 +43,13 @@ function Profile() {
     });
   }, [watch]);
 
+  function handleChangeUserData() {
+    setIsChangeUserData(!isChangeUserData);
+  }
 
+  function handleLogOut() {
+    MainApi.logOut();
+  }
 
 
   return <section className="profile">
@@ -134,7 +137,10 @@ function Profile() {
           className="profile__change"
           onClick={handleChangeUserData}
         >Редактировать</p>
-        <Link to="/signin" className="profile__logOut">Выйти из аккаунта</Link>
+        <Link to="/signin"
+              className="profile__logOut"
+              onClick={handleLogOut}
+        >Выйти из аккаунта</Link>
       </div>}
 
     {isChangeUserData && <span className="profile__submitWrapper">

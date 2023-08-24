@@ -5,8 +5,10 @@ function MoviesCardList(props) {
   const [movieList, setMovieList] = useState([]);
   const [moviesOnPage, setMoviesOnPage] = useState(0);
 
+
+
   useEffect(() => {
-    setMovieList(props.allMoviesList.slice(0, moviesOnPage));
+    setMovieList(props.allMoviesList?.slice(0, moviesOnPage));
   }, [props.isMoviesDounloaded, moviesOnPage]);
 
   useEffect(() => {
@@ -14,7 +16,7 @@ function MoviesCardList(props) {
   }, [props.isMoviesDounloaded]);
 
   function showStartMovies() {
-    let startMoviesQuantity = 0;
+    let startMoviesQuantity;
 
     if (props.screenWidth > 768) {
       startMoviesQuantity = 16;
@@ -29,7 +31,7 @@ function MoviesCardList(props) {
   }
 
   function showMoreMovies() {
-    let moreMovies = 0;
+    let moreMovies;
 
     if (props.screenWidth > 768) {
       moreMovies = 4;
@@ -44,7 +46,7 @@ function MoviesCardList(props) {
 
   return <>
     <section className={`moviesCardList ${props.isMoviesDounloaded &&"moviesCardList_active"}`}>
-      {movieList.map((movie) => {
+      {movieList?.map((movie) => {
         return (
           <MovieCard
             key={movie.id}

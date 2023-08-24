@@ -1,6 +1,6 @@
 import AuthForm from '../AuthForm/AuthForm';
 
-function SignUp() {
+function SignUp({ setIsLoggedIn }) {
 
   return <>
     <AuthForm
@@ -8,6 +8,7 @@ function SignUp() {
       formName="signUpForm"
       submitText="Зарегистрироваться"
       navigateTo="/signin"
+      setIsLoggedIn={setIsLoggedIn}
     />
   </>;
 }

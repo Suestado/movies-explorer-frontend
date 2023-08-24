@@ -1,6 +1,6 @@
 import AuthForm from '../AuthForm/AuthForm';
 
-function SignIn({ setCurrentUser }) {
+function SignIn({ setCurrentUser, setIsLoggedIn }) {
 
   return <>
     <AuthForm
@@ -9,6 +9,7 @@ function SignIn({ setCurrentUser }) {
       submitText="Войти"
       navigateTo="/movies"
       setCurrentUser={setCurrentUser}
+      setIsLoggedIn={setIsLoggedIn}
     />
   </>;
 }

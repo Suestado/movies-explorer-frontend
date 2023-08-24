@@ -6,7 +6,6 @@ import Header from '../Header/Header';
 import { userNameRegexp, emailRegExp } from '../../utils/Constants';
 import MainApi from '../../utils/MainApi';
 
-
 function AuthForm(props) {
   const [isAuthError, setIsAuthError] = useState(false);
   const { pathname } = useLocation();
@@ -37,6 +36,7 @@ function AuthForm(props) {
     if (pathname === '/signup') {
       MainApi.signupUser(watch('email'), watch('password'), watch('name'))
         .then(() => {
+          props.setIsLoggedIn(true);
           navigate(props.navigateTo, { replace: true });
         })
         .catch(processAuthErr);
@@ -44,9 +44,11 @@ function AuthForm(props) {
       MainApi.signinUser(watch('email'), watch('password'))
         .then((res) => {
           props.setCurrentUser({
+            //TODO добавить ID юзера в глобальный стейт
             email: res.data.email,
             name: res.data.name,
           });
+          props.setIsLoggedIn(true);
           navigate(props.navigateTo, { replace: true });
         })
         .catch(processAuthErr);

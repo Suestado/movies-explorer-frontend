@@ -5,6 +5,7 @@ class Api {
         method: method,
         headers: headers,
         body: body,
+        credentials: 'include',
       })
         .then(this._checkResponse);
     };
