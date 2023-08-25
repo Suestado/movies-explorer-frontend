@@ -16,10 +16,6 @@ function MoviesCardList(props) {
   }, [moviesOnPage, movieList]);
 
   useEffect(() => {
-    console.log('найденные', props.foundMoviesList);
-    console.log('обрезанные', movieList);
-    console.log('фильмов на странице', moviesOnPage);
-    console.log('есть ли фильмы', thereIsMoreMovies);
     setMovieList(props.foundMoviesList?.slice(0, moviesOnPage));
     setMovieListReady(true);
   }, [props.foundMoviesList, moviesOnPage]);
@@ -78,6 +74,7 @@ function MoviesCardList(props) {
       >Ещё
       </button>
     </div>
+    {}
   </>;
 
 }

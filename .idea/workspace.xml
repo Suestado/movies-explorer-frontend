@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Реализован login и logout с использованием JWT токена">
+    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Создан классовый компонент для поиска и фильтрации фильмов. Реализован поиск фильмов по названию (без короткометражек)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/FilterCheckbox/FilterCheckbox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/FilterCheckbox/FilterCheckbox.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Movies/FindMovies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/FindMovies.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchBlock/SearchBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchBlock/SearchBlock.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/MoviesApi.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/MoviesApi.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -83,7 +84,7 @@
       <workItem from="1690908517199" duration="146000" />
       <workItem from="1690913193957" duration="49000" />
       <workItem from="1690913255188" duration="123909000" />
-      <workItem from="1692119540569" duration="76397000" />
+      <workItem from="1692119540569" duration="85338000" />
     </task>
     <task id="LOCAL-00001" summary="fit: Базовая сборка проекта CRA">
       <created>1690304736420</created>
@@ -183,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692907043371</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fit: Создан классовый компонент для поиска и фильтрации фильмов. Реализован поиск фильмов по названию (без короткометражек)">
+      <created>1692977974636</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1692977974636</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +221,7 @@
     <MESSAGE value="fit: Добавлен функционал регистрации, реализована первичная загрузка фильмов" />
     <MESSAGE value="fit: Доработана валидация изменения данных о пользователе (в т.ч. на разницу введенных данных с базовыми)" />
     <MESSAGE value="fit: Реализован login и logout с использованием JWT токена" />
-    <option name="LAST_COMMIT_MESSAGE" value="fit: Реализован login и logout с использованием JWT токена" />
+    <MESSAGE value="fit: Создан классовый компонент для поиска и фильтрации фильмов. Реализован поиск фильмов по названию (без короткометражек)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fit: Создан классовый компонент для поиска и фильтрации фильмов. Реализован поиск фильмов по названию (без короткометражек)" />
   </component>
 </project>

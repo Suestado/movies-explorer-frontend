@@ -1,20 +1,31 @@
 import { useState } from 'react';
 import SearchBlock from './SearchBlock/SearchBlock';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
+import Preloader from './Preloader/Preloader';
+import NotificationBox from './NotificationBox/NotificationBox';
 
 function Movies({ screenWidth }) {
   const [foundMoviesList, setFoundMoviesList] = useState([]);
-  const [isMoviesDownloaded, setIsMoviesDownloaded] = useState(false);
+  const [shortMoviesActive, setShortMoviesActive] = useState(false); //TODO поравить потом на зависимость от стораджа
+  const [isWaitingDownloading, setIsWaitingDownloading] = useState(false);
+
 
   return <>
     <SearchBlock
       setFoundMoviesList={setFoundMoviesList}
+      shortMoviesActive={shortMoviesActive}
+      setShortMoviesActive={setShortMoviesActive}
+      setIsWaitingDownloading={setIsWaitingDownloading}
     />
-    <MoviesCardList
-      foundMoviesList={foundMoviesList}
-      isMoviesDownloaded={isMoviesDownloaded}
-      screenWidth={screenWidth}
-    />
+
+    {isWaitingDownloading && <Preloader/>}
+    {(!isWaitingDownloading && foundMoviesList.length > 0) &&
+      <MoviesCardList
+        foundMoviesList={foundMoviesList}
+        screenWidth={screenWidth}
+      />
+    }
+    {(!isWaitingDownloading && foundMoviesList.length === 0) && <NotificationBox/>}
   </>;
 }
 

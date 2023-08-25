@@ -1,8 +1,9 @@
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { moviesSearchRegexp } from '../../../utils/Constants';
 import FindMovies from '../FindMovies';
 
-function SearchString({ setFoundMoviesList }) {
+function SearchString({ setFoundMoviesList, shortMoviesActive, setIsWaitingDownloading }) {
   const {
     register,
     formState: {
@@ -16,28 +17,19 @@ function SearchString({ setFoundMoviesList }) {
     },
   );
 
-  function searchMoviesSubmit() {
-   FindMovies.findMoviesByName(watch('search'))
+  function handleSearchMovies() {
+    setIsWaitingDownloading(true)
+    FindMovies.findMovies(watch('search'), shortMoviesActive)
       .then((res) => {
-        setFoundMoviesList(res)
-      })
-
+        setFoundMoviesList(res);
+        setIsWaitingDownloading(false)
+      });
   }
 
-  // function searchMoviesSubmit() {
-  //   setAllMoviesList(MoviesApi.getMovies()
-  //     .then((res) => {
-  //       setAllMoviesList(res);
-  //     })
-  //     .then(() => {
-  //       setIsMoviesDownloaded(true)
-  //     })
-  //     .catch((err) => {
-  //       //TODO надо заменить консоль лог на вывод сообщения пользователю
-  //       console.log('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
-  //     }),
-  //   );
-  // }
+  useEffect(() => {
+    watch('search') && handleSearchMovies();
+  }, [shortMoviesActive]);
+
 
   return <form
     className="searchString"
@@ -45,7 +37,7 @@ function SearchString({ setFoundMoviesList }) {
     name="moviesSearch"
     action="#"
     method="post"
-    onSubmit={handleSubmit(searchMoviesSubmit)}
+    onSubmit={handleSubmit(handleSearchMovies)}
     noValidate
   >
     <input

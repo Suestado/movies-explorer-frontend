@@ -6,9 +6,10 @@ class FindMoviesClass {
     this._fullMoviesList = [];
     this._filteredByNameMovies = [];
     this._filteredShortMovies = [];
-    this._shortMovies = 40;
-    this._rusName = 'nameRU';
-    this._enName = 'nameEN';
+    this._shortMoviesDuration = 40; //TODO перенести отсюда часть в константы и сюда импортировать
+    this._rusName = 'nameRU'; //TODO перенести отсюда часть в константы и сюда импортировать
+    this._enName = 'nameEN'; //TODO перенести отсюда часть в константы и сюда импортировать
+    this._movieDuration = 'duration'; //TODO перенести отсюда часть в константы и сюда импортировать
   }
 
   _downloadAllMovies() {
@@ -34,19 +35,35 @@ class FindMoviesClass {
   }
 
   _sortShortMovies() {
-
+    this._filteredShortMovies = this._filteredByNameMovies.filter((movie) => {
+      return movie[this._movieDuration] <= this._shortMoviesDuration;
+    })
   }
 
-  async findMoviesByName(searchStr) {
+  async findMovies(searchStr, shortMoviesActive) {
+    if (searchStr === this._searchStr && !shortMoviesActive && this._filteredByNameMovies.length > 0) {
+      return this._filteredByNameMovies;
+    }
+
+    if (searchStr === this._searchStr && shortMoviesActive) {
+      if (this._filteredShortMovies.length > 0) {
+        return this._filteredShortMovies;
+      } else {
+        this._sortShortMovies();
+        return this._filteredShortMovies;
+      }
+    }
+
     await this._downloadAllMovies()
       .then(() => {
-        this._sortMoviesByName(searchStr)
-      })
+        this._sortMoviesByName(searchStr);
+        if (shortMoviesActive) {
+          this._sortShortMovies();
+        }
+      });
 
-    return this._filteredByNameMovies
+    return shortMoviesActive ? this._filteredShortMovies : this._filteredByNameMovies;
   }
-
-
 
 }
 
