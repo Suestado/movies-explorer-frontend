@@ -3,7 +3,13 @@ import { useForm } from 'react-hook-form';
 import { moviesSearchRegexp } from '../../../utils/Constants';
 import FindMovies from '../FindMovies';
 
-function SearchString({ setFoundMoviesList, shortMoviesActive, setIsWaitingDownloading }) {
+function SearchString(
+  {
+    setFoundMoviesList,
+    shortMoviesActive,
+    setIsWaitingDownloading,
+    setMoviesDownloadingError,
+  }) {
   const {
     register,
     formState: {
@@ -18,11 +24,16 @@ function SearchString({ setFoundMoviesList, shortMoviesActive, setIsWaitingDownl
   );
 
   function handleSearchMovies() {
-    setIsWaitingDownloading(true)
+    setIsWaitingDownloading(true);
     FindMovies.findMovies(watch('search'), shortMoviesActive)
       .then((res) => {
         setFoundMoviesList(res);
-        setIsWaitingDownloading(false)
+        setIsWaitingDownloading(false);
+      })
+      .catch((err) => {
+        console.log(`При загрузке данных с сервера произошла ошибка: ${err}`);
+        setMoviesDownloadingError(true);
+        setIsWaitingDownloading(false);
       });
   }
 

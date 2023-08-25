@@ -7,6 +7,7 @@ function SearchBlock(
     shortMoviesActive,
     setShortMoviesActive,
     setIsWaitingDownloading,
+    setMoviesDownloadingError,
   },
 ) {
 
@@ -15,6 +16,7 @@ function SearchBlock(
       setFoundMoviesList={setFoundMoviesList}
       shortMoviesActive={shortMoviesActive}
       setIsWaitingDownloading={setIsWaitingDownloading}
+      setMoviesDownloadingError={setMoviesDownloadingError}
     />
     <FilterCheckbox
       text="Короткометражки"

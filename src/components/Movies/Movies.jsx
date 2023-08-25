@@ -8,6 +8,7 @@ function Movies({ screenWidth }) {
   const [foundMoviesList, setFoundMoviesList] = useState([]);
   const [shortMoviesActive, setShortMoviesActive] = useState(false); //TODO поравить потом на зависимость от стораджа
   const [isWaitingDownloading, setIsWaitingDownloading] = useState(false);
+  const [moviesDownloadingError, setMoviesDownloadingError] = useState(false);
 
 
   return <>
@@ -16,6 +17,7 @@ function Movies({ screenWidth }) {
       shortMoviesActive={shortMoviesActive}
       setShortMoviesActive={setShortMoviesActive}
       setIsWaitingDownloading={setIsWaitingDownloading}
+      setMoviesDownloadingError={setMoviesDownloadingError}
     />
 
     {isWaitingDownloading && <Preloader/>}
@@ -25,7 +27,10 @@ function Movies({ screenWidth }) {
         screenWidth={screenWidth}
       />
     }
-    {(!isWaitingDownloading && foundMoviesList.length === 0) && <NotificationBox/>}
+    {(!isWaitingDownloading && foundMoviesList.length === 0) &&
+      <NotificationBox
+        moviesDownloadingError={moviesDownloadingError}
+      />}
   </>;
 }
 
