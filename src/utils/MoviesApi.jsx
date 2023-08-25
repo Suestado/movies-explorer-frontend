@@ -3,7 +3,13 @@ import Api from './Api';
 class MoviesApiClass extends Api {
   constructor({ baseURL, headers }) {
     super({ baseURL, headers });
-    this._miviesPostfix = '/movies';
+    this._request = function (method, postfix = '') {
+      return fetch(baseURL + postfix, {
+        method: method,
+        headers: headers,
+      })
+        .then(this._checkResponse);
+    };
   }
 
   getMovies() {

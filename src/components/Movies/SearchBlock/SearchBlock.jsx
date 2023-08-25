@@ -1,11 +1,10 @@
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import SearchString from '../SearchString/SearchString';
 
-function SearchBlock({ setAllMoviesList, setIsMoviesDownloaded }) {
+function SearchBlock({ setFoundMoviesList }) {
   return <section className="searchBlock">
     <SearchString
-      setAllMoviesList={setAllMoviesList}
-      setIsMoviesDownloaded={setIsMoviesDownloaded}
+      setFoundMoviesList={setFoundMoviesList}
     />
     <FilterCheckbox
       text="Короткометражки"

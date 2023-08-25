@@ -4,18 +4,28 @@ import MovieCard from '../MoviesCard/MoviesCard';
 function MoviesCardList(props) {
   const [movieList, setMovieList] = useState([]);
   const [moviesOnPage, setMoviesOnPage] = useState(0);
-
-
-
-  useEffect(() => {
-    setMovieList(props.allMoviesList?.slice(0, moviesOnPage));
-  }, [props.isMoviesDounloaded, moviesOnPage]);
+  const [thereIsMoreMovies, setThereIsMoreMovies] = useState(false);
+  const [movieListReady, setMovieListReady] = useState(false);
 
   useEffect(() => {
-    setMoviesOnPage(showStartMovies());
-  }, [props.isMoviesDounloaded]);
+    setMoviesOnPage(setNumberOfMovies());
+  }, []);
 
-  function showStartMovies() {
+  useEffect(() => {
+    setThereIsMoreMovies(checkMoreMoviesExistence());
+  }, [moviesOnPage, movieList]);
+
+  useEffect(() => {
+    console.log('найденные', props.foundMoviesList);
+    console.log('обрезанные', movieList);
+    console.log('фильмов на странице', moviesOnPage);
+    console.log('есть ли фильмы', thereIsMoreMovies);
+    setMovieList(props.foundMoviesList?.slice(0, moviesOnPage));
+    setMovieListReady(true);
+  }, [props.foundMoviesList, moviesOnPage]);
+
+  // Устанавливает начальное кол-во фильмов в выдаче в зависимости от ширины экрана
+  function setNumberOfMovies() {
     let startMoviesQuantity;
 
     if (props.screenWidth > 768) {
@@ -30,6 +40,8 @@ function MoviesCardList(props) {
     return startMoviesQuantity;
   }
 
+  // Устанавливает значение, на которое будет увеличиваться кол-во фильмов
+  // при нажатии на кнопку Еще в зависимости от ширины экрана
   function showMoreMovies() {
     let moreMovies;
 
@@ -44,8 +56,13 @@ function MoviesCardList(props) {
     setMoviesOnPage(moviesOnPage + moreMovies);
   }
 
+  // Проверка на существование скрытых фильмов в массиве с результатами
+  function checkMoreMoviesExistence() {
+    return props.foundMoviesList.length > moviesOnPage;
+  }
+
   return <>
-    <section className={`moviesCardList ${props.isMoviesDounloaded &&"moviesCardList_active"}`}>
+    <section className={`moviesCardList ${movieListReady && 'moviesCardList_active'}`}>
       {movieList?.map((movie) => {
         return (
           <MovieCard
@@ -54,7 +71,7 @@ function MoviesCardList(props) {
           />);
       })}
     </section>
-    <div className={`moreMovies ${props.isMoviesDounloaded &&"moreMovies_active"}`}>
+    <div className={`moreMovies ${(movieListReady && thereIsMoreMovies) && 'moreMovies_active'}`}>
       <button
         className="moreMovies__button"
         onClick={showMoreMovies}

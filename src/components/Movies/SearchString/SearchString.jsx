@@ -1,8 +1,8 @@
 import { useForm } from 'react-hook-form';
-import MoviesApi from '../../../utils/MoviesApi';
 import { moviesSearchRegexp } from '../../../utils/Constants';
+import FindMovies from '../FindMovies';
 
-function SearchString({ setAllMoviesList, setIsMoviesDownloaded }) {
+function SearchString({ setFoundMoviesList }) {
   const {
     register,
     formState: {
@@ -17,19 +17,27 @@ function SearchString({ setAllMoviesList, setIsMoviesDownloaded }) {
   );
 
   function searchMoviesSubmit() {
-    setAllMoviesList(MoviesApi.getMovies()
+   FindMovies.findMoviesByName(watch('search'))
       .then((res) => {
-        setAllMoviesList(res);
+        setFoundMoviesList(res)
       })
-      .then(() => {
-        setIsMoviesDownloaded(true)
-      })
-      .catch((err) => {
-        //TODO надо заменить консоль лог на вывод сообщения пользователю
-        console.log('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
-      }),
-    );
+
   }
+
+  // function searchMoviesSubmit() {
+  //   setAllMoviesList(MoviesApi.getMovies()
+  //     .then((res) => {
+  //       setAllMoviesList(res);
+  //     })
+  //     .then(() => {
+  //       setIsMoviesDownloaded(true)
+  //     })
+  //     .catch((err) => {
+  //       //TODO надо заменить консоль лог на вывод сообщения пользователю
+  //       console.log('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
+  //     }),
+  //   );
+  // }
 
   return <form
     className="searchString"
@@ -49,7 +57,7 @@ function SearchString({ setAllMoviesList, setIsMoviesDownloaded }) {
         {
           required: 'Нужно ввести ключевое слово',
           pattern: {
-            value: moviesSearchRegexp,
+            value: moviesSearchRegexp, //TODO посмотреть примеры фильмов и проверить регулярку
             message: 'Название может содержать только буквы и цифры',
           },
         },
@@ -58,7 +66,6 @@ function SearchString({ setAllMoviesList, setIsMoviesDownloaded }) {
     <button
       className="searchString__submitBtn"
       type="submit"
-      onSubmit={searchMoviesSubmit}
     />
     <span className="searchString__error">
       {errors?.search?.message}
