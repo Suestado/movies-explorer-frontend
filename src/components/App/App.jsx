@@ -8,7 +8,7 @@ import ContentBox from '../Main/ContentBox/ContentBox';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
-import Profile from '../Profile/Profole';
+import Profile from '../Profile/Profile';
 import SignIn from '../SignIn/SignIn';
 import SignUp from '../SignUp/SignUp';
 import Page404 from '../Page404/Page404';
@@ -21,7 +21,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     const handleResize = (event) => {
       setWidth(event.target.innerWidth);
@@ -48,6 +48,9 @@ function App() {
           );
           setIsLoggedIn(true);
           navigate(location.pathname, { replace: true });
+        } else {
+          localStorage.clear();
+          setIsLoggedIn(false);
         }
       })
       .catch((err) => {
@@ -61,6 +64,7 @@ function App() {
         <>
           <Header
             screenWidth={width}
+            isLoggedIn={isLoggedIn}
           />
           <ContentBox>
             <Main/>
@@ -131,7 +135,9 @@ function App() {
                      <Header
                        screenWidth={width}
                      />
-                     <Profile/>
+                     <Profile
+                       setIsLoggedIn={setIsLoggedIn}
+                     />
                    </>
                  }
                />

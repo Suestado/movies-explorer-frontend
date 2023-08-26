@@ -6,7 +6,7 @@ import MoviesNav from './MoviesNav/MoviesNav';
 import AccountLink from './AccountLink/AccountLink';
 import MenuSidebar from '../MenuSidebar/MenuSidebar';
 
-function Navigation({ screenWidth }) {
+function Navigation({ screenWidth, isLoggedIn }) {
   const { pathname } = useLocation();
   const [isSideBarOpened, setIsSideBarOpened] = useState(false);
 
@@ -15,7 +15,13 @@ function Navigation({ screenWidth }) {
   }
 
   return <>
-    {pathname === '/' && <AuthNav/>}
+    {(pathname === '/' && !isLoggedIn) && <AuthNav/>}
+    {(pathname === '/' && isLoggedIn) && <>
+      <MoviesNav
+        screenWidth={screenWidth}
+      />
+      <AccountLink/>
+    </>}
     {((pathname === '/movies' || pathname === '/saved-movies' || pathname === '/profile') && screenWidth > 768) &&
       <MoviesNav
         screenWidth={screenWidth}

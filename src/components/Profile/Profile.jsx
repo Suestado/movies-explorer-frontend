@@ -6,7 +6,7 @@ import { CurrentUserContext } from '../../context/CurrentUserContext.js';
 import { emailRegExp, userNameRegexp } from '../../utils/Constants';
 import MainApi from '../../utils/MainApi';
 
-function Profile() {
+function Profile({ setIsLoggedIn }) {
   const currentUserContext = useContext(CurrentUserContext);
   const [isChangeUserData, setIsChangeUserData] = useState(false);
   const [isInputDiff, setIsInputDiff] = useState(false);
@@ -49,7 +49,8 @@ function Profile() {
 
   function handleLogOut() {
     MainApi.logOut();
-    localStorage
+    localStorage.clear();
+    setIsLoggedIn(false)
   }
 
 

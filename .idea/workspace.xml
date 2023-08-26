@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Реализована фильтрация по чекбоксу">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/FilterCheckbox/FilterCheckbox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/FilterCheckbox/FilterCheckbox.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/FindMovies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/FindMovies.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchBlock/SearchBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchBlock/SearchBlock.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profole.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profole.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Constants.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Constants.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Navigation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profole.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="level-3" />
+        <entry key="$PROJECT_DIR$" value="level-3-lokalstorage" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -207,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692989008854</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fit: Реализовано сохранение стейта поиска фильмов">
+      <created>1693046604401</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1693046604401</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +243,7 @@
     <MESSAGE value="fit: Реализован login и logout с использованием JWT токена" />
     <MESSAGE value="fit: Создан классовый компонент для поиска и фильтрации фильмов. Реализован поиск фильмов по названию (без короткометражек)" />
     <MESSAGE value="fit: Реализована фильтрация по чекбоксу" />
-    <option name="LAST_COMMIT_MESSAGE" value="fit: Реализована фильтрация по чекбоксу" />
+    <MESSAGE value="fit: Реализовано сохранение стейта поиска фильмов" />
+    <option name="LAST_COMMIT_MESSAGE" value="fit: Реализовано сохранение стейта поиска фильмов" />
   </component>
 </project>
