@@ -4,7 +4,7 @@ import MoviesCardList from './MoviesCardList/MoviesCardList';
 import Preloader from './Preloader/Preloader';
 import NotificationBox from './NotificationBox/NotificationBox';
 
-function Movies({ screenWidth }) {
+function Movies({ screenWidth, setCurrentUserMovies, getUserMoviesList }) {
   const [foundMoviesList, setFoundMoviesList] = useState([]);
   const [shortMoviesActive, setShortMoviesActive] = useState(
     localStorage.getItem('checkboxStatus') ?
@@ -14,11 +14,9 @@ function Movies({ screenWidth }) {
   const [isWaitingDownloading, setIsWaitingDownloading] = useState(false);
   const [moviesDownloadingError, setMoviesDownloadingError] = useState(false);
 
-  //---------------------
-  // useEffect(() => {
-  //   console.log('отработал мувис стейт');
-  // }, foundMoviesList)
-  //---------------------
+  useEffect(() => {
+    getUserMoviesList()
+  }, [])
 
   return <>
     <SearchBlock
@@ -34,6 +32,7 @@ function Movies({ screenWidth }) {
       <MoviesCardList
         foundMoviesList={foundMoviesList}
         screenWidth={screenWidth}
+        setCurrentUserMovies={setCurrentUserMovies}
       />
     }
     {(!isWaitingDownloading && foundMoviesList.length === 0) &&

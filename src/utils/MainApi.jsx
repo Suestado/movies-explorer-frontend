@@ -7,6 +7,7 @@ class MainApiClass extends Api {
     this._signupPostfix = '/signup';
     this._userMePostfix = '/users/me';
     this._logoutPostfix = '/logout';
+    this._likeMoviePostfix = '/movies';
   }
 
   signupUser(email, password, name) {
@@ -47,13 +48,61 @@ class MainApiClass extends Api {
         email: email,
         name: name,
       }),
-    )
+    );
   }
 
   logOut() {
     return this._request(
       'GET',
       this._logoutPostfix,
+    );
+  }
+
+  getUserMovies() {
+    return this._request(
+      'GET',
+      this._likeMoviePostfix,
+    );
+  }
+
+  saveLikedMovie(
+    country,
+    director,
+    duration,
+    year,
+    description,
+    image,
+    trailerLink,
+    nameRU,
+    nameEN,
+    thumbnail,
+    movieId,
+    owner,
+  ) {
+    return this._request(
+      'POST',
+      this._likeMoviePostfix,
+      JSON.stringify({
+        country: country,
+        director: director,
+        duration: duration,
+        year: year,
+        description: description,
+        image: image,
+        trailerLink: trailerLink,
+        nameRU: nameRU,
+        nameEN: nameEN,
+        thumbnail: thumbnail,
+        movieId: movieId,
+        owner: owner,
+      }),
+    );
+  }
+
+  deleteLikedMovie(cardId) {
+    return this._request(
+      'DELETE',
+      this._likeMoviePostfix + `/${cardId}`,
     );
   }
 }

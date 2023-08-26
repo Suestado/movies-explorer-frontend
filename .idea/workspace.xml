@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Реализовано изменение шапки для авторизованного пользователя на главной странице">
+    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Реализован попап об успешности обновления данных пользователя">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MoviesCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MoviesCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignUp/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignUp/SignUp.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/CurrentUserContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/CurrentUserContext.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/MainApi.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/MainApi.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693048262645</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fit: Реализован попап об успешности обновления данных пользователя">
+      <created>1693055109821</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1693055109821</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,6 +263,7 @@
     <MESSAGE value="fit: Реализована фильтрация по чекбоксу" />
     <MESSAGE value="fit: Реализовано сохранение стейта поиска фильмов" />
     <MESSAGE value="fit: Реализовано изменение шапки для авторизованного пользователя на главной странице" />
-    <option name="LAST_COMMIT_MESSAGE" value="fit: Реализовано изменение шапки для авторизованного пользователя на главной странице" />
+    <MESSAGE value="fit: Реализован попап об успешности обновления данных пользователя" />
+    <option name="LAST_COMMIT_MESSAGE" value="fit: Реализован попап об успешности обновления данных пользователя" />
   </component>
 </project>

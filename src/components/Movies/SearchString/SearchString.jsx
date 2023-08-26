@@ -27,8 +27,8 @@ function SearchString(
 
   // Общая функция для получения результатов поиска по фильмам
   // Управляет прелоадером и данными в локальном хранилище по последнему запросу
+  // Загружает список пользовательских фильмов для установки состояния лайков и дальнейшего использования
   function handleMoviesSearch(searchStr, shortMoviesActive, readyMoviesCollection) {
-    console.log('сработка общей функции поиска');
     setIsWaitingDownloading(true);
     FindMovies.findMovies(watch('search'), shortMoviesActive, readyMoviesCollection)
       .then((res) => {
@@ -54,7 +54,7 @@ function SearchString(
       JSON.parse(localStorage.getItem('foundMovies')) : false;
 
     if (searchStr && readyMoviesCollection) {
-      setFoundMoviesList(readyMoviesCollection)
+      setFoundMoviesList(readyMoviesCollection);
       reset({
         search: searchStr,
       });
@@ -67,7 +67,7 @@ function SearchString(
   }
 
   useEffect(() => {
-    if(watch('search') === localStorage.getItem('searchString')) {
+    if (watch('search') === localStorage.getItem('searchString')) {
       handleSearchSubmit();
     }
   }, [shortMoviesActive]);

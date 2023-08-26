@@ -64,6 +64,7 @@ function MoviesCardList(props) {
           <MovieCard
             key={movie.id}
             movieItem={movie}
+            setCurrentUserMovies={props.setCurrentUserMovies}
           />);
       })}
     </section>

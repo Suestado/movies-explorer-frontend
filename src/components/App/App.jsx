@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-import { CurrentUserContext } from '../../context/CurrentUserContext.js';
+import { CurrentUserContext } from '../../context/CurrentUserContext.jsx';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -17,6 +17,7 @@ import MainApi from '../../utils/MainApi';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
+  const [currentUserMovies, setCurrentUserMovies] = useState([]);
   const [width, setWidth] = useState(window.innerWidth);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -58,7 +59,21 @@ function App() {
       });
   }
 
-  return <CurrentUserContext.Provider value={currentUser}>
+  // Функция для загрузки пользовательских фильмов
+  // Используется для правильной установки лайков и страницы saved-movies
+  function getUserMoviesList() {
+    MainApi.getUserMovies()
+      .then((movies) => {
+        console.log(movies); //TODO убрать
+        setCurrentUserMovies(movies);
+      })
+      .catch((err) => {
+        console.log(`При загрузке списка фильмов пользователя произошла ошибка: ${err}`);
+      });
+  }
+
+
+  return <CurrentUserContext.Provider value={{ currentUser, currentUserMovies }}>
     <Routes>
       <Route path="/" element={
         <>
@@ -98,6 +113,8 @@ function App() {
                      <ContentBox>
                        <Movies
                          screenWidth={width}
+                         setCurrentUserMovies={setCurrentUserMovies}
+                         getUserMoviesList={getUserMoviesList}
                        />
                      </ContentBox>
                      <Footer/>
@@ -137,7 +154,6 @@ function App() {
                      />
                      <Profile
                        setIsLoggedIn={setIsLoggedIn}
-                       currentUser={currentUser}
                        setCurrentUser={setCurrentUser}
                      />
                    </>

@@ -1,14 +1,13 @@
-import { useContext } from 'react';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { CurrentUserContext } from '../../context/CurrentUserContext.js';
+import { CurrentUserContext } from '../../context/CurrentUserContext.jsx';
 import { emailRegExp, userNameRegexp } from '../../utils/Constants';
 import MainApi from '../../utils/MainApi';
 import ProfileChangeConfirmation from '../Profile/ProfileChangeConfirmation/ProfileChangeConfirmation';
 
-function Profile({ setIsLoggedIn, currentUser, setCurrentUser }) {
-  const currentUserContext = useContext(CurrentUserContext);
+function Profile({ setIsLoggedIn, setCurrentUser }) {
+  const { currentUser } = useContext(CurrentUserContext);
   const [isChangeUserData, setIsChangeUserData] = useState(false);
   const [isInputDiff, setIsInputDiff] = useState(false);
   const [confirmPopupOpened, setConfirmPopupOpened] = useState(false);
@@ -16,8 +15,8 @@ function Profile({ setIsLoggedIn, currentUser, setCurrentUser }) {
 
   useEffect(() => {
     reset({
-      name: currentUserContext.name,
-      email: currentUserContext.email,
+      name: currentUser.name,
+      email: currentUser.email,
     });
   }, []);
 
@@ -38,7 +37,7 @@ function Profile({ setIsLoggedIn, currentUser, setCurrentUser }) {
 
   useEffect(() => {
     watch((name) => {
-      if (name.name !== currentUserContext.name || name.email !== currentUserContext.email) {
+      if (name.name !== currentUser.name || name.email !== currentUser.email) {
         setIsInputDiff(true);
       } else {
         setIsInputDiff(false);
@@ -60,10 +59,10 @@ function Profile({ setIsLoggedIn, currentUser, setCurrentUser }) {
     MainApi.updateUser(watch('email'), watch('name'))
       .then((user) => {
         setCurrentUser({
-            id: user._id,
-            name: user.name,
-            email: user.email,
-          });
+          id: user._id,
+          name: user.name,
+          email: user.email,
+        });
         setConfirmPopupOpened(true);
       })
       .catch((err) => {
@@ -90,7 +89,7 @@ function Profile({ setIsLoggedIn, currentUser, setCurrentUser }) {
       noValidate
       onSubmit={handleSubmit(handleSubmitForm)}
     >
-      <h2 className="profile__header">Привет, {currentUserContext.name}!</h2>
+      <h2 className="profile__header">Привет, {currentUser.name}!</h2>
       <fieldset className="profile__dataSet">
         <label className="profile__dataItem">
           <p className="profile__dataName">Имя</p>
