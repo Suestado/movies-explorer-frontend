@@ -49,6 +49,7 @@ function Profile() {
 
   function handleLogOut() {
     MainApi.logOut();
+    localStorage
   }
 
 

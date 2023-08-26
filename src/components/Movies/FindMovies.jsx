@@ -40,10 +40,14 @@ class FindMoviesClass {
   _sortShortMovies() {
     this._filteredShortMovies = this._filteredByNameMovies.filter((movie) => {
       return movie[movieDuration] <= shortMoviesDuration;
-    })
+    });
   }
 
-  async findMovies(searchStr, shortMoviesActive) {
+  // Функция загрузки и фильтрации фильмов
+  // Если запрос тот же результаты берутся готовые из стейта без вычислений
+  // Если в функцию передан массив фильмов, фильтрация идет по нему
+  // Если массива нет или запрос новый, происходит запрос к серверу
+  async findMovies(searchStr, shortMoviesActive, readyMoviesCollection) {
     if (searchStr === this._searchStr && !shortMoviesActive && this._filteredByNameMovies.length > 0) {
       return this._filteredByNameMovies;
     }
@@ -57,23 +61,29 @@ class FindMoviesClass {
       }
     }
 
-    await this._downloadAllMovies()
-      .then(() => {
-        this._sortMoviesByName(searchStr);
-        if (shortMoviesActive) {
-          this._sortShortMovies();
-        }
-      });
+    if (readyMoviesCollection) {
+      console.log(readyMoviesCollection);
+      shortMoviesActive ?
+        this._filteredShortMovies = readyMoviesCollection :
+        this._fullMoviesList = readyMoviesCollection;
+
+      console.log('данные в функции поиска', this._filteredShortMovies);
+    } else {
+      await this._downloadAllMovies();
+    }
+
+    this._sortMoviesByName(searchStr);
+    if (shortMoviesActive) {
+      this._sortShortMovies();
+    }
 
     return shortMoviesActive ? this._filteredShortMovies : this._filteredByNameMovies;
   }
-
 }
 
 const FindMovies = new FindMoviesClass;
 
 export default FindMovies;
-
 
 
 

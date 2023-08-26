@@ -7,6 +7,7 @@ function SearchString(
   {
     setFoundMoviesList,
     shortMoviesActive,
+    setShortMoviesActive,
     setIsWaitingDownloading,
     setMoviesDownloadingError,
   }) {
@@ -17,28 +18,58 @@ function SearchString(
     },
     handleSubmit,
     watch,
+    reset,
   } = useForm(
     {
       mode: 'onSubmit',
     },
   );
 
-  function handleSearchMovies() {
+  // Общая функция для получения результатов поиска по фильмам
+  // Управляет прелоадером и данными в локальном хранилище по последнему запросу
+  function handleMoviesSearch(searchStr, shortMoviesActive, readyMoviesCollection) {
+    console.log('сработка общей функции поиска');
     setIsWaitingDownloading(true);
-    FindMovies.findMovies(watch('search'), shortMoviesActive)
+    FindMovies.findMovies(watch('search'), shortMoviesActive, readyMoviesCollection)
       .then((res) => {
         setFoundMoviesList(res);
         setIsWaitingDownloading(false);
+
+        localStorage.setItem('searchString', watch('search'));
+        localStorage.setItem('checkboxStatus', JSON.stringify(shortMoviesActive));
+        localStorage.setItem('foundMovies', JSON.stringify(res));
       })
       .catch((err) => {
-        console.log(`При загрузке данных с сервера произошла ошибка: ${err}`);
         setMoviesDownloadingError(true);
         setIsWaitingDownloading(false);
+        console.log(`При загрузке данных с сервера произошла ошибка: ${err}`);
       });
   }
 
+  // Хук для отрисовки последнего поиска пользователя
   useEffect(() => {
-    watch('search') && handleSearchMovies();
+    const searchStr = localStorage.getItem('searchString') ?
+      localStorage.getItem('searchString') : false;
+    const readyMoviesCollection = localStorage.getItem('foundMovies') ?
+      JSON.parse(localStorage.getItem('foundMovies')) : false;
+
+    if (searchStr && readyMoviesCollection) {
+      setFoundMoviesList(readyMoviesCollection)
+      reset({
+        search: searchStr,
+      });
+      console.log('отработала запись из стораджа');
+    }
+  }, []);
+
+  function handleSearchSubmit() {
+    handleMoviesSearch(watch('search'), shortMoviesActive);
+  }
+
+  useEffect(() => {
+    if(watch('search') === localStorage.getItem('searchString')) {
+      handleSearchSubmit();
+    }
   }, [shortMoviesActive]);
 
 
@@ -48,7 +79,7 @@ function SearchString(
     name="moviesSearch"
     action="#"
     method="post"
-    onSubmit={handleSubmit(handleSearchMovies)}
+    onSubmit={handleSubmit(handleSearchSubmit)}
     noValidate
   >
     <input

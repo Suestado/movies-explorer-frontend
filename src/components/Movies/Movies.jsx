@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SearchBlock from './SearchBlock/SearchBlock';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
 import Preloader from './Preloader/Preloader';
@@ -6,10 +6,19 @@ import NotificationBox from './NotificationBox/NotificationBox';
 
 function Movies({ screenWidth }) {
   const [foundMoviesList, setFoundMoviesList] = useState([]);
-  const [shortMoviesActive, setShortMoviesActive] = useState(false); //TODO поравить потом на зависимость от стораджа
+  const [shortMoviesActive, setShortMoviesActive] = useState(
+    localStorage.getItem('checkboxStatus') ?
+      JSON.parse(localStorage.getItem('checkboxStatus')) :
+      false,
+  );
   const [isWaitingDownloading, setIsWaitingDownloading] = useState(false);
   const [moviesDownloadingError, setMoviesDownloadingError] = useState(false);
 
+  //---------------------
+  // useEffect(() => {
+  //   console.log('отработал мувис стейт');
+  // }, foundMoviesList)
+  //---------------------
 
   return <>
     <SearchBlock

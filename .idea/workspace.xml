@@ -3,11 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit: Реализована фильтрация по чекбоксу">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/FilterCheckbox/FilterCheckbox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/FilterCheckbox/FilterCheckbox.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Movies/FindMovies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/FindMovies.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/NotificationBox/NotificationBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/NotificationBox/NotificationBox.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchBlock/SearchBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchBlock/SearchBlock.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profole.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profole.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/Constants.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Constants.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +32,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

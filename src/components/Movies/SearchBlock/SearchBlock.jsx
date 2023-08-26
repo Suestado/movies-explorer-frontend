@@ -15,6 +15,7 @@ function SearchBlock(
     <SearchString
       setFoundMoviesList={setFoundMoviesList}
       shortMoviesActive={shortMoviesActive}
+      setShortMoviesActive={setShortMoviesActive}
       setIsWaitingDownloading={setIsWaitingDownloading}
       setMoviesDownloadingError={setMoviesDownloadingError}
     />
