@@ -54,6 +54,7 @@ function MoviesCardList(props) {
 
   // Проверка на существование скрытых фильмов в массиве с результатами
   function checkMoreMoviesExistence() {
+    console.log(props);
     return props.foundMoviesList.length > moviesOnPage;
   }
 

@@ -1,5 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { useLocation } from 'react-router-dom';
+import { CurrentUserContext } from '../../../context/CurrentUserContext.jsx';
 import { moviesSearchRegexp } from '../../../utils/Constants';
 import FindMovies from '../FindMovies';
 
@@ -25,42 +27,54 @@ function SearchString(
     },
   );
 
+  const { currentUserMovies } = useContext(CurrentUserContext);
+  const { pathname } = useLocation();
+
   // Общая функция для получения результатов поиска по фильмам
   // Управляет прелоадером и данными в локальном хранилище по последнему запросу
   // Загружает список пользовательских фильмов для установки состояния лайков и дальнейшего использования
   function handleMoviesSearch(searchStr, shortMoviesActive, readyMoviesCollection) {
-    setIsWaitingDownloading(true);
-    FindMovies.findMovies(watch('search'), shortMoviesActive, readyMoviesCollection)
-      .then((res) => {
-        setFoundMoviesList(res);
-        setIsWaitingDownloading(false);
+    if(pathname === '/movies') {
+      setIsWaitingDownloading(true);
+      FindMovies.findMovies(watch('search'), shortMoviesActive, readyMoviesCollection)
+        .then((res) => {
+          setFoundMoviesList(res);
+          setIsWaitingDownloading(false);
 
-        localStorage.setItem('searchString', watch('search'));
-        localStorage.setItem('checkboxStatus', JSON.stringify(shortMoviesActive));
-        localStorage.setItem('foundMovies', JSON.stringify(res));
-      })
-      .catch((err) => {
-        setMoviesDownloadingError(true);
-        setIsWaitingDownloading(false);
-        console.log(`При загрузке данных с сервера произошла ошибка: ${err}`);
-      });
+          localStorage.setItem('searchString', watch('search'));
+          localStorage.setItem('checkboxStatus', JSON.stringify(shortMoviesActive));
+          localStorage.setItem('foundMovies', JSON.stringify(res));
+        })
+        .catch((err) => {
+          setMoviesDownloadingError(true);
+          setIsWaitingDownloading(false);
+          console.log(`При загрузке данных с сервера произошла ошибка: ${err}`);
+        });
+    } else {
+      setFoundMoviesList(currentUserMovies)
+    }
+
   }
 
   // Хук для отрисовки последнего поиска пользователя
-  useEffect(() => {
-    const searchStr = localStorage.getItem('searchString') ?
-      localStorage.getItem('searchString') : false;
-    const readyMoviesCollection = localStorage.getItem('foundMovies') ?
-      JSON.parse(localStorage.getItem('foundMovies')) : false;
 
-    if (searchStr && readyMoviesCollection) {
-      setFoundMoviesList(readyMoviesCollection);
-      reset({
-        search: searchStr,
-      });
-      console.log('отработала запись из стораджа');
+  useEffect(() => {
+    if (pathname === '/movies') {
+      const searchStr = localStorage.getItem('searchString') ?
+        localStorage.getItem('searchString') : false;
+      const readyMoviesCollection = localStorage.getItem('foundMovies') ?
+        JSON.parse(localStorage.getItem('foundMovies')) : false;
+
+      if (searchStr && readyMoviesCollection) {
+        setFoundMoviesList(readyMoviesCollection);
+        reset({
+          search: searchStr,
+        });
+        console.log('отработала запись из стораджа');
+      }
     }
   }, []);
+
 
   function handleSearchSubmit() {
     handleMoviesSearch(watch('search'), shortMoviesActive);

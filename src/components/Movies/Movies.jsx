@@ -4,8 +4,14 @@ import MoviesCardList from './MoviesCardList/MoviesCardList';
 import Preloader from './Preloader/Preloader';
 import NotificationBox from './NotificationBox/NotificationBox';
 
-function Movies({ screenWidth, setCurrentUserMovies, getUserMoviesList }) {
-  const [foundMoviesList, setFoundMoviesList] = useState([]);
+function Movies(
+  {
+    screenWidth,
+    setCurrentUserMovies,
+    getUserMoviesList,
+    foundMoviesList,
+    setFoundMoviesList,
+  }) {
   const [shortMoviesActive, setShortMoviesActive] = useState(
     localStorage.getItem('checkboxStatus') ?
       JSON.parse(localStorage.getItem('checkboxStatus')) :
@@ -15,8 +21,8 @@ function Movies({ screenWidth, setCurrentUserMovies, getUserMoviesList }) {
   const [moviesDownloadingError, setMoviesDownloadingError] = useState(false);
 
   useEffect(() => {
-    getUserMoviesList()
-  }, [])
+    getUserMoviesList();
+  }, []);
 
   return <>
     <SearchBlock

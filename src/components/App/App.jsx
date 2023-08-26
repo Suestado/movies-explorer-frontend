@@ -20,6 +20,7 @@ function App() {
   const [currentUserMovies, setCurrentUserMovies] = useState([]);
   const [width, setWidth] = useState(window.innerWidth);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [foundMoviesList, setFoundMoviesList] = useState([]);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -115,6 +116,8 @@ function App() {
                          screenWidth={width}
                          setCurrentUserMovies={setCurrentUserMovies}
                          getUserMoviesList={getUserMoviesList}
+                         foundMoviesList={foundMoviesList}
+                         setFoundMoviesList={setFoundMoviesList}
                        />
                      </ContentBox>
                      <Footer/>
@@ -135,6 +138,7 @@ function App() {
                      <ContentBox>
                        <SavedMovies
                          screenWidth={width}
+                         foundMoviesList={foundMoviesList}
                        />
                      </ContentBox>
                      <Footer/>
