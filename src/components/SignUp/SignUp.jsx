@@ -7,7 +7,7 @@ function SignUp({ setIsLoggedIn }) {
       header="Добро пожаловать!"
       formName="signUpForm"
       submitText="Зарегистрироваться"
-      navigateTo="/signin"
+      navigateTo="/movies"
       setIsLoggedIn={setIsLoggedIn}
     />
   </>;

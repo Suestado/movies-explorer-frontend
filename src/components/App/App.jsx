@@ -54,7 +54,7 @@ function App() {
         }
       })
       .catch((err) => {
-        //TODO дописать обработку ошибки в запросе данных пользователя
+        console.log(`При проверке авторизации пользователя произошла ошибка: ${err}`);
       });
   }
 
@@ -137,6 +137,8 @@ function App() {
                      />
                      <Profile
                        setIsLoggedIn={setIsLoggedIn}
+                       currentUser={currentUser}
+                       setCurrentUser={setCurrentUser}
                      />
                    </>
                  }

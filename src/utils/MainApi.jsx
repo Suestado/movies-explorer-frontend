@@ -39,6 +39,17 @@ class MainApiClass extends Api {
     );
   }
 
+  updateUser(email, name) {
+    return this._request(
+      'PATCH',
+      this._userMePostfix,
+      JSON.stringify({
+        email: email,
+        name: name,
+      }),
+    )
+  }
+
   logOut() {
     return this._request(
       'GET',

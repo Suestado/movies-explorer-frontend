@@ -44,9 +44,9 @@ function AuthForm(props) {
       MainApi.signinUser(watch('email'), watch('password'))
         .then((res) => {
           props.setCurrentUser({
-            //TODO добавить ID юзера в глобальный стейт
             email: res.data.email,
             name: res.data.name,
+            userID: res.data._id,
           });
           props.setIsLoggedIn(true);
           navigate(props.navigateTo, { replace: true });

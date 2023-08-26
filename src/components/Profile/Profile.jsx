@@ -5,11 +5,14 @@ import { useForm } from 'react-hook-form';
 import { CurrentUserContext } from '../../context/CurrentUserContext.js';
 import { emailRegExp, userNameRegexp } from '../../utils/Constants';
 import MainApi from '../../utils/MainApi';
+import ProfileChangeConfirmation from '../Profile/ProfileChangeConfirmation/ProfileChangeConfirmation';
 
-function Profile({ setIsLoggedIn }) {
+function Profile({ setIsLoggedIn, currentUser, setCurrentUser }) {
   const currentUserContext = useContext(CurrentUserContext);
   const [isChangeUserData, setIsChangeUserData] = useState(false);
   const [isInputDiff, setIsInputDiff] = useState(false);
+  const [confirmPopupOpened, setConfirmPopupOpened] = useState(false);
+  const [errorWhileUpdating, setErrorWhileUpdating] = useState(false);
 
   useEffect(() => {
     reset({
@@ -41,7 +44,7 @@ function Profile({ setIsLoggedIn }) {
         setIsInputDiff(false);
       }
     });
-  }, [watch]);
+  }, [watch, isChangeUserData, currentUser]);
 
   function handleChangeUserData() {
     setIsChangeUserData(!isChangeUserData);
@@ -50,7 +53,30 @@ function Profile({ setIsLoggedIn }) {
   function handleLogOut() {
     MainApi.logOut();
     localStorage.clear();
-    setIsLoggedIn(false)
+    setIsLoggedIn(false);
+  }
+
+  function handleSubmitForm() {
+    MainApi.updateUser(watch('email'), watch('name'))
+      .then((user) => {
+        setCurrentUser({
+            id: user._id,
+            name: user.name,
+            email: user.email,
+          });
+        setConfirmPopupOpened(true);
+      })
+      .catch((err) => {
+        setErrorWhileUpdating(true);
+        setConfirmPopupOpened(true);
+        console.log(`При обновлении профиля произошла ошибка: ${err}`);
+      });
+  }
+
+  function onClosePopup() {
+    setConfirmPopupOpened(false);
+    setErrorWhileUpdating(false);
+    setIsChangeUserData(false);
   }
 
 
@@ -62,6 +88,7 @@ function Profile({ setIsLoggedIn }) {
       method="post"
       name="profileForm"
       noValidate
+      onSubmit={handleSubmit(handleSubmitForm)}
     >
       <h2 className="profile__header">Привет, {currentUserContext.name}!</h2>
       <fieldset className="profile__dataSet">
@@ -149,6 +176,7 @@ function Profile({ setIsLoggedIn }) {
       <button
         className={`profile__submit ${(isValid && isInputDiff) && 'profile__submit_enabled'}`}
         type="submit"
+        form="profileForm"
         value="Сохранить"
         name="submitForm"
         id="submitForm"
@@ -161,6 +189,13 @@ function Profile({ setIsLoggedIn }) {
       >Назад</p>
     </span>
     }
+
+    <ProfileChangeConfirmation
+      confirmPopupOpened={confirmPopupOpened}
+      setConfirmPopupOpened={setConfirmPopupOpened}
+      errorWhileUpdating={errorWhileUpdating}
+      onClosePopup={onClosePopup}
+    />
   </section>;
 }
 
