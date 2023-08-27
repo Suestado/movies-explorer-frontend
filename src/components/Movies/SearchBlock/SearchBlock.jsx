@@ -8,16 +8,20 @@ function SearchBlock(
     setShortMoviesActive,
     setIsWaitingDownloading,
     setMoviesDownloadingError,
+    likedMoviesList,
+    setLikedMoviesList
   },
 ) {
 
   return <section className="searchBlock">
     <SearchString
-      setFoundMoviesList={setFoundMoviesList}
       shortMoviesActive={shortMoviesActive}
       setShortMoviesActive={setShortMoviesActive}
       setIsWaitingDownloading={setIsWaitingDownloading}
       setMoviesDownloadingError={setMoviesDownloadingError}
+      likedMoviesList={likedMoviesList}
+      setFoundMoviesList={setFoundMoviesList}
+      setLikedMoviesList={setLikedMoviesList}
     />
     <FilterCheckbox
       text="Короткометражки"

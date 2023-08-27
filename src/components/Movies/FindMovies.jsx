@@ -52,22 +52,17 @@ class FindMoviesClass {
       return this._filteredByNameMovies;
     }
 
-    if (searchStr === this._searchStr && shortMoviesActive) {
-      if (this._filteredShortMovies.length > 0) {
-        return this._filteredShortMovies;
-      } else {
-        this._sortShortMovies();
-        return this._filteredShortMovies;
-      }
+    if (shortMoviesActive) {
+      console.log('сработало');
+      this._sortShortMovies();
+      return this._filteredShortMovies;
     }
 
     if (readyMoviesCollection) {
-      console.log(readyMoviesCollection);
       shortMoviesActive ?
         this._filteredShortMovies = readyMoviesCollection :
         this._fullMoviesList = readyMoviesCollection;
 
-      console.log('данные в функции поиска', this._filteredShortMovies);
     } else {
       await this._downloadAllMovies();
     }

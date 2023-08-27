@@ -46,8 +46,11 @@ function AuthForm(props) {
           props.setCurrentUser({
             email: res.data.email,
             name: res.data.name,
-            userID: res.data._id,
+            id: res.data._id,
           });
+
+        })
+        .then(() => {
           props.setIsLoggedIn(true);
           navigate(props.navigateTo, { replace: true });
         })

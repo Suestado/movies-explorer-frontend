@@ -21,9 +21,28 @@ function App() {
   const [width, setWidth] = useState(window.innerWidth);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [foundMoviesList, setFoundMoviesList] = useState([]);
+  const [likedMoviesList, setLikedMoviesList] = useState([]);
+  const [isWaitingDownloading, setIsWaitingDownloading] = useState(false);
+  const [shortMoviesActive, setShortMoviesActive] = useState(
+    localStorage.getItem('checkboxStatus') ?
+      JSON.parse(localStorage.getItem('checkboxStatus')) :
+      false,
+  );
 
   const location = useLocation();
   const navigate = useNavigate();
+
+  //------------------------------
+
+
+  //------------------------------
+
+
+
+  useEffect(() => {
+    getUserMoviesList();
+  }, []);
+
   useEffect(() => {
     const handleResize = (event) => {
       setWidth(event.target.innerWidth);
@@ -37,6 +56,18 @@ function App() {
   useEffect(() => {
     checkUserLoggedIn();
   }, []);
+
+  // Функция для загрузки пользовательских фильмов
+  // Используется для правильной установки лайков и страницы saved-movies
+  function getUserMoviesList() {
+    MainApi.getUserMovies()
+      .then((movies) => {
+        setCurrentUserMovies(movies)
+      })
+      .catch((err) => {
+        console.log(`При загрузке списка фильмов пользователя произошла ошибка: ${err}`);
+      });
+  }
 
   function checkUserLoggedIn() {
     MainApi.findUserMe()
@@ -59,20 +90,6 @@ function App() {
         console.log(`При проверке авторизации пользователя произошла ошибка: ${err}`);
       });
   }
-
-  // Функция для загрузки пользовательских фильмов
-  // Используется для правильной установки лайков и страницы saved-movies
-  function getUserMoviesList() {
-    MainApi.getUserMovies()
-      .then((movies) => {
-        console.log(movies); //TODO убрать
-        setCurrentUserMovies(movies);
-      })
-      .catch((err) => {
-        console.log(`При загрузке списка фильмов пользователя произошла ошибка: ${err}`);
-      });
-  }
-
 
   return <CurrentUserContext.Provider value={{ currentUser, currentUserMovies }}>
     <Routes>
@@ -118,6 +135,10 @@ function App() {
                          getUserMoviesList={getUserMoviesList}
                          foundMoviesList={foundMoviesList}
                          setFoundMoviesList={setFoundMoviesList}
+                         isWaitingDownloading={isWaitingDownloading}
+                         setIsWaitingDownloading={setIsWaitingDownloading}
+                         shortMoviesActive={shortMoviesActive}
+                         setShortMoviesActive={setShortMoviesActive}
                        />
                      </ContentBox>
                      <Footer/>
@@ -137,8 +158,15 @@ function App() {
                      />
                      <ContentBox>
                        <SavedMovies
+                         currentUserMovies={currentUserMovies}
+                         setCurrentUserMovies={setCurrentUserMovies}
                          screenWidth={width}
-                         foundMoviesList={foundMoviesList}
+                         getUserMoviesList={getUserMoviesList}
+                         setIsWaitingDownloading={setIsWaitingDownloading}
+                         shortMoviesActive={shortMoviesActive}
+                         setShortMoviesActive={setShortMoviesActive}
+                         likedMoviesList={likedMoviesList}
+                         setLikedMoviesList={setLikedMoviesList}
                        />
                      </ContentBox>
                      <Footer/>

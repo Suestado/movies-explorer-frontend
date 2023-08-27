@@ -7,11 +7,14 @@ import FindMovies from '../FindMovies';
 
 function SearchString(
   {
+    foundMoviesList,
     setFoundMoviesList,
     shortMoviesActive,
     setShortMoviesActive,
     setIsWaitingDownloading,
     setMoviesDownloadingError,
+    likedMoviesList,
+    setLikedMoviesList,
   }) {
   const {
     register,
@@ -34,7 +37,7 @@ function SearchString(
   // Управляет прелоадером и данными в локальном хранилище по последнему запросу
   // Загружает список пользовательских фильмов для установки состояния лайков и дальнейшего использования
   function handleMoviesSearch(searchStr, shortMoviesActive, readyMoviesCollection) {
-    if(pathname === '/movies') {
+    if (pathname === '/movies') {
       setIsWaitingDownloading(true);
       FindMovies.findMovies(watch('search'), shortMoviesActive, readyMoviesCollection)
         .then((res) => {
@@ -50,8 +53,14 @@ function SearchString(
           setIsWaitingDownloading(false);
           console.log(`При загрузке данных с сервера произошла ошибка: ${err}`);
         });
-    } else {
-      setFoundMoviesList(currentUserMovies)
+    }
+
+    if (pathname === '/saved-movies') {
+      FindMovies.findMovies(watch('search'), shortMoviesActive, currentUserMovies)
+        .then((res) => {
+          setLikedMoviesList(res);
+          setIsWaitingDownloading(false);
+        });
     }
 
   }
@@ -70,7 +79,8 @@ function SearchString(
         reset({
           search: searchStr,
         });
-        console.log('отработала запись из стораджа');
+      } else {
+        setFoundMoviesList([]);
       }
     }
   }, []);
@@ -81,9 +91,12 @@ function SearchString(
   }
 
   useEffect(() => {
+
     if (watch('search') === localStorage.getItem('searchString')) {
       handleSearchSubmit();
     }
+
+    handleSearchSubmit();
   }, [shortMoviesActive]);
 
 

@@ -11,18 +11,14 @@ function Movies(
     getUserMoviesList,
     foundMoviesList,
     setFoundMoviesList,
+    isWaitingDownloading,
+    setIsWaitingDownloading,
+    shortMoviesActive,
+    setShortMoviesActive
   }) {
-  const [shortMoviesActive, setShortMoviesActive] = useState(
-    localStorage.getItem('checkboxStatus') ?
-      JSON.parse(localStorage.getItem('checkboxStatus')) :
-      false,
-  );
-  const [isWaitingDownloading, setIsWaitingDownloading] = useState(false);
-  const [moviesDownloadingError, setMoviesDownloadingError] = useState(false);
 
-  useEffect(() => {
-    getUserMoviesList();
-  }, []);
+
+  const [moviesDownloadingError, setMoviesDownloadingError] = useState(false);
 
   return <>
     <SearchBlock

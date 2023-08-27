@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { useLocation } from 'react-router-dom';
+import { CurrentUserContext } from '../../../context/CurrentUserContext.jsx';
 import MovieCard from '../MoviesCard/MoviesCard';
 
 function MoviesCardList(props) {
@@ -6,6 +8,9 @@ function MoviesCardList(props) {
   const [moviesOnPage, setMoviesOnPage] = useState(0);
   const [thereIsMoreMovies, setThereIsMoreMovies] = useState(false);
   const [movieListReady, setMovieListReady] = useState(false);
+
+  const { pathname } = useLocation();
+  const { currentUserMovies } = useContext(CurrentUserContext);
 
   useEffect(() => {
     setMoviesOnPage(setNumberOfMovies());
@@ -16,13 +21,26 @@ function MoviesCardList(props) {
   }, [moviesOnPage, movieList]);
 
   useEffect(() => {
-    setMovieList(props.foundMoviesList?.slice(0, moviesOnPage));
-    setMovieListReady(true);
-  }, [props.foundMoviesList, moviesOnPage]);
+    if (pathname === '/movies') {
+      setMovieList(props.foundMoviesList?.slice(0, moviesOnPage));
+      setMovieListReady(true);
+    }
+
+    if (pathname === '/saved-movies') {
+      setMovieList(currentUserMovies);
+      setMovieListReady(true);
+    }
+
+  }, [props.foundMoviesList, currentUserMovies, moviesOnPage]);
 
   // Устанавливает начальное кол-во фильмов в выдаче в зависимости от ширины экрана
   function setNumberOfMovies() {
     let startMoviesQuantity;
+
+    if (pathname === '/saved-movies') {
+      startMoviesQuantity = props.likedMoviesList.length;
+      return;
+    }
 
     if (props.screenWidth > 768) {
       startMoviesQuantity = 16;
@@ -54,8 +72,9 @@ function MoviesCardList(props) {
 
   // Проверка на существование скрытых фильмов в массиве с результатами
   function checkMoreMoviesExistence() {
-    console.log(props);
-    return props.foundMoviesList.length > moviesOnPage;
+    if (pathname === '/movies') {
+      return props.foundMoviesList.length > moviesOnPage;
+    }
   }
 
   return <>
@@ -63,7 +82,7 @@ function MoviesCardList(props) {
       {movieList?.map((movie) => {
         return (
           <MovieCard
-            key={movie.id}
+            key={movie.id || movie._id}
             movieItem={movie}
             setCurrentUserMovies={props.setCurrentUserMovies}
           />);

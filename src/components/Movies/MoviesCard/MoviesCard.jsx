@@ -12,6 +12,11 @@ function MovieCard({ movieItem, setCurrentUserMovies }) {
     currentUserMovies.forEach((movie) => {
       movie.movieId === movieItem.id && setIsMovieLiked(true);
     });
+
+    //--------------------------
+
+
+    //--------------------------
   }, []);
 
   function convertTime(duration) {
@@ -36,7 +41,7 @@ function MovieCard({ movieItem, setCurrentUserMovies }) {
       movieItem.trailerLink,
       movieItem.nameRU,
       movieItem.nameEN,
-      `https://api.nomoreparties.co${movieItem.image.formats.thumbnail.url}`,
+      movieItem.image.formats.thumbnail.url,
       movieItem.id,
     )
       .then((movie) => {
@@ -71,7 +76,7 @@ function MovieCard({ movieItem, setCurrentUserMovies }) {
   return <article className="movie">
     <img
       className="movie__picture"
-      src={`https://api.nomoreparties.co${movieItem.image.formats.thumbnail.url || movieItem.thumbnail}`}
+      src={`https://api.nomoreparties.co${movieItem.image?.formats?.thumbnail?.url || movieItem.thumbnail}`}
       alt={movieItem.nameRU}
       onClick={handleImgClick}
     />
