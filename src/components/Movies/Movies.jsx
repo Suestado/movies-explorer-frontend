@@ -6,15 +6,15 @@ import NotificationBox from './NotificationBox/NotificationBox';
 
 function Movies(
   {
+    isLoggedIn,
     screenWidth,
     setCurrentUserMovies,
-    getUserMoviesList,
     foundMoviesList,
     setFoundMoviesList,
     isWaitingDownloading,
     setIsWaitingDownloading,
     shortMoviesActive,
-    setShortMoviesActive
+    setShortMoviesActive,
   }) {
 
 
@@ -22,6 +22,8 @@ function Movies(
 
   return <>
     <SearchBlock
+      isLoggedIn={isLoggedIn}
+      foundMoviesList={foundMoviesList}
       setFoundMoviesList={setFoundMoviesList}
       shortMoviesActive={shortMoviesActive}
       setShortMoviesActive={setShortMoviesActive}

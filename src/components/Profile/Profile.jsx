@@ -51,7 +51,9 @@ function Profile({ setIsLoggedIn, setCurrentUser }) {
 
   function handleLogOut() {
     MainApi.logOut();
-    localStorage.clear();
+    localStorage.removeItem('checkboxStatus');
+    localStorage.removeItem('foundMovies');
+    localStorage.removeItem('searchString');
     setIsLoggedIn(false);
   }
 

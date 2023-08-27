@@ -7,6 +7,7 @@ import FindMovies from '../FindMovies';
 
 function SearchString(
   {
+    isLoggedIn,
     foundMoviesList,
     setFoundMoviesList,
     shortMoviesActive,
@@ -40,13 +41,10 @@ function SearchString(
     if (pathname === '/movies') {
       setIsWaitingDownloading(true);
       FindMovies.findMovies(watch('search'), shortMoviesActive, readyMoviesCollection)
-        .then((res) => {
-          setFoundMoviesList(res);
+        .then((movies) => {
+          setFoundMoviesList(movies);
           setIsWaitingDownloading(false);
 
-          localStorage.setItem('searchString', watch('search'));
-          localStorage.setItem('checkboxStatus', JSON.stringify(shortMoviesActive));
-          localStorage.setItem('foundMovies', JSON.stringify(res));
         })
         .catch((err) => {
           setMoviesDownloadingError(true);
@@ -57,16 +55,34 @@ function SearchString(
 
     if (pathname === '/saved-movies') {
       FindMovies.findMovies(watch('search'), shortMoviesActive, currentUserMovies)
-        .then((res) => {
-          setLikedMoviesList(res);
+        .then((movies) => {
+          setLikedMoviesList(movies);
           setIsWaitingDownloading(false);
         });
     }
 
   }
 
-  // Хук для отрисовки последнего поиска пользователя
+  function handleSearchSubmit() {
+    if (pathname === '/movies') {
+      handleMoviesSearch(watch('search'), shortMoviesActive);
+    }
+    if (pathname === '/saved-movies') {
+      handleMoviesSearch(watch('search'), shortMoviesActive, likedMoviesList);
+    }
+  }
 
+  useEffect(() => {
+    if (pathname === '/movies') {
+      setFoundMoviesList(FindMovies.toggleCheckbox(shortMoviesActive));
+    }
+    if (pathname === '/saved-movies') {
+      setLikedMoviesList(FindMovies.toggleCheckbox(shortMoviesActive));
+    }
+  }, [shortMoviesActive]);
+
+
+  // Хук для отрисовки последнего поиска пользователя
   useEffect(() => {
     if (pathname === '/movies') {
       const searchStr = localStorage.getItem('searchString') ?
@@ -75,6 +91,7 @@ function SearchString(
         JSON.parse(localStorage.getItem('foundMovies')) : false;
 
       if (searchStr && readyMoviesCollection) {
+
         setFoundMoviesList(readyMoviesCollection);
         reset({
           search: searchStr,
@@ -83,21 +100,8 @@ function SearchString(
         setFoundMoviesList([]);
       }
     }
-  }, []);
+  }, [isLoggedIn]);
 
-
-  function handleSearchSubmit() {
-    handleMoviesSearch(watch('search'), shortMoviesActive);
-  }
-
-  useEffect(() => {
-
-    if (watch('search') === localStorage.getItem('searchString')) {
-      handleSearchSubmit();
-    }
-
-    handleSearchSubmit();
-  }, [shortMoviesActive]);
 
 
   return <form

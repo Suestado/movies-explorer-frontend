@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { CurrentUserContext } from '../../../context/CurrentUserContext.jsx';
 import MovieCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList(props) {
+function MoviesCardList({ foundMoviesList, likedMoviesList, setCurrentUserMovies, ...props }) {
   const [movieList, setMovieList] = useState([]);
   const [moviesOnPage, setMoviesOnPage] = useState(0);
   const [thereIsMoreMovies, setThereIsMoreMovies] = useState(false);
@@ -22,7 +22,7 @@ function MoviesCardList(props) {
 
   useEffect(() => {
     if (pathname === '/movies') {
-      setMovieList(props.foundMoviesList?.slice(0, moviesOnPage));
+      setMovieList(foundMoviesList?.slice(0, moviesOnPage));
       setMovieListReady(true);
     }
 
@@ -31,14 +31,14 @@ function MoviesCardList(props) {
       setMovieListReady(true);
     }
 
-  }, [props.foundMoviesList, currentUserMovies, moviesOnPage]);
+  }, [foundMoviesList, currentUserMovies, moviesOnPage, likedMoviesList]);
 
   // Устанавливает начальное кол-во фильмов в выдаче в зависимости от ширины экрана
   function setNumberOfMovies() {
     let startMoviesQuantity;
 
     if (pathname === '/saved-movies') {
-      startMoviesQuantity = props.likedMoviesList.length;
+      startMoviesQuantity = likedMoviesList.length;
       return;
     }
 
@@ -73,7 +73,7 @@ function MoviesCardList(props) {
   // Проверка на существование скрытых фильмов в массиве с результатами
   function checkMoreMoviesExistence() {
     if (pathname === '/movies') {
-      return props.foundMoviesList.length > moviesOnPage;
+      return foundMoviesList.length > moviesOnPage;
     }
   }
 
@@ -84,7 +84,7 @@ function MoviesCardList(props) {
           <MovieCard
             key={movie.id || movie._id}
             movieItem={movie}
-            setCurrentUserMovies={props.setCurrentUserMovies}
+            setCurrentUserMovies={setCurrentUserMovies}
           />);
       })}
     </section>

@@ -33,14 +33,21 @@ function App() {
   const navigate = useNavigate();
 
   //------------------------------
-
-
+useEffect(() => {
+  console.log(foundMoviesList);
+},[foundMoviesList])
   //------------------------------
 
-
-
+  // Функция для загрузки пользовательских фильмов
+  // Используется для правильной установки лайков и страницы saved-movies
   useEffect(() => {
-    getUserMoviesList();
+    MainApi.getUserMovies()
+      .then((movies) => {
+        setCurrentUserMovies(movies)
+      })
+      .catch((err) => {
+        console.log(`При загрузке списка фильмов пользователя произошла ошибка: ${err}`);
+      });
   }, []);
 
   useEffect(() => {
@@ -57,17 +64,6 @@ function App() {
     checkUserLoggedIn();
   }, []);
 
-  // Функция для загрузки пользовательских фильмов
-  // Используется для правильной установки лайков и страницы saved-movies
-  function getUserMoviesList() {
-    MainApi.getUserMovies()
-      .then((movies) => {
-        setCurrentUserMovies(movies)
-      })
-      .catch((err) => {
-        console.log(`При загрузке списка фильмов пользователя произошла ошибка: ${err}`);
-      });
-  }
 
   function checkUserLoggedIn() {
     MainApi.findUserMe()
@@ -130,9 +126,9 @@ function App() {
                      />
                      <ContentBox>
                        <Movies
+                         isLoggedIn={isLoggedIn}
                          screenWidth={width}
                          setCurrentUserMovies={setCurrentUserMovies}
-                         getUserMoviesList={getUserMoviesList}
                          foundMoviesList={foundMoviesList}
                          setFoundMoviesList={setFoundMoviesList}
                          isWaitingDownloading={isWaitingDownloading}
@@ -161,7 +157,6 @@ function App() {
                          currentUserMovies={currentUserMovies}
                          setCurrentUserMovies={setCurrentUserMovies}
                          screenWidth={width}
-                         getUserMoviesList={getUserMoviesList}
                          setIsWaitingDownloading={setIsWaitingDownloading}
                          shortMoviesActive={shortMoviesActive}
                          setShortMoviesActive={setShortMoviesActive}

@@ -8,7 +8,6 @@ function SavedMovies(
     currentUserMovies,
     setCurrentUserMovies,
     screenWidth,
-    getUserMoviesList,
     setIsWaitingDownloading,
     shortMoviesActive,
     setShortMoviesActive,
@@ -17,12 +16,6 @@ function SavedMovies(
   }) {
 
   const { currentUser } = useContext(CurrentUserContext);
-
-  useEffect(() => {
-    setCurrentUserMovies(currentUserMovies.filter((movie) => {
-      return movie.owner === currentUser.id
-    }))
-  }, [])
 
   return <>
     <SearchBlock
@@ -35,7 +28,6 @@ function SavedMovies(
     <MoviesCardList
       savedMoviesDirectory={true}
       screenWidth={screenWidth}
-      getUserMoviesList={getUserMoviesList}
       likedMoviesList={likedMoviesList}
     />
   </>;
