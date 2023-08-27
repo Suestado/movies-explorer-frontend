@@ -6,7 +6,7 @@ import { emailRegExp, userNameRegexp } from '../../utils/Constants';
 import MainApi from '../../utils/MainApi';
 import ProfileChangeConfirmation from '../Profile/ProfileChangeConfirmation/ProfileChangeConfirmation';
 
-function Profile({ setIsLoggedIn, setCurrentUser }) {
+function Profile({ setCurrentUser, handleLogOut }) {
   const { currentUser } = useContext(CurrentUserContext);
   const [isChangeUserData, setIsChangeUserData] = useState(false);
   const [isInputDiff, setIsInputDiff] = useState(false);
@@ -49,14 +49,6 @@ function Profile({ setIsLoggedIn, setCurrentUser }) {
     setIsChangeUserData(!isChangeUserData);
   }
 
-  function handleLogOut() {
-    MainApi.logOut();
-    localStorage.removeItem('checkboxStatus');
-    localStorage.removeItem('foundMovies');
-    localStorage.removeItem('searchString');
-    setIsLoggedIn(false);
-  }
-
   function handleSubmitForm() {
     MainApi.updateUser(watch('email'), watch('name'))
       .then((user) => {
@@ -79,7 +71,6 @@ function Profile({ setIsLoggedIn, setCurrentUser }) {
     setErrorWhileUpdating(false);
     setIsChangeUserData(false);
   }
-
 
   return <section className="profile">
     <form

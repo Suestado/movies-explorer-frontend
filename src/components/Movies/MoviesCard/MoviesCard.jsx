@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { CurrentUserContext } from '../../../context/CurrentUserContext.jsx';
 import MainApi from '../../../utils/MainApi';
 
-function MovieCard({ movieItem, setCurrentUserMovies }) {
+function MovieCard({ movieItem, setCurrentUserMovies, setProcessingMovieLike }) {
   const [isMovieLiked, setIsMovieLiked] = useState(false);
   const { pathname } = useLocation();
   const { currentUserMovies } = useContext(CurrentUserContext);
@@ -12,11 +12,6 @@ function MovieCard({ movieItem, setCurrentUserMovies }) {
     currentUserMovies.forEach((movie) => {
       movie.movieId === movieItem.id && setIsMovieLiked(true);
     });
-
-    //--------------------------
-
-
-    //--------------------------
   }, []);
 
   function convertTime(duration) {
@@ -31,6 +26,7 @@ function MovieCard({ movieItem, setCurrentUserMovies }) {
   }
 
   function handleLike() {
+    setProcessingMovieLike(true);
     MainApi.saveLikedMovie(
       movieItem.country,
       movieItem.director,
@@ -47,6 +43,7 @@ function MovieCard({ movieItem, setCurrentUserMovies }) {
       .then((movie) => {
         setIsMovieLiked(!isMovieLiked);
         currentUserMovies.push(movie);
+        setProcessingMovieLike(false);
       })
       .catch((err) => {
         console.log(`При установке лайка произошла ошибка: ${err}`);
@@ -54,14 +51,21 @@ function MovieCard({ movieItem, setCurrentUserMovies }) {
   }
 
   function handleDislike() {
-    const cardId = currentUserMovies.filter((movie) => {
-      return movie.movieId === movieItem.id
+    setProcessingMovieLike(true);
+    const cardId = movieItem._id || currentUserMovies.filter((movie) => {
+      return movie.movieId === movieItem.id;
     })[0]._id;
 
     MainApi.deleteLikedMovie(cardId)
       .then(() => {
-        setIsMovieLiked(false)
-        setCurrentUserMovies(currentUserMovies.filter((movie) => movie._id !== cardId))
+        setCurrentUserMovies(currentUserMovies.filter((movie) => movie._id !== cardId));
+      })
+      .then(() => {
+        setIsMovieLiked(false);
+        setProcessingMovieLike(false);
+      })
+      .catch((err) => {
+        console.log(`При удалении фильма произошла ошибка: ${err}`);
       });
   }
 
@@ -71,6 +75,10 @@ function MovieCard({ movieItem, setCurrentUserMovies }) {
     } else {
       handleDislike();
     }
+  }
+
+  function handleMovieUnlike() {
+    handleDislike();
   }
 
   return <article className="movie">
@@ -89,6 +97,7 @@ function MovieCard({ movieItem, setCurrentUserMovies }) {
         onClick={handleMovieLike}
       /> : <button
         className="movie__delete"
+        onClick={handleMovieUnlike}
       />
       }
     </div>

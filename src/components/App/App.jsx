@@ -18,24 +18,21 @@ import MainApi from '../../utils/MainApi';
 function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [currentUserMovies, setCurrentUserMovies] = useState([]);
+
   const [width, setWidth] = useState(window.innerWidth);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const [foundMoviesList, setFoundMoviesList] = useState([]);
   const [likedMoviesList, setLikedMoviesList] = useState([]);
   const [isWaitingDownloading, setIsWaitingDownloading] = useState(false);
-  const [shortMoviesActive, setShortMoviesActive] = useState(
-    localStorage.getItem('checkboxStatus') ?
-      JSON.parse(localStorage.getItem('checkboxStatus')) :
-      false,
-  );
 
   const location = useLocation();
   const navigate = useNavigate();
 
   //------------------------------
-useEffect(() => {
-  console.log(foundMoviesList);
-},[foundMoviesList])
+  useEffect(() => {
+    console.log(currentUserMovies);
+  }, [currentUserMovies]);
   //------------------------------
 
   // Функция для загрузки пользовательских фильмов
@@ -43,7 +40,7 @@ useEffect(() => {
   useEffect(() => {
     MainApi.getUserMovies()
       .then((movies) => {
-        setCurrentUserMovies(movies)
+        setCurrentUserMovies(movies);
       })
       .catch((err) => {
         console.log(`При загрузке списка фильмов пользователя произошла ошибка: ${err}`);
@@ -78,13 +75,22 @@ useEffect(() => {
           setIsLoggedIn(true);
           navigate(location.pathname, { replace: true });
         } else {
-          localStorage.clear();
-          setIsLoggedIn(false);
+          handleLogOut();
         }
       })
       .catch((err) => {
         console.log(`При проверке авторизации пользователя произошла ошибка: ${err}`);
       });
+  }
+
+  function handleLogOut() {
+    MainApi.logOut();
+    localStorage.removeItem('checkboxStatus');
+    localStorage.removeItem('foundMovies');
+    localStorage.removeItem('filteredByNameMovies');
+    localStorage.removeItem('filteredShortMovies');
+    console.log(localStorage);
+    setIsLoggedIn(false);
   }
 
   return <CurrentUserContext.Provider value={{ currentUser, currentUserMovies }}>
@@ -126,15 +132,12 @@ useEffect(() => {
                      />
                      <ContentBox>
                        <Movies
-                         isLoggedIn={isLoggedIn}
                          screenWidth={width}
                          setCurrentUserMovies={setCurrentUserMovies}
                          foundMoviesList={foundMoviesList}
                          setFoundMoviesList={setFoundMoviesList}
                          isWaitingDownloading={isWaitingDownloading}
                          setIsWaitingDownloading={setIsWaitingDownloading}
-                         shortMoviesActive={shortMoviesActive}
-                         setShortMoviesActive={setShortMoviesActive}
                        />
                      </ContentBox>
                      <Footer/>
@@ -158,8 +161,6 @@ useEffect(() => {
                          setCurrentUserMovies={setCurrentUserMovies}
                          screenWidth={width}
                          setIsWaitingDownloading={setIsWaitingDownloading}
-                         shortMoviesActive={shortMoviesActive}
-                         setShortMoviesActive={setShortMoviesActive}
                          likedMoviesList={likedMoviesList}
                          setLikedMoviesList={setLikedMoviesList}
                        />
@@ -180,8 +181,8 @@ useEffect(() => {
                        screenWidth={width}
                      />
                      <Profile
-                       setIsLoggedIn={setIsLoggedIn}
                        setCurrentUser={setCurrentUser}
+                       handleLogOut={handleLogOut}
                      />
                    </>
                  }

@@ -3,14 +3,21 @@ import { useLocation } from 'react-router-dom';
 import { CurrentUserContext } from '../../../context/CurrentUserContext.jsx';
 import MovieCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList({ foundMoviesList, likedMoviesList, setCurrentUserMovies, ...props }) {
+function MoviesCardList(
+  {
+    foundMoviesList,
+    currentUserMovies,
+    setCurrentUserMovies,
+    displayedMovies,
+    ...props
+  }) {
   const [movieList, setMovieList] = useState([]);
   const [moviesOnPage, setMoviesOnPage] = useState(0);
   const [thereIsMoreMovies, setThereIsMoreMovies] = useState(false);
   const [movieListReady, setMovieListReady] = useState(false);
+  const [processingMovieLike, setProcessingMovieLike] = useState(false);
 
   const { pathname } = useLocation();
-  const { currentUserMovies } = useContext(CurrentUserContext);
 
   useEffect(() => {
     setMoviesOnPage(setNumberOfMovies());
@@ -21,24 +28,16 @@ function MoviesCardList({ foundMoviesList, likedMoviesList, setCurrentUserMovies
   }, [moviesOnPage, movieList]);
 
   useEffect(() => {
-    if (pathname === '/movies') {
-      setMovieList(foundMoviesList?.slice(0, moviesOnPage));
-      setMovieListReady(true);
-    }
-
-    if (pathname === '/saved-movies') {
-      setMovieList(currentUserMovies);
-      setMovieListReady(true);
-    }
-
-  }, [foundMoviesList, currentUserMovies, moviesOnPage, likedMoviesList]);
+    setMovieList(displayedMovies?.slice(0, moviesOnPage));
+    setMovieListReady(true);
+  }, [displayedMovies, moviesOnPage, currentUserMovies, processingMovieLike]);
 
   // Устанавливает начальное кол-во фильмов в выдаче в зависимости от ширины экрана
   function setNumberOfMovies() {
     let startMoviesQuantity;
 
     if (pathname === '/saved-movies') {
-      startMoviesQuantity = likedMoviesList.length;
+      startMoviesQuantity = currentUserMovies.length;
       return;
     }
 
@@ -73,7 +72,7 @@ function MoviesCardList({ foundMoviesList, likedMoviesList, setCurrentUserMovies
   // Проверка на существование скрытых фильмов в массиве с результатами
   function checkMoreMoviesExistence() {
     if (pathname === '/movies') {
-      return foundMoviesList.length > moviesOnPage;
+      return displayedMovies.length > moviesOnPage;
     }
   }
 
@@ -85,6 +84,7 @@ function MoviesCardList({ foundMoviesList, likedMoviesList, setCurrentUserMovies
             key={movie.id || movie._id}
             movieItem={movie}
             setCurrentUserMovies={setCurrentUserMovies}
+            setProcessingMovieLike={setProcessingMovieLike}
           />);
       })}
     </section>
@@ -97,7 +97,6 @@ function MoviesCardList({ foundMoviesList, likedMoviesList, setCurrentUserMovies
     </div>
     {}
   </>;
-
 }
 
 export default MoviesCardList;
