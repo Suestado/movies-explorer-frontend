@@ -1,6 +1,6 @@
 import MainSection from '../MainSection/MainSection';
 import Portfolio from '../Portfolio/Portfolio';
-import mainAvatar from '../../../images/pic__COLOR_pic.svg';
+import mainAvatar from '../../../images/pic__COLOR_pic.jpg';
 
 function AboutMe({ sectionHeader, addSectionClass, coreClass }) {
   return <MainSection
