@@ -52,6 +52,6 @@ class FindMoviesClass {
   }
 }
 
-const FindMovies = new FindMoviesClass;
+const FindMovies = new FindMoviesClass();
 
 export default FindMovies;

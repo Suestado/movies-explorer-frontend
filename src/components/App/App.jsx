@@ -21,7 +21,6 @@ function App() {
 
   const [width, setWidth] = useState(window.innerWidth);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isWaitingDownloading, setIsWaitingDownloading] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -111,8 +110,6 @@ function App() {
                        <Movies
                          screenWidth={width}
                          setCurrentUserMovies={setCurrentUserMovies}
-                         isWaitingDownloading={isWaitingDownloading}
-                         setIsWaitingDownloading={setIsWaitingDownloading}
                        />
                      </ContentBox>
                      <Footer/>
@@ -134,7 +131,6 @@ function App() {
                        <SavedMovies
                          setCurrentUserMovies={setCurrentUserMovies}
                          screenWidth={width}
-                         setIsWaitingDownloading={setIsWaitingDownloading}
                        />
                      </ContentBox>
                      <Footer/>

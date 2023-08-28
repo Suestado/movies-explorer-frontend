@@ -8,8 +8,6 @@ function Movies(
   {
     screenWidth,
     setCurrentUserMovies,
-    isWaitingDownloading,
-    setIsWaitingDownloading,
   }) {
 
   const [shortMoviesActive, setShortMoviesActive] = useState(
@@ -19,6 +17,7 @@ function Movies(
   );
   const [moviesDownloadingError, setMoviesDownloadingError] = useState(false);
   const [displayedMovies, setDisplayedMovies] = useState([]);
+  const [isWaitingDownloading, setIsWaitingDownloading] = useState(false);
 
   const isLoadingTriggered = useRef(false);
 

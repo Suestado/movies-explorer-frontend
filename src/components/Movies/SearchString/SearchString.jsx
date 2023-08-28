@@ -34,8 +34,6 @@ function SearchString(
   let currentSearchString = localStorage.getItem('searchString') || '';
   let filteredByNameMovies = localStorage.getItem('filteredByNameMovies') ?
     JSON.parse(localStorage.getItem('filteredByNameMovies')) : [];
-  let filteredShortMovies = localStorage.getItem('filteredShortMovies') ?
-    JSON.parse(localStorage.getItem('filteredShortMovies')) : [];
 
   // Хук для отрисовки последнего поиска пользователя
   useEffect(() => {
@@ -69,16 +67,23 @@ function SearchString(
         })
         .catch((err) => {
           setMoviesDownloadingError(true);
+          isLoadingTriggered.current = true;
           setIsWaitingDownloading(false);
           console.log(`При загрузке данных с сервера произошла ошибка: ${err}`);
         });
     }
 
     if (pathname === '/saved-movies') {
+      setIsWaitingDownloading(true);
       FindMovies.findMovies(watch('search'), currentUserMovies)
         .then((movies) => {
           setDisplayedMovies(movies);
           setIsWaitingDownloading(false);
+        })
+        .catch((err) => {
+          setMoviesDownloadingError(true);
+          setIsWaitingDownloading(false);
+          console.log(`При загрузке данных с сервера произошла ошибка: ${err}`);
         });
     }
   }

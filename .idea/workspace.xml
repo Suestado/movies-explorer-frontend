@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fit:">
+    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fix: Поправлена реализация пустой выдачи на странице с сохраненными фильмами">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/FilterCheckbox/FilterCheckbox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/FilterCheckbox/FilterCheckbox.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/FindMovies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/FindMovies.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/Movies.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MovieCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MovieCard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MoviesCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MoviesCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchBlock/SearchBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchBlock/SearchBlock.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SavedMovies/SavedMovies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SavedMovies/SavedMovies.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/FindMovies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/FindMovies.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693146656031</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fit: Готовый функционал Version 1">
+      <created>1693253935681</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1693253935681</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,6 +300,8 @@
     <MESSAGE value="fix: Исправлены ошибки поиска" />
     <MESSAGE value="fit: Реализована индивидуальная выдача сохрененных фильмов" />
     <MESSAGE value="fit:" />
-    <option name="LAST_COMMIT_MESSAGE" value="fit:" />
+    <MESSAGE value="fit: Готовый функционал Version 1" />
+    <MESSAGE value="fix: Поправлена реализация пустой выдачи на странице с сохраненными фильмами" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Поправлена реализация пустой выдачи на странице с сохраненными фильмами" />
   </component>
 </project>
