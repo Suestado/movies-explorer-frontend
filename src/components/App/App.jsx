@@ -21,41 +21,20 @@ function App() {
 
   const [width, setWidth] = useState(window.innerWidth);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const [foundMoviesList, setFoundMoviesList] = useState([]);
-  const [likedMoviesList, setLikedMoviesList] = useState([]);
   const [isWaitingDownloading, setIsWaitingDownloading] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  //------------------------------
-  useEffect(() => {
-    console.log(currentUserMovies);
-  }, [currentUserMovies]);
-  //------------------------------
-
-  // Функция для загрузки пользовательских фильмов
-  // Используется для правильной установки лайков и страницы saved-movies
-  useEffect(() => {
-    MainApi.getUserMovies()
-      .then((movies) => {
-        setCurrentUserMovies(movies);
-      })
-      .catch((err) => {
-        console.log(`При загрузке списка фильмов пользователя произошла ошибка: ${err}`);
-      });
-  }, []);
-
   useEffect(() => {
     const handleResize = (event) => {
       setWidth(event.target.innerWidth);
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize',  handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [width]);
 
   useEffect(() => {
     checkUserLoggedIn();
@@ -86,10 +65,8 @@ function App() {
   function handleLogOut() {
     MainApi.logOut();
     localStorage.removeItem('checkboxStatus');
-    localStorage.removeItem('foundMovies');
+    localStorage.removeItem('searchString');
     localStorage.removeItem('filteredByNameMovies');
-    localStorage.removeItem('filteredShortMovies');
-    console.log(localStorage);
     setIsLoggedIn(false);
   }
 
@@ -134,8 +111,6 @@ function App() {
                        <Movies
                          screenWidth={width}
                          setCurrentUserMovies={setCurrentUserMovies}
-                         foundMoviesList={foundMoviesList}
-                         setFoundMoviesList={setFoundMoviesList}
                          isWaitingDownloading={isWaitingDownloading}
                          setIsWaitingDownloading={setIsWaitingDownloading}
                        />
@@ -157,12 +132,9 @@ function App() {
                      />
                      <ContentBox>
                        <SavedMovies
-                         currentUserMovies={currentUserMovies}
                          setCurrentUserMovies={setCurrentUserMovies}
                          screenWidth={width}
                          setIsWaitingDownloading={setIsWaitingDownloading}
-                         likedMoviesList={likedMoviesList}
-                         setLikedMoviesList={setLikedMoviesList}
                        />
                      </ContentBox>
                      <Footer/>

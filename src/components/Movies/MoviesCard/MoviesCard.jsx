@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { CurrentUserContext } from '../../../context/CurrentUserContext.jsx';
 import MainApi from '../../../utils/MainApi';
 
-function MovieCard({ movieItem, setCurrentUserMovies, setProcessingMovieLike }) {
+function MovieCard({ movieItem, setCurrentUserMovies }) {
   const [isMovieLiked, setIsMovieLiked] = useState(false);
   const { pathname } = useLocation();
   const { currentUserMovies } = useContext(CurrentUserContext);
@@ -26,7 +26,6 @@ function MovieCard({ movieItem, setCurrentUserMovies, setProcessingMovieLike }) 
   }
 
   function handleLike() {
-    setProcessingMovieLike(true);
     MainApi.saveLikedMovie(
       movieItem.country,
       movieItem.director,
@@ -43,7 +42,6 @@ function MovieCard({ movieItem, setCurrentUserMovies, setProcessingMovieLike }) 
       .then((movie) => {
         setIsMovieLiked(!isMovieLiked);
         currentUserMovies.push(movie);
-        setProcessingMovieLike(false);
       })
       .catch((err) => {
         console.log(`При установке лайка произошла ошибка: ${err}`);
@@ -51,18 +49,16 @@ function MovieCard({ movieItem, setCurrentUserMovies, setProcessingMovieLike }) 
   }
 
   function handleDislike() {
-    setProcessingMovieLike(true);
     const cardId = movieItem._id || currentUserMovies.filter((movie) => {
       return movie.movieId === movieItem.id;
     })[0]._id;
 
     MainApi.deleteLikedMovie(cardId)
-      .then(() => {
+      .then((movie) => {
         setCurrentUserMovies(currentUserMovies.filter((movie) => movie._id !== cardId));
       })
       .then(() => {
         setIsMovieLiked(false);
-        setProcessingMovieLike(false);
       })
       .catch((err) => {
         console.log(`При удалении фильма произошла ошибка: ${err}`);

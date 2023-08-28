@@ -1,24 +1,16 @@
 .moviesCardList {
-  display: none;
+  display: grid;
   margin: 0;
   padding: 70px 70px 80px;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   grid-gap: 32px 20px;
 }
 
-.moviesCardList_active {
-  display: grid;
-}
-
 .moreMovies {
-  display: none;
+  display: flex;
   margin: 0;
   padding: 0 70px 80px;
   justify-content: center;
-}
-
-.moreMovies_active {
-  display: flex;
 }
 
 .moreMovies__button {

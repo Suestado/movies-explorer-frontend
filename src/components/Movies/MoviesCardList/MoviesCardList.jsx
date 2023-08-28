@@ -2,55 +2,44 @@ import { useState, useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { CurrentUserContext } from '../../../context/CurrentUserContext.jsx';
 import MovieCard from '../MoviesCard/MoviesCard';
+import FindMovies from '../../../utils/FindMovies';
 
 function MoviesCardList(
   {
-    foundMoviesList,
-    currentUserMovies,
+    screenWidth,
     setCurrentUserMovies,
     displayedMovies,
-    ...props
+    shortMoviesActive,
   }) {
-  const [movieList, setMovieList] = useState([]);
+
   const [moviesOnPage, setMoviesOnPage] = useState(0);
-  const [thereIsMoreMovies, setThereIsMoreMovies] = useState(false);
-  const [movieListReady, setMovieListReady] = useState(false);
-  const [processingMovieLike, setProcessingMovieLike] = useState(false);
 
   const { pathname } = useLocation();
+  const { currentUserMovies } = useContext(CurrentUserContext);
+  const isMoreButtonActive = displayedMovies.length > moviesOnPage;
+  const isMoviesExist = displayedMovies.length > 0;
+  const filteredByRadioBtnMovies = shortMoviesActive ?
+    FindMovies.sortShortMovies(displayedMovies) : displayedMovies;
+
 
   useEffect(() => {
     setMoviesOnPage(setNumberOfMovies());
-  }, []);
+  }, [currentUserMovies, screenWidth]);
 
-  useEffect(() => {
-    setThereIsMoreMovies(checkMoreMoviesExistence());
-  }, [moviesOnPage, movieList]);
-
-  useEffect(() => {
-    setMovieList(displayedMovies?.slice(0, moviesOnPage));
-    setMovieListReady(true);
-  }, [displayedMovies, moviesOnPage, currentUserMovies, processingMovieLike]);
 
   // Устанавливает начальное кол-во фильмов в выдаче в зависимости от ширины экрана
   function setNumberOfMovies() {
-    let startMoviesQuantity;
-
     if (pathname === '/saved-movies') {
-      startMoviesQuantity = currentUserMovies.length;
-      return;
+      return currentUserMovies.length;
     }
 
-    if (props.screenWidth > 768) {
-      startMoviesQuantity = 16;
-    } else if (props.screenWidth < 480) {
-      startMoviesQuantity = 5;
+    if (screenWidth > 768) {
+      return 16;
+    } else if (screenWidth < 480) {
+      return 5;
     } else {
-      startMoviesQuantity = 8;
+      return 8;
     }
-
-    setMoviesOnPage(startMoviesQuantity);
-    return startMoviesQuantity;
   }
 
   // Устанавливает значение, на которое будет увеличиваться кол-во фильмов
@@ -58,44 +47,42 @@ function MoviesCardList(
   function showMoreMovies() {
     let moreMovies;
 
-    if (props.screenWidth > 768) {
+    if (screenWidth > 768) {
       moreMovies = 4;
-    } else if (props.screenWidth < 480) {
+    } else if (screenWidth < 480) {
       moreMovies = 2;
     } else {
       moreMovies = 2;
     }
 
-    setMoviesOnPage(moviesOnPage + moreMovies);
-  }
-
-  // Проверка на существование скрытых фильмов в массиве с результатами
-  function checkMoreMoviesExistence() {
-    if (pathname === '/movies') {
-      return displayedMovies.length > moviesOnPage;
-    }
+    setMoviesOnPage((prevMoviesOnPage) => moviesOnPage + moreMovies);
   }
 
   return <>
-    <section className={`moviesCardList ${movieListReady && 'moviesCardList_active'}`}>
-      {movieList?.map((movie) => {
-        return (
-          <MovieCard
-            key={movie.id || movie._id}
-            movieItem={movie}
-            setCurrentUserMovies={setCurrentUserMovies}
-            setProcessingMovieLike={setProcessingMovieLike}
-          />);
-      })}
-    </section>
-    <div className={`moreMovies ${(movieListReady && thereIsMoreMovies) && 'moreMovies_active'}`}>
-      <button
-        className="moreMovies__button"
-        onClick={showMoreMovies}
-      >Ещё
-      </button>
-    </div>
-    {}
+    {
+      isMoviesExist &&
+      <section className="moviesCardList">
+        {filteredByRadioBtnMovies?.slice(0, moviesOnPage)?.map((movie) => {
+          return (
+            <MovieCard
+              key={movie.id || movie._id}
+              movieItem={movie}
+              setCurrentUserMovies={setCurrentUserMovies}
+            />);
+        })}
+      </section>
+    }
+
+    {
+      isMoreButtonActive &&
+      <div className="moreMovies">
+        <button
+          className="moreMovies__button"
+          onClick={showMoreMovies}
+        >Ещё
+        </button>
+      </div>
+    }
   </>;
 }
 

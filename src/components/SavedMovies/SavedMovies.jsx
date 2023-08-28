@@ -1,40 +1,40 @@
-import { useContext, useState } from 'react';
-import { CurrentUserContext } from '../../context/CurrentUserContext.jsx';
+import { useState, useEffect } from 'react';
 import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList';
 import SearchBlock from '../Movies/SearchBlock/SearchBlock';
+import MainApi from '../../utils/MainApi';
 
 function SavedMovies(
   {
-    currentUserMovies,
     setCurrentUserMovies,
     screenWidth,
     setIsWaitingDownloading,
-    likedMoviesList,
-    setLikedMoviesList,
   }) {
 
   const [shortMoviesActive, setShortMoviesActive] = useState(false);
-//-------
   const [displayedMovies, setDisplayedMovies] = useState([]);
-  const { currentUser } = useContext(CurrentUserContext);
+
+  useEffect(() => {
+    MainApi.getUserMovies()
+      .then((movies) => {
+        setCurrentUserMovies(movies);
+      })
+      .catch((err) => {
+        console.log(`При загрузке списка фильмов пользователя произошла ошибка: ${err}`);
+      });
+  }, []);
 
   return <>
     <SearchBlock
-      setIsWaitingDownloading={setIsWaitingDownloading}
       shortMoviesActive={shortMoviesActive}
       setShortMoviesActive={setShortMoviesActive}
-      likedMoviesList={likedMoviesList}
-      setLikedMoviesList={setLikedMoviesList}
-      displayedMovies={displayedMovies}
+      setIsWaitingDownloading={setIsWaitingDownloading}
       setDisplayedMovies={setDisplayedMovies}
     />
     <MoviesCardList
-      currentUserMovies={currentUserMovies}
-      savedMoviesDirectory={true}
       screenWidth={screenWidth}
-      likedMoviesList={likedMoviesList}
-      displayedMovies={displayedMovies}
       setCurrentUserMovies={setCurrentUserMovies}
+      displayedMovies={displayedMovies}
+      shortMoviesActive={shortMoviesActive}
     />
   </>;
 }

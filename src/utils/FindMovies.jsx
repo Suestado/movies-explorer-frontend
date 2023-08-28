@@ -1,10 +1,10 @@
-import MoviesApi from '../../utils/MoviesApi';
+import MoviesApi from './MoviesApi';
 import {
   shortMoviesDuration,
   rusName,
   enName,
   movieDuration,
-} from '../../utils/Constants';
+} from './Constants';
 
 class FindMoviesClass {
   constructor() {
@@ -34,37 +34,21 @@ class FindMoviesClass {
     return this._filteredByNameMovies;
   }
 
-  _handleFilterMovies(searchStr, shortMoviesActive) {
-    if (!shortMoviesActive) {
-      return {
-        sortedMovies: this._sortMoviesByName(searchStr),
-        shortMovies: [],
-      };
-    } else {
-      this._sortMoviesByName(searchStr);
-
-      return {
-        sortedMovies: this._filteredByNameMovies,
-        shortMovies: this.sortShortMovies(this._filteredByNameMovies),
-      };
-    }
-  }
-
-  sortShortMovies(filteredByNameMovies) {
-    return filteredByNameMovies.filter((movie) => {
+  sortShortMovies(moviesList) {
+    return moviesList.filter((movie) => {
       return movie[movieDuration] <= shortMoviesDuration;
     });
   }
 
-  async findMovies(searchStr, shortMoviesActive, readyMoviesCollection) {
+  async findMovies(searchStr, readyMoviesCollection) {
 
     if (readyMoviesCollection) {
       this._fullMoviesList = readyMoviesCollection;
-      return this._handleFilterMovies(searchStr, shortMoviesActive);
+      return this._sortMoviesByName(searchStr);
     }
 
     await this._downloadAllMovies();
-    return this._handleFilterMovies(searchStr, shortMoviesActive);
+    return this._sortMoviesByName(searchStr);
   }
 }
 

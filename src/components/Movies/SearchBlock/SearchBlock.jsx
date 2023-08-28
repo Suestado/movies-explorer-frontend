@@ -3,31 +3,22 @@ import SearchString from '../SearchString/SearchString';
 
 function SearchBlock(
   {
-    foundMoviesList,
-    setFoundMoviesList,
     shortMoviesActive,
     setShortMoviesActive,
     setIsWaitingDownloading,
     setMoviesDownloadingError,
-    likedMoviesList,
-    setLikedMoviesList,
-    displayedMovies,
-    setDisplayedMovies
+    setDisplayedMovies,
+    isLoadingTriggered
   },
 ) {
 
   return <section className="searchBlock">
     <SearchString
-      foundMoviesList={foundMoviesList}
       shortMoviesActive={shortMoviesActive}
-      setShortMoviesActive={setShortMoviesActive}
       setIsWaitingDownloading={setIsWaitingDownloading}
       setMoviesDownloadingError={setMoviesDownloadingError}
-      likedMoviesList={likedMoviesList}
-      setFoundMoviesList={setFoundMoviesList}
-      setLikedMoviesList={setLikedMoviesList}
-      displayedMovies={displayedMovies}
       setDisplayedMovies={setDisplayedMovies}
+      isLoadingTriggered={isLoadingTriggered}
     />
     <FilterCheckbox
       text="Короткометражки"

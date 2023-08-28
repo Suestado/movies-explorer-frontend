@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import SearchBlock from './SearchBlock/SearchBlock';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
 import Preloader from './Preloader/Preloader';
@@ -8,8 +8,6 @@ function Movies(
   {
     screenWidth,
     setCurrentUserMovies,
-    foundMoviesList,
-    setFoundMoviesList,
     isWaitingDownloading,
     setIsWaitingDownloading,
   }) {
@@ -20,31 +18,30 @@ function Movies(
       false,
   );
   const [moviesDownloadingError, setMoviesDownloadingError] = useState(false);
-  //------
   const [displayedMovies, setDisplayedMovies] = useState([]);
+
+  const isLoadingTriggered = useRef(false);
 
   return <>
     <SearchBlock
-      foundMoviesList={foundMoviesList}
-      setFoundMoviesList={setFoundMoviesList}
       shortMoviesActive={shortMoviesActive}
       setShortMoviesActive={setShortMoviesActive}
       setIsWaitingDownloading={setIsWaitingDownloading}
       setMoviesDownloadingError={setMoviesDownloadingError}
-      displayedMovies={displayedMovies}
       setDisplayedMovies={setDisplayedMovies}
+      isLoadingTriggered={isLoadingTriggered}
     />
 
     {isWaitingDownloading && <Preloader/>}
     {(!isWaitingDownloading && displayedMovies.length > 0) &&
       <MoviesCardList
-        foundMoviesList={displayedMovies}
         screenWidth={screenWidth}
         setCurrentUserMovies={setCurrentUserMovies}
         displayedMovies={displayedMovies}
+        shortMoviesActive={shortMoviesActive}
       />
     }
-    {(!isWaitingDownloading && displayedMovies.length === 0) &&
+    {(!isWaitingDownloading && isLoadingTriggered.current && displayedMovies.length === 0) &&
       <NotificationBox
         moviesDownloadingError={moviesDownloadingError}
       />}

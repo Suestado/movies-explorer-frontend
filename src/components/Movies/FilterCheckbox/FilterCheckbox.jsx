@@ -2,7 +2,7 @@ function FilterCheckbox({ text, shortMoviesActive, setShortMoviesActive }) {
 
   function handleCheckboxChecked() {
     localStorage.setItem('checkboxStatus', JSON.stringify(!shortMoviesActive));
-    setShortMoviesActive(!shortMoviesActive)
+    setShortMoviesActive(!shortMoviesActive);
   }
 
   return <div className="filterCheckbox">
@@ -11,8 +11,8 @@ function FilterCheckbox({ text, shortMoviesActive, setShortMoviesActive }) {
              className="filterCheckbox__checkbox"
              checked={shortMoviesActive}
              onChange={() => {
-               handleCheckboxChecked()
-                            }}
+               handleCheckboxChecked();
+             }}
       />
       <span className="filterCheckbox__checkboxCover"></span>
     </label>
