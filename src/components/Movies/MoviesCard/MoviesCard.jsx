@@ -22,7 +22,8 @@ function MovieCard({ movieItem, setCurrentUserMovies }) {
   }
 
   function handleImgClick() {
-    window.location.href = movieItem.trailerLink;
+    // window.location.href = movieItem.trailerLink;
+    window.open(movieItem.trailerLink, '_blank')
   }
 
   function handleLike() {
@@ -54,7 +55,7 @@ function MovieCard({ movieItem, setCurrentUserMovies }) {
     })[0]._id;
 
     MainApi.deleteLikedMovie(cardId)
-      .then((movie) => {
+      .then(() => {
         setCurrentUserMovies(currentUserMovies.filter((movie) => movie._id !== cardId));
       })
       .then(() => {

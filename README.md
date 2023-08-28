@@ -6,8 +6,8 @@
 
 Макет - dark 5
 
-IP-адрес 158.160.117.113
+IP-адрес 84.252.128.21
 
-Frontend -
+Frontend - https://suestado-diploma.nomoredomains.xyz
 
-Backend https://api.suestado-diploma.nomoredomains.xyz
+Backend - https://api.suestado-diploma.nomoredomains.xyz
