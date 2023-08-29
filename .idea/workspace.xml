@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fix: Обновлен README">
+    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fix: Оптимизированы изображения">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/AboutMe/AboutMe.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/AboutMe/AboutMe.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/AboutMe/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/AboutMe/AboutMe.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/pic__COLOR_pic.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693257763628</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fix: Оптимизированы изображения">
+      <created>1693260470204</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1693260470204</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,6 +320,7 @@
     <MESSAGE value="fit: Готовый функционал Version 1" />
     <MESSAGE value="fix: Поправлена реализация пустой выдачи на странице с сохраненными фильмами" />
     <MESSAGE value="fix: Обновлен README" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: Обновлен README" />
+    <MESSAGE value="fix: Оптимизированы изображения" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Оптимизированы изображения" />
   </component>
 </project>

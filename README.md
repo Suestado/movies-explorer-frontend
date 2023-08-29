@@ -11,3 +11,5 @@ IP-адрес 84.252.128.21
 Frontend - https://suestado-diploma.nomoredomains.xyz
 
 Backend - https://api.suestado-diploma.nomoredomains.xyz
+
+Pull request - https://github.com/Suestado/movies-explorer-frontend/pull/2
