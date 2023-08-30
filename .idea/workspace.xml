@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fix: Отредактирован поиск на людое вхождение строки в название фильма. Исправлен роутинг на главную страницу">
+    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fix: Поправлена ошибка с активной кнопкой профайла после первого изменения данных пользователя.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/FindMovies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/FindMovies.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693408925913</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="fix: Поправлена ошибка с активной кнопкой профайла после первого изменения данных пользователя.">
+      <created>1693412174330</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1693412174330</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,7 +318,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fit: Собран Header и Promo блок" />
     <MESSAGE value="fit: Собрана промо-страница" />
     <MESSAGE value="fit: Собрана хедер и навигация для страницы с фильмами" />
     <MESSAGE value="fit: Собрана страница с фильмами и страница с данными о пользователе" />
@@ -337,6 +342,7 @@
     <MESSAGE value="fix: Оптимизированы изображения" />
     <MESSAGE value="fix: Отредактирован файл README" />
     <MESSAGE value="fix: Отредактирован поиск на людое вхождение строки в название фильма. Исправлен роутинг на главную страницу" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: Отредактирован поиск на людое вхождение строки в название фильма. Исправлен роутинг на главную страницу" />
+    <MESSAGE value="fix: Поправлена ошибка с активной кнопкой профайла после первого изменения данных пользователя." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Поправлена ошибка с активной кнопкой профайла после первого изменения данных пользователя." />
   </component>
 </project>

@@ -23,8 +23,8 @@ function MoviesCardList(
 
 
   useEffect(() => {
-    setMoviesOnPage(setNumberOfMovies());
-  }, [currentUserMovies, screenWidth]);
+    setMoviesOnPage(setNumberOfMovies);
+  }, [screenWidth]);
 
 
   // Устанавливает начальное кол-во фильмов в выдаче в зависимости от ширины экрана
@@ -55,7 +55,7 @@ function MoviesCardList(
       moreMovies = 2;
     }
 
-    setMoviesOnPage((prevMoviesOnPage) => moviesOnPage + moreMovies);
+    setMoviesOnPage((prevMoviesOnPage) => prevMoviesOnPage + moreMovies);
   }
 
   return <>

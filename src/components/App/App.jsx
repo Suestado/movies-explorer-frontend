@@ -33,7 +33,7 @@ function App() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [width]);
+  }, []);
 
   useEffect(() => {
     checkUserLoggedIn();
