@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fix: Оптимизированы изображения">
+    <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fix: Отредактирован файл README">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProtectedRoute.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProtectedRoute.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Constants.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Constants.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/FindMovies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/FindMovies.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="level-3-savedMuvies" />
+        <entry key="$PROJECT_DIR$" value="level-3" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -278,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693260470204</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fix: Отредактирован файл README">
+      <created>1693337263893</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1693337263893</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +306,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fit: Базовая сборка проекта CRA" />
     <MESSAGE value="fit: Собрана структура проекта, созданы файлы под базовые компоненты" />
     <MESSAGE value="fit: Собран Header и Promo блок" />
     <MESSAGE value="fit: Собрана промо-страница" />
@@ -321,6 +330,7 @@
     <MESSAGE value="fix: Поправлена реализация пустой выдачи на странице с сохраненными фильмами" />
     <MESSAGE value="fix: Обновлен README" />
     <MESSAGE value="fix: Оптимизированы изображения" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: Оптимизированы изображения" />
+    <MESSAGE value="fix: Отредактирован файл README" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Отредактирован файл README" />
   </component>
 </project>

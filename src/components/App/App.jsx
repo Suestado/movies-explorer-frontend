@@ -29,7 +29,7 @@ function App() {
     const handleResize = (event) => {
       setWidth(event.target.innerWidth);
     };
-    window.addEventListener('resize',  handleResize);
+    window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -62,11 +62,17 @@ function App() {
   }
 
   function handleLogOut() {
-    MainApi.logOut();
-    localStorage.removeItem('checkboxStatus');
-    localStorage.removeItem('searchString');
-    localStorage.removeItem('filteredByNameMovies');
-    setIsLoggedIn(false);
+    MainApi.logOut()
+      .then(() => {
+        localStorage.removeItem('checkboxStatus');
+        localStorage.removeItem('searchString');
+        localStorage.removeItem('filteredByNameMovies');
+        navigate('/', { replace: true });
+        setIsLoggedIn(false);
+      })
+      .catch((err) => {
+        console.log(`При выходе из аккаунта пользователя произошла ошибка: ${err}`);
+      });
   }
 
   return <CurrentUserContext.Provider value={{ currentUser, currentUserMovies }}>
