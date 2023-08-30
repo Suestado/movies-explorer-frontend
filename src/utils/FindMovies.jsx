@@ -19,14 +19,6 @@ class FindMoviesClass {
       });
   }
 
-  _handleByWordSearch(searchStr, targetArr) {
-    targetArr.forEach((word) => {
-      if (word.indexOf(searchStr) >= 0) {
-        return true;
-      }
-    });
-  }
-
   _sortMoviesByName(searchStr) {
     const targetWords = searchStr.toLowerCase().split(' ');
 
@@ -37,15 +29,7 @@ class FindMoviesClass {
       const arrForSearch = [...rusNameArr, ...enNameArr];
 
       return targetWords.reduce(function (included, searchWord) {
-        let searchResult = false;
-
-        arrForSearch.forEach((word) => {
-          if(word.indexOf(searchWord) >= 0) {
-            searchResult = true
-          }
-        })
-
-        return included || searchResult;
+        return included || arrForSearch.some((word) => word.indexOf(searchWord) >= 0)
       }, false);
     });
 

@@ -8,6 +8,7 @@ import MainApi from '../../utils/MainApi';
 
 function AuthForm(props) {
   const [isAuthError, setIsAuthError] = useState(false);
+  const [isAuthChecking, setIsAuthChecking] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -27,17 +28,21 @@ function AuthForm(props) {
 
   function processAuthErr(err) {
     setIsAuthError(true);
+    setIsAuthChecking(false);
     console.log(`Произошла ошибка при аутентефикации пользователя - ${err}`);
   }
 
   function handleSubmitForm() {
     setIsAuthError(false);
+    setIsAuthChecking(true);
 
     if (pathname === '/signup') {
+
       MainApi.signupUser(watch('email'), watch('password'), watch('name'))
         .then(() => {
           props.setIsLoggedIn(true);
           navigate(props.navigateTo, { replace: true });
+          setIsAuthChecking(false);
         })
         .catch(processAuthErr);
     } else {
@@ -53,6 +58,7 @@ function AuthForm(props) {
         .then(() => {
           props.setIsLoggedIn(true);
           navigate(props.navigateTo, { replace: true });
+          setIsAuthChecking(false);
         })
         .catch(processAuthErr);
     }
@@ -167,9 +173,9 @@ function AuthForm(props) {
       </label>
 
       <button
-        className={`authForm__submitBtn ${!isValid && 'authForm__submitBtn_inactive'}`}
+        className={`authForm__submitBtn ${(!isValid || isAuthChecking) && 'authForm__submitBtn_inactive'}`}
         type="submit"
-        disabled={!isValid}
+        disabled={!isValid || isAuthChecking}
         id={`submit-${props.formName}`}
         name={`submit-${props.formName}`
         }

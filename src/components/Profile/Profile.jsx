@@ -9,16 +9,18 @@ import ProfileChangeConfirmation from '../Profile/ProfileChangeConfirmation/Prof
 function Profile({ setCurrentUser, handleLogOut }) {
   const { currentUser } = useContext(CurrentUserContext);
   const [isChangeUserData, setIsChangeUserData] = useState(false);
+  const [isAuthChecking, setIsAuthChecking] = useState(false);
   const [isInputDiff, setIsInputDiff] = useState(false);
   const [confirmPopupOpened, setConfirmPopupOpened] = useState(false);
   const [errorWhileUpdating, setErrorWhileUpdating] = useState(false);
+
 
   useEffect(() => {
     reset({
       name: currentUser.name,
       email: currentUser.email,
     });
-  }, []);
+  }, [confirmPopupOpened]);
 
   const {
     register,
@@ -36,6 +38,7 @@ function Profile({ setCurrentUser, handleLogOut }) {
   );
 
   useEffect(() => {
+
     watch((name) => {
       if (name.name !== currentUser.name || name.email !== currentUser.email) {
         setIsInputDiff(true);
@@ -43,13 +46,15 @@ function Profile({ setCurrentUser, handleLogOut }) {
         setIsInputDiff(false);
       }
     });
-  }, [watch, isChangeUserData, currentUser]);
+  }, [isChangeUserData, confirmPopupOpened]);
 
   function handleChangeUserData() {
     setIsChangeUserData(!isChangeUserData);
   }
 
   function handleSubmitForm() {
+    setIsAuthChecking(true);
+
     MainApi.updateUser(watch('email'), watch('name'))
       .then((user) => {
         setCurrentUser({
@@ -58,6 +63,8 @@ function Profile({ setCurrentUser, handleLogOut }) {
           email: user.email,
         });
         setConfirmPopupOpened(true);
+        setIsAuthChecking(false);
+        setIsChangeUserData(false);
       })
       .catch((err) => {
         setErrorWhileUpdating(true);
@@ -70,6 +77,7 @@ function Profile({ setCurrentUser, handleLogOut }) {
     setConfirmPopupOpened(false);
     setErrorWhileUpdating(false);
     setIsChangeUserData(false);
+    setIsAuthChecking(false);
   }
 
   return <section className="profile">
@@ -166,13 +174,13 @@ function Profile({ setCurrentUser, handleLogOut }) {
 
     {isChangeUserData && <span className="profile__submitWrapper">
       <button
-        className={`profile__submit ${(isValid && isInputDiff) && 'profile__submit_enabled'}`}
+        className={`profile__submit ${(isValid && isInputDiff && !isAuthChecking) && 'profile__submit_enabled'}`}
         type="submit"
         form="profileForm"
         value="Сохранить"
         name="submitForm"
         id="submitForm"
-        disabled={!isValid}
+        disabled={!isValid || !isInputDiff || isAuthChecking}
       >Сохранить
       </button>
       <p
