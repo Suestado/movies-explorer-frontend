@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
-import { userNameRegexp, emailRegExp } from '../../utils/Constants';
+import { USER_NAME_REGEXP, EMAIL_REGEXP } from '../../utils/Constants';
 import MainApi from '../../utils/MainApi';
 
 function AuthForm(props) {
@@ -32,29 +32,34 @@ function AuthForm(props) {
     console.log(`Произошла ошибка при аутентефикации пользователя - ${err}`);
   }
 
+  function signInUser(email, password) {
+    return MainApi.signinUser(email, password)
+      .then((res) => {
+        props.setCurrentUser({
+          email: res.data.email,
+          name: res.data.name,
+          id: res.data._id,
+        });
+      });
+  }
+
   function handleSubmitForm() {
     setIsAuthError(false);
     setIsAuthChecking(true);
 
     if (pathname === '/signup') {
-
       MainApi.signupUser(watch('email'), watch('password'), watch('name'))
-        .then(() => {
-          props.setIsLoggedIn(true);
-          navigate(props.navigateTo, { replace: true });
-          setIsAuthChecking(false);
+        .then((user) => {
+          signInUser(user.email, watch('password'))
+            .then(() => {
+              props.setIsLoggedIn(true);
+              navigate(props.navigateTo, { replace: true });
+              setIsAuthChecking(false);
+            });
         })
         .catch(processAuthErr);
     } else {
-      MainApi.signinUser(watch('email'), watch('password'))
-        .then((res) => {
-          props.setCurrentUser({
-            email: res.data.email,
-            name: res.data.name,
-            id: res.data._id,
-          });
-
-        })
+      signInUser(watch('email'), watch('password'))
         .then(() => {
           props.setIsLoggedIn(true);
           navigate(props.navigateTo, { replace: true });
@@ -100,7 +105,7 @@ function AuthForm(props) {
                   message: 'Текст должен содержать не менее 2-х символов',
                 },
                 pattern: {
-                  value: userNameRegexp,
+                  value: USER_NAME_REGEXP,
                   message: 'Поле должно содержать только латиницу, кириллицу, пробел или дефис',
                 },
               },
@@ -133,7 +138,7 @@ function AuthForm(props) {
                 message: 'Текст должен содержать не менее 2-х символов',
               },
               pattern: {
-                value: emailRegExp,
+                value: EMAIL_REGEXP,
                 message: 'Введите корректный адресс электронной почты',
               },
             },

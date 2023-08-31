@@ -1,9 +1,9 @@
 import MoviesApi from './MoviesApi';
 import {
-  shortMoviesDuration,
-  rusName,
-  enName,
-  movieDuration,
+  SHORT_MOVIES_DURATION,
+  RUS_NAME,
+  EN_NAME,
+  MOVIE_DURATION,
 } from './Constants';
 
 class FindMoviesClass {
@@ -23,13 +23,13 @@ class FindMoviesClass {
     const targetWords = searchStr.toLowerCase().split(' ');
 
     this._filteredByNameMovies = this._fullMoviesList.filter((movie) => {
-      const rusNameArr = movie[rusName].toLowerCase().replace(/[^\d\sA-ZА-ЯË]/gi, '').split(' ');
-      const enNameArr = movie[enName].toLowerCase().replace(/[^\d\sA-ZА-ЯË]/gi, '').split(' ');
+      const rusNameArr = movie[RUS_NAME].toLowerCase().replace(/[^\d\sA-ZА-ЯË]/gi, '').split(' ');
+      const enNameArr = movie[EN_NAME].toLowerCase().replace(/[^\d\sA-ZА-ЯË]/gi, '').split(' ');
 
       const arrForSearch = [...rusNameArr, ...enNameArr];
 
       return targetWords.reduce(function (included, searchWord) {
-        return included || arrForSearch.some((word) => word.indexOf(searchWord) >= 0)
+        return included || arrForSearch.some((word) => word.indexOf(searchWord) >= 0);
       }, false);
     });
 
@@ -38,7 +38,7 @@ class FindMoviesClass {
 
   sortShortMovies(moviesList) {
     return moviesList.filter((movie) => {
-      return movie[movieDuration] <= shortMoviesDuration;
+      return movie[MOVIE_DURATION] <= SHORT_MOVIES_DURATION;
     });
   }
 
@@ -49,7 +49,8 @@ class FindMoviesClass {
       return this._sortMoviesByName(searchStr);
     }
 
-    await this._downloadAllMovies();
+    this._fullMoviesList.length === 0 && await this._downloadAllMovies();
+
     return this._sortMoviesByName(searchStr);
   }
 }

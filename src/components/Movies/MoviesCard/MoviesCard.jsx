@@ -22,7 +22,6 @@ function MovieCard({ movieItem, setCurrentUserMovies }) {
   }
 
   function handleImgClick() {
-    // window.location.href = movieItem.trailerLink;
     window.open(movieItem.trailerLink, '_blank')
   }
 

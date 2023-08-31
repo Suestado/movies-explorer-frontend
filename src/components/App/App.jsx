@@ -91,15 +91,26 @@ function App() {
       }/>
 
       <Route path="/signin" element={
-        <SignIn
-          setCurrentUser={setCurrentUser}
-          setIsLoggedIn={setIsLoggedIn}
+        <ProtectedRouteElement
+          isLoggedIn={!isLoggedIn}
+          element={
+            <SignIn
+              setCurrentUser={setCurrentUser}
+              setIsLoggedIn={setIsLoggedIn}
+            />
+          }
         />
       }/>
 
       <Route path="/signup" element={
-        <SignUp
-          setIsLoggedIn={setIsLoggedIn}
+        <ProtectedRouteElement
+          isLoggedIn={!isLoggedIn}
+          element={
+            <SignUp
+              setCurrentUser={setCurrentUser}
+              setIsLoggedIn={setIsLoggedIn}
+            />
+          }
         />
       }/>
 

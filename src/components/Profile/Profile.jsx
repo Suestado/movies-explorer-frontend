@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { CurrentUserContext } from '../../context/CurrentUserContext.jsx';
-import { emailRegExp, userNameRegexp } from '../../utils/Constants';
+import { EMAIL_REGEXP, USER_NAME_REGEXP } from '../../utils/Constants';
 import MainApi from '../../utils/MainApi';
 import ProfileChangeConfirmation from '../Profile/ProfileChangeConfirmation/ProfileChangeConfirmation';
 
@@ -114,7 +114,7 @@ function Profile({ setCurrentUser, handleLogOut }) {
                   message: 'Текст должен содержать не менее 2-х символов',
                 },
                 pattern: {
-                  value: userNameRegexp,
+                  value: USER_NAME_REGEXP,
                   message: 'Поле должно содержать только латиницу, кириллицу, пробел или дефис',
                 },
               },
@@ -147,7 +147,7 @@ function Profile({ setCurrentUser, handleLogOut }) {
                   message: 'Текст должен содержать не менее 2-х символов',
                 },
                 pattern: {
-                  value: emailRegExp,
+                  value: EMAIL_REGEXP,
                   message: 'Введите корректный адресс электронной почты',
                 },
               },

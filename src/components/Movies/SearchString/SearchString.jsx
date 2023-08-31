@@ -2,7 +2,7 @@ import { useEffect, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useLocation } from 'react-router-dom';
 import { CurrentUserContext } from '../../../context/CurrentUserContext.jsx';
-import { moviesSearchRegexp } from '../../../utils/Constants';
+import { MOVIES_SEARCH_REGEXP } from '../../../utils/Constants';
 import FindMovies from '../../../utils/FindMovies';
 
 function SearchString(
@@ -115,7 +115,7 @@ function SearchString(
         {
           required: 'Нужно ввести ключевое слово',
           pattern: {
-            value: moviesSearchRegexp, //TODO посмотреть примеры фильмов и проверить регулярку
+            value: MOVIES_SEARCH_REGEXP,
             message: 'Название может содержать только буквы и цифры',
           },
         },

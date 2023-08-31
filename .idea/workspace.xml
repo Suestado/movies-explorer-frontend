@@ -4,7 +4,15 @@
     <list default="true" id="e16f98a6-5ab0-4510-8acc-3f8bfb843e74" name="Changes" comment="fix: Поправлена ошибка с активной кнопкой профайла после первого изменения данных пользователя.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MoviesCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCard/MoviesCard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/MoviesCardList/MoviesCardList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies/SearchString/SearchString.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SignUp/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignUp/SignUp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Constants.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Constants.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/FindMovies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/FindMovies.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vendor/testCards.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
