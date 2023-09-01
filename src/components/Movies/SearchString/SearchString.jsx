@@ -45,7 +45,11 @@ function SearchString(
     }
 
     if (pathname === '/saved-movies') {
-      setDisplayedMovies(currentUserMovies);
+      if(watch('search')) {
+        setDisplayedMovies(handleMoviesSearch(watch('search')), currentUserMovies)
+      } else {
+        setDisplayedMovies(currentUserMovies);
+      }
     }
   }, [pathname, currentUserMovies]);
 

@@ -6,7 +6,7 @@ function Popup(props) {
     return (
       document.addEventListener('keydown', handleEscClose)
     );
-  }, [handleEscClose]);
+  }, []);
 
   function handleOverlayClose(evt) {
     if(evt.target.classList.contains('popup')) {

@@ -5,11 +5,16 @@ import MovieCard from '../MoviesCard/MoviesCard';
 import FindMovies from '../../../utils/FindMovies';
 import {
   WIDE_SCREEN_MOVIES_NUMBER,
+  AVERAGE_SCREEN_MOVIES_NUMBER,
   SMALL_SCREEN_MOVIES_NUMBER,
   MID_SCREEN_MOVIES_NUMBER,
   WIDE_SCREEN_MOVIES_INCREASE,
+  AVERAGE_SCREEN_MOVIES_INCREASE,
   MID_SCREEN_MOVIES_INCREASE,
   SMALL_SCREEN_MOVIES_INCREASE,
+  WIDE_SCREEN_SIZE,
+  MINIMUM_AVG_SCREEN_SIZE,
+  SMALL_SCREEN_SIZE,
 } from '../../../utils/Constants';
 
 function MoviesCardList(
@@ -31,7 +36,7 @@ function MoviesCardList(
 
   useEffect(() => {
     setMoviesOnPage(setNumberOfMovies);
-  }, [screenWidth]);
+  }, [screenWidth, displayedMovies]);
 
   useEffect(() => {
     setIsMoreButtonActive(filteredByRadioBtnMovies.length > moviesOnPage);
@@ -44,29 +49,42 @@ function MoviesCardList(
       return currentUserMovies.length;
     }
 
-    if (screenWidth > 900) {
+    if (screenWidth >= WIDE_SCREEN_SIZE) {
       return WIDE_SCREEN_MOVIES_NUMBER;
-    } else if (screenWidth < 480) {
-      return SMALL_SCREEN_MOVIES_NUMBER;
-    } else {
+    }
+    if (screenWidth >= MINIMUM_AVG_SCREEN_SIZE && screenWidth < WIDE_SCREEN_SIZE) {
+      return AVERAGE_SCREEN_MOVIES_NUMBER;
+    }
+    if (screenWidth >= SMALL_SCREEN_SIZE && screenWidth < MINIMUM_AVG_SCREEN_SIZE) {
       return MID_SCREEN_MOVIES_NUMBER;
+    }
+    if (screenWidth < SMALL_SCREEN_SIZE) {
+      return SMALL_SCREEN_MOVIES_NUMBER;
     }
   }
 
   // Устанавливает значение, на которое будет увеличиваться кол-во фильмов
   // при нажатии на кнопку Еще в зависимости от ширины экрана
+  function handleNumberOfMovies(increase) {
+    setMoviesOnPage((prevMoviesOnPage) => prevMoviesOnPage + increase);
+  }
+
   function showMoreMovies() {
-    let moreMovies;
-
-    if (screenWidth > 900) {
-      moreMovies = WIDE_SCREEN_MOVIES_INCREASE;
-    } else if (screenWidth < 480) {
-      moreMovies = SMALL_SCREEN_MOVIES_INCREASE;
-    } else {
-      moreMovies = MID_SCREEN_MOVIES_INCREASE;
+    if (screenWidth >= WIDE_SCREEN_SIZE) {
+      handleNumberOfMovies(WIDE_SCREEN_MOVIES_INCREASE);
+      return;
     }
-
-    setMoviesOnPage((prevMoviesOnPage) => prevMoviesOnPage + moreMovies);
+    if (screenWidth >= MINIMUM_AVG_SCREEN_SIZE && screenWidth < WIDE_SCREEN_SIZE) {
+      handleNumberOfMovies(AVERAGE_SCREEN_MOVIES_INCREASE);
+      return;
+    }
+    if (screenWidth >= SMALL_SCREEN_SIZE && screenWidth < MINIMUM_AVG_SCREEN_SIZE) {
+      handleNumberOfMovies(MID_SCREEN_MOVIES_INCREASE);
+      return;
+    }
+    if (screenWidth < SMALL_SCREEN_SIZE) {
+      handleNumberOfMovies(SMALL_SCREEN_MOVIES_INCREASE);
+    }
   }
 
   return <>

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList';
 import SearchBlock from '../Movies/SearchBlock/SearchBlock';
-import MainApi from '../../utils/MainApi';
 import Preloader from '../Movies/Preloader/Preloader';
 import NotificationBox from '../Movies/NotificationBox/NotificationBox';
 
@@ -9,6 +8,7 @@ function SavedMovies(
   {
     setCurrentUserMovies,
     screenWidth,
+    getUserMovies,
   }) {
 
   const [shortMoviesActive, setShortMoviesActive] = useState(false);
@@ -17,13 +17,7 @@ function SavedMovies(
   const [moviesDownloadingError, setMoviesDownloadingError] = useState(false);
 
   useEffect(() => {
-    MainApi.getUserMovies()
-      .then((movies) => {
-        setCurrentUserMovies(movies);
-      })
-      .catch((err) => {
-        console.log(`При загрузке списка фильмов пользователя произошла ошибка: ${err}`);
-      });
+    getUserMovies();
   }, []);
 
   return <>

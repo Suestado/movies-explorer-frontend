@@ -33,11 +33,24 @@ function App() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, );
 
   useEffect(() => {
     checkUserLoggedIn();
   }, []);
+
+
+  function getUserMovies() {
+    if (currentUserMovies.length === 0) {
+      MainApi.getUserMovies()
+        .then((movies) => {
+          setCurrentUserMovies(movies);
+        })
+        .catch((err) => {
+          console.log(`При загрузке списка фильмов пользователя произошла ошибка: ${err}`);
+        });
+    }
+  }
 
 
   function checkUserLoggedIn() {
@@ -127,6 +140,7 @@ function App() {
                        <Movies
                          screenWidth={width}
                          setCurrentUserMovies={setCurrentUserMovies}
+                         getUserMovies={getUserMovies}
                        />
                      </ContentBox>
                      <Footer/>
@@ -148,6 +162,7 @@ function App() {
                        <SavedMovies
                          setCurrentUserMovies={setCurrentUserMovies}
                          screenWidth={width}
+                         getUserMovies={getUserMovies}
                        />
                      </ContentBox>
                      <Footer/>

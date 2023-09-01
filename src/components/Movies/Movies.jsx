@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import SearchBlock from './SearchBlock/SearchBlock';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
 import Preloader from './Preloader/Preloader';
@@ -8,6 +8,7 @@ function Movies(
   {
     screenWidth,
     setCurrentUserMovies,
+    getUserMovies,
   }) {
 
   const [shortMoviesActive, setShortMoviesActive] = useState(
@@ -20,6 +21,10 @@ function Movies(
   const [isWaitingDownloading, setIsWaitingDownloading] = useState(false);
 
   const isLoadingTriggered = useRef(false);
+
+  useEffect(() => {
+    getUserMovies();
+  }, []);
 
   return <>
     <SearchBlock

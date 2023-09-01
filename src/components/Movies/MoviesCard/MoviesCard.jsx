@@ -12,7 +12,7 @@ function MovieCard({ movieItem, setCurrentUserMovies }) {
     currentUserMovies.forEach((movie) => {
       movie.movieId === movieItem.id && setIsMovieLiked(true);
     });
-  }, []);
+  }, [currentUserMovies]);
 
   function convertTime(duration) {
     const hours = Math.floor(duration / 60);

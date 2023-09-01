@@ -19,10 +19,10 @@ class FindMoviesClass {
       });
   }
 
-  _sortMoviesByName(searchStr) {
+  _sortMoviesByName(searchStr, moviesCollection) {
     const targetWords = searchStr.toLowerCase().split(' ');
 
-    this._filteredByNameMovies = this._fullMoviesList.filter((movie) => {
+    this._filteredByNameMovies = moviesCollection.filter((movie) => {
       const rusNameArr = movie[RUS_NAME].toLowerCase().replace(/[^\d\sA-ZА-ЯË]/gi, '').split(' ');
       const enNameArr = movie[EN_NAME].toLowerCase().replace(/[^\d\sA-ZА-ЯË]/gi, '').split(' ');
 
@@ -45,13 +45,12 @@ class FindMoviesClass {
   async findMovies(searchStr, readyMoviesCollection) {
 
     if (readyMoviesCollection) {
-      this._fullMoviesList = readyMoviesCollection;
-      return this._sortMoviesByName(searchStr);
+      return this._sortMoviesByName(searchStr, readyMoviesCollection);
     }
 
     this._fullMoviesList.length === 0 && await this._downloadAllMovies();
 
-    return this._sortMoviesByName(searchStr);
+    return this._sortMoviesByName(searchStr, this._fullMoviesList);
   }
 }
 
