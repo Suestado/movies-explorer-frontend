@@ -82,6 +82,7 @@ function App() {
         localStorage.removeItem('filteredByNameMovies');
         navigate('/', { replace: true });
         setIsLoggedIn(false);
+        setCurrentUserMovies([]);
       })
       .catch((err) => {
         console.log(`При выходе из аккаунта пользователя произошла ошибка: ${err}`);
