@@ -1,13 +1,15 @@
 import AuthForm from '../AuthForm/AuthForm';
 
-function SignUp() {
+function SignUp({ setIsLoggedIn, setCurrentUser }) {
 
   return <>
     <AuthForm
       header="Добро пожаловать!"
       formName="signUpForm"
       submitText="Зарегистрироваться"
-      navigateTo="/signin"
+      navigateTo="/movies"
+      setIsLoggedIn={setIsLoggedIn}
+      setCurrentUser={setCurrentUser}
     />
   </>;
 }

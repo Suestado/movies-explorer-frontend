@@ -1,21 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { CurrentUserContext } from '../../context/CurrentUserContext.jsx';
+import { EMAIL_REGEXP, USER_NAME_REGEXP } from '../../utils/Constants';
+import MainApi from '../../utils/MainApi';
+import ProfileChangeConfirmation from '../Profile/ProfileChangeConfirmation/ProfileChangeConfirmation';
 
-function Profile() {
-  const currentUser = {
-    name: 'Виталий',
-    email: 'pochta@yandex.ru',
-  }; // тестовый пользователь
-
+function Profile({ setCurrentUser, handleLogOut }) {
+  const { currentUser } = useContext(CurrentUserContext);
   const [isChangeUserData, setIsChangeUserData] = useState(false);
+  const [isAuthChecking, setIsAuthChecking] = useState(false);
+  const [isInputDiff, setIsInputDiff] = useState(false);
+  const [confirmPopupOpened, setConfirmPopupOpened] = useState(false);
+  const [errorWhileUpdating, setErrorWhileUpdating] = useState(false);
+
 
   useEffect(() => {
     reset({
       name: currentUser.name,
       email: currentUser.email,
     });
-  }, []);
+  }, [confirmPopupOpened]);
 
   const {
     register,
@@ -32,8 +37,47 @@ function Profile() {
     },
   );
 
+  useEffect(() => {
+
+    watch((name) => {
+      if (name.name !== currentUser.name || name.email !== currentUser.email) {
+        setIsInputDiff(true);
+      } else {
+        setIsInputDiff(false);
+      }
+    });
+  }, [isChangeUserData, confirmPopupOpened]);
+
   function handleChangeUserData() {
     setIsChangeUserData(!isChangeUserData);
+  }
+
+  function handleSubmitForm() {
+    setIsAuthChecking(true);
+
+    MainApi.updateUser(watch('email'), watch('name'))
+      .then((user) => {
+        setCurrentUser({
+          id: user._id,
+          name: user.name,
+          email: user.email,
+        });
+        setConfirmPopupOpened(true);
+        setIsAuthChecking(false);
+        setIsChangeUserData(false);
+      })
+      .catch((err) => {
+        setErrorWhileUpdating(true);
+        setConfirmPopupOpened(true);
+        console.log(`При обновлении профиля произошла ошибка: ${err}`);
+      });
+  }
+
+  function onClosePopup() {
+    setConfirmPopupOpened(false);
+    setErrorWhileUpdating(false);
+    setIsChangeUserData(false);
+    setIsAuthChecking(false);
   }
 
   return <section className="profile">
@@ -44,8 +88,9 @@ function Profile() {
       method="post"
       name="profileForm"
       noValidate
+      onSubmit={handleSubmit(handleSubmitForm)}
     >
-      <h2 className="profile__header">Привет, Виталий!</h2>
+      <h2 className="profile__header">Привет, {currentUser.name}!</h2>
       <fieldset className="profile__dataSet">
         <label className="profile__dataItem">
           <p className="profile__dataName">Имя</p>
@@ -67,6 +112,10 @@ function Profile() {
                 minLength: {
                   value: 2,
                   message: 'Текст должен содержать не менее 2-х символов',
+                },
+                pattern: {
+                  value: USER_NAME_REGEXP,
+                  message: 'Поле должно содержать только латиницу, кириллицу, пробел или дефис',
                 },
               },
             )}
@@ -97,6 +146,10 @@ function Profile() {
                   value: 2,
                   message: 'Текст должен содержать не менее 2-х символов',
                 },
+                pattern: {
+                  value: EMAIL_REGEXP,
+                  message: 'Введите корректный адресс электронной почты',
+                },
               },
             )}
           />
@@ -113,16 +166,21 @@ function Profile() {
           className="profile__change"
           onClick={handleChangeUserData}
         >Редактировать</p>
-        <Link to="/signin" className="profile__logOut">Выйти из аккаунта</Link>
+        <Link to="/signin"
+              className="profile__logOut"
+              onClick={handleLogOut}
+        >Выйти из аккаунта</Link>
       </div>}
 
     {isChangeUserData && <span className="profile__submitWrapper">
       <button
-        className={`profile__submit ${!isValid && 'profile__submit_disabled'}`}
+        className={`profile__submit ${(isValid && isInputDiff && !isAuthChecking) && 'profile__submit_enabled'}`}
         type="submit"
+        form="profileForm"
         value="Сохранить"
         name="submitForm"
         id="submitForm"
+        disabled={!isValid || !isInputDiff || isAuthChecking}
       >Сохранить
       </button>
       <p
@@ -131,6 +189,13 @@ function Profile() {
       >Назад</p>
     </span>
     }
+
+    <ProfileChangeConfirmation
+      confirmPopupOpened={confirmPopupOpened}
+      setConfirmPopupOpened={setConfirmPopupOpened}
+      errorWhileUpdating={errorWhileUpdating}
+      onClosePopup={onClosePopup}
+    />
   </section>;
 }
 

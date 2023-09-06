@@ -1,0 +1,23 @@
+.profileChangeConfirmation__union {
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin: 60px auto 32px;
+}
+
+.profileChangeConfirmation__register-confirmation {
+  display: block;
+  margin: 0 auto 60px;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #000;
+}
+
+@media screen and (max-width: 768px) {
+  .profileChangeConfirmation__register-confirmation {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}

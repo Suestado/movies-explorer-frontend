@@ -57,6 +57,10 @@
   outline: none;
 }
 
+.authForm__input_authErrOn {
+  color: #EE3465;
+}
+
 .authForm__error {
   margin: 0;
   padding: 0;
@@ -85,6 +89,21 @@
   border-radius: 3px;
   min-height: 45px;
   width: 100%;
+  cursor: pointer;
+  transition: ease-out .3s;
+}
+
+.authForm__submitBtn:hover {
+  opacity: .6;
+}
+
+.authForm__submitBtn_inactive {
+  background-color: rgba(139, 139, 139, 0.3);
+}
+
+.authForm__submitBtn_inactive:hover {
+  opacity: 1;
+  cursor: auto;
 }
 
 .authForm__logInOption {

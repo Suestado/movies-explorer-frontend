@@ -1,4 +1,5 @@
 .searchString {
+  position: relative;
   padding: 0;
   margin: 0;
   height: 60px;
@@ -44,6 +45,19 @@
 
 .searchString__input:focus {
   background: linear-gradient(to right, rgba(139, 139, 139, 0.1), #202020);
+}
+
+.searchString__error {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+
+  color: #EE3465;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: normal;
 }
 
 @media screen and (max-width: 540px) {
