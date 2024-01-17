@@ -1,15 +1,57 @@
-Репозиторий для приложения дипломного проекта, включающий фронтенд и бэкенд части приложения со следующими возможностями: авторизации и регистрации пользователей, операции с карточками и пользователями. Бэкенд расположите в директории `backend/`, а фронтенд - в `frontend/`.
+# Intro
 
-Адрес репозитория для backend: https://github.com/Suestado/movies-explorer-api
+The repository for the diploma project application for the Front-end developer course, including the front-end on React and the backend on Node.js parts with the following features:
+- basic landing
+- user authorization and registration
+- search and filtering of cards
+- saving cards in the user profile
 
-## Ссылки на проект
+___
+# How to start
 
-Макет - dark 5
+### To run the application locally, you need to download 2 repositories:
+- Front-end - https://github.com/Suestado/movies-explorer-frontend
+- Backend - https://github.com/Suestado/movies-explorer-api
 
-IP-адрес 84.252.128.21
+### Start Back-end server locally.
+Server should start on port 4000 automatically.
+<br>You should have Mongo.db installed on your PC.
+```angular2html
+npm start
+```
+Positive result:
+```angular2html
+Сервер запущен на порту 4000
+Подключение к базе данных установлено
+```
 
-Frontend - https://suestado-diploma.nomoredomains.xyz
+### Start Front-end locally.
+To avoid CORS errors an App have to be opened on PORT 3000 (http://localhost:300/)
+```angular2html
+npm start
+```
+Positive result:
+```angular2html
+You can now view movies-explorer-frontend in the browser.
 
-Backend - https://api.suestado-diploma.nomoredomains.xyz
+Local:            http://localhost:3000
+On Your Network:  http://######
 
-Pull request - https://github.com/Suestado/movies-explorer-frontend/pull/2
+```
+___
+# Used technologies:
+* Frontend
+  * React
+    * React
+    * React-router
+    * React-hook-form
+  * HTML5
+  * CSS
+  * Grid/flex layout
+  * Semantic
+
+* Backend
+  * Node.js
+  * Express.js
+  * Mongo
+  * nginx
