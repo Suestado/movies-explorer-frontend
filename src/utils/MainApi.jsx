@@ -108,8 +108,8 @@ class MainApiClass extends Api {
 }
 
 const MainApi = new MainApiClass({
-  baseURL: 'https://api.suestado-diploma.nomoredomains.xyz',
-  // baseURL: 'http://localhost:4000',
+  // baseURL: 'https://api.suestado-diploma.nomoredomains.xyz',
+  baseURL: 'http://localhost:4000',
   headers: {
     'Content-Type': 'application/json',
   },

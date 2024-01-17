@@ -52,7 +52,6 @@ function App() {
     }
   }
 
-
   function checkUserLoggedIn() {
     MainApi.findUserMe()
       .then((user) => {
